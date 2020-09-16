@@ -22,21 +22,20 @@ public class UserController {
         return db.getUserById(id);
     }
 
-    @PostMapping("/users")
-    public User newUser(@RequestBody User newUser) throws Exception {
+    @PostMapping("/users/{user}")
+    public User createUser(@RequestBody User newUser) throws Exception {
         return db.addUser(newUser);
     }
-    /*@PostMapping
-    public void addUser(@RequestBody User user) throws Exception {
-        db.addUser(user);
-    }*/
-
 //    @PutMapping("/users/{id}")
 //    User replaceUser(@RequestBody User newEmployee, @PathVariable int id) {
 //
 //        return db.getUserById(id);
 //
 //    }
+    @PutMapping("/users")
+    public void updateUser(@PathVariable("user") User user) {
+    db.updateUser(user);
+    }
 
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable("id") int id) throws Exception {

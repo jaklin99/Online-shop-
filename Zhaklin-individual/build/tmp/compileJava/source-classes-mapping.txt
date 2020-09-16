@@ -6,7 +6,7 @@ service/model/User.java
  service.model.User
 service/repository/Database.java
  service.repository.Database
-com/example/servingwebcontent/HomeController.java
- com.example.servingwebcontent.HomeController
 com/example/servingwebcontent/UserController.java
  com.example.servingwebcontent.UserController
+com/example/servingwebcontent/HomeController.java
+ com.example.servingwebcontent.HomeController

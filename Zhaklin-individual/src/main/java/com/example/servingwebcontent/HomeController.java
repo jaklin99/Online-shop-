@@ -1,12 +1,10 @@
 package com.example.servingwebcontent;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.model.Product;
 import service.model.User;
 import service.repository.Database;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +29,15 @@ public class HomeController {
     @GetMapping("products")
     public List<Product> getAllProducts() {
         return db.getProducts();
+    }
+    @PutMapping("/products")
+    public void updateUser(@PathVariable("product") Product product) {
+        db.updateProduct(product);
+    }
+
+    @DeleteMapping("/products/{id}")
+    public void deleteUser(@PathVariable("id") int id) throws Exception {
+        db.deleteProductById(id);
     }
 }
 

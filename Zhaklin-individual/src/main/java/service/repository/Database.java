@@ -10,7 +10,7 @@ public class Database {
     private final List<User> users = new ArrayList<>();
     private final List<Product> products = new ArrayList<>();
 
-    public  Database(){
+    public Database() {
         users.add(new User(1, "John Snaw"));
         users.add(new User(2, "Mark Rocket"));
         users.add(new User(3, "Matt Dow"));
@@ -22,25 +22,34 @@ public class Database {
         products.add(new Product(2, "Tennis racket", 110));
         products.add(new Product(3, "Man's shoes", 89.99));
     }
-
+//user methods
     public User addUser(User newUser) throws Exception {
-     if (this.getUserById(newUser.getUserNumber())!=null){
-         throw new Exception("ALready a user with such Id.");
-     }else{
-         this.users.add(newUser);
-     }
-     return null;
-    }
-    public User deleteUserById(int id) throws Exception {
-        for (User user : users) {
-        if (this.getUserById(user.getUserNumber())!=null){
-            if (user.getUserNumber()==id);
-        }else{
-            throw new Exception("No user with such Id.");
+        if (this.getUserById(newUser.getUserNumber()) != null) {
+            throw new Exception("ALready a user with such Id.");
+        } else {
+            this.users.add(newUser);
         }
         return null;
     }
-        return null;
+
+    public boolean deleteUserById(int id) throws Exception {
+        for (User user : users) {
+            if (this.getUserById(user.getUserNumber()) != null) {
+                // if (user.getUserNumber()==id){
+                return users.remove(user);
+            } else {
+                throw new Exception("No user with such Id.");
+            }
+        }
+        return false;
+    }
+    public boolean updateUser(User user){
+        User old=this.getUserById(user.getUserNumber());
+        if (old==null){
+            return false;
+        }old.setUserName(user.getUserName());
+        old.setUserNumber(user.getUserNumber());
+        return true;
     }
     public List<User> getUsers() {
         return users;
@@ -54,6 +63,7 @@ public class Database {
         return null;
     }
 
+//product methods
     public List<Product> getProducts() {
         return products;
     }
@@ -65,5 +75,24 @@ public class Database {
         }
         return null;
     }
-
+    public boolean updateProduct(Product product){
+        Product old=this.getProductById(product.getProductNumber());
+        if (old==null){
+            return false;
+        }old.setProductNumber(product.getProductNumber());
+        old.setName(product.getProductName());
+        old.setPrice(product.getPrice());
+        return true;
+    }
+    public boolean deleteProductById(int id) throws Exception {
+        for (Product product : products) {
+            if (this.getProductById(product.getProductNumber()) != null) {
+                // if (user.getUserNumber()==id){
+                return products.remove(product);
+            } else {
+                throw new Exception("No product with such Id.");
+            }
+        }
+        return false;
+    }
 }
