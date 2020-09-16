@@ -1,37 +1,41 @@
 package service.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.UUID;
+
 public class User {
 
-    public int userNumber;
+    private int userId;
     private String name;
 
 
-    public User(int userNumber, String name) {
-        this.userNumber = userNumber;
+    public User(@JsonProperty("id") int userNumber, @JsonProperty("name") String name) {
+        this.userId = userNumber;
         this.name = name;
 
     }
 
     public int getUserNumber() {
-        return userNumber;
+        return userId;
     }
 
     public void setUserNumber(int userNumber) {
-        this.userNumber = userNumber;
+        this.userId = userNumber;
     }
 
-    public String getName() {
+    public String getUserName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setUserName(String name) {
         this.name = name;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userNumber=" + userNumber +
+                "userNumber=" + userId +
                 ", name='" + name + '\'' +
                 '}';
     }

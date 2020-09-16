@@ -1,12 +1,12 @@
 com/example/servingwebcontent/ServingWebContentApplication.java
  com.example.servingwebcontent.ServingWebContentApplication
-com/example/servingwebcontent/HomeController.java
- com.example.servingwebcontent.HomeController
+service/model/Product.java
+ service.model.Product
 service/model/User.java
  service.model.User
 service/repository/Database.java
  service.repository.Database
-service/model/Product.java
- service.model.Product
+com/example/servingwebcontent/HomeController.java
+ com.example.servingwebcontent.HomeController
 com/example/servingwebcontent/UserController.java
  com.example.servingwebcontent.UserController
