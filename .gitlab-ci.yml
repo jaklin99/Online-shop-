@@ -1,10 +1,12 @@
-build:
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+package:
+  stage: build
   script:
-    - ./gradlew build
+    - ./gradlew assemble
 test:
-
   stage: test
-
   script:
-
-    - ./gradlew test
+    - ./gradlew check
