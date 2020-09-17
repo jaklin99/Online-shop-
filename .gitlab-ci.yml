@@ -1,6 +1,6 @@
 build:
   script:
-    - ./gradlew assemble
+    - ./gradlew build
 test:
 
   stage: test
