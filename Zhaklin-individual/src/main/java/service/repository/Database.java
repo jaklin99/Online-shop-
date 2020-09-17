@@ -23,13 +23,13 @@ public class Database {
         products.add(new Product(3, "Man's shoes", 89.99));
     }
 //user methods
-    public User addUser(User newUser) throws Exception {
-        if (this.getUserById(newUser.getUserNumber()) != null) {
-            throw new Exception("ALready a user with such Id.");
-        } else {
+    public boolean addUser(User newUser){
+        if (this.getUserById(newUser.getUserNumber()) == null) {
             this.users.add(newUser);
+            return true;
+        } else {
+           return false;
         }
-        return null;
     }
 
     public boolean deleteUserById(int id) throws Exception {
@@ -74,6 +74,14 @@ public class Database {
                 return product;
         }
         return null;
+    }
+    public boolean addProduct(Product newProduct){
+        if (this.getProductById(newProduct.getProductNumber()) == null) {
+            this.products.add(newProduct);
+            return true;
+        } else {
+            return false;
+        }
     }
     public boolean updateProduct(Product product){
         Product old=this.getProductById(product.getProductNumber());

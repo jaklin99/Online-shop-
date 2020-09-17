@@ -1,5 +1,7 @@
 package com.example.servingwebcontent;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.repository.Database;
 import service.model.User;
@@ -23,8 +25,10 @@ public class UserController {
     }
 
     @PostMapping("/users/{user}")
-    public User createUser(@RequestBody User newUser) throws Exception {
-        return db.addUser(newUser);
+    public ResponseEntity createUser(@RequestBody User newUser) {
+        if (db.addUser(newUser))
+            return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 //    @PutMapping("/users/{id}")
 //    User replaceUser(@RequestBody User newEmployee, @PathVariable int id) {

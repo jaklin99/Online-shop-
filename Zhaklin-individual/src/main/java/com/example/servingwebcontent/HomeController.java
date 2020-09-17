@@ -1,4 +1,6 @@
 package com.example.servingwebcontent;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +36,12 @@ public class HomeController {
     public void updateUser(@PathVariable("product") Product product) {
         db.updateProduct(product);
     }
-
+    @PostMapping("/product/{id}")
+    public ResponseEntity createProduct(@RequestBody Product newProduct) {
+        if (db.addProduct(newProduct))
+            return new ResponseEntity<Product>(newProduct, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
     @DeleteMapping("/products/{id}")
     public void deleteUser(@PathVariable("id") int id) throws Exception {
         db.deleteProductById(id);
