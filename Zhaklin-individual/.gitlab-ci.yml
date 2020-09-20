@@ -1,5 +1,7 @@
 build:
   script:
+    - do some shit
+    
     - gradlew assemble
 test:
 
