@@ -1,0 +1,6 @@
+
+package:
+  stage: build
+  script:
+    - C:\Users\jakit\INDIVIDUAL\tennis-website\Zhaklin-individual\gradlew assemble
+
