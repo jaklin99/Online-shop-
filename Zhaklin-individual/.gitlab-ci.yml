@@ -1,0 +1,5 @@
+package:
+  stage: build
+  script:
+    - \Zhaklin-individual\gradlew assemble
+
