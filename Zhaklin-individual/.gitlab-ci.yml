@@ -2,7 +2,7 @@ build:
   script:
     - do some shit
     
-    - gradlew assemble
+    #- gradlew assemble
 test:
 
   stage: test
