@@ -13,15 +13,10 @@ import java.util.List;
 @RestController
 public class HomeController {
     private static Database db=new Database();
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "There") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
-    }
 
     @RequestMapping("/")
     public String index() {
-        return "Welcome to the tennis club!";
+        return "<h1>Welcome to the tennis club!</h1>";
     }
 
     @GetMapping("products/{id}")

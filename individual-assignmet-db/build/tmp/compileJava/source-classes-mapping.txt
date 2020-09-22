@@ -1,0 +1,14 @@
+com/example/accessingdatamysql/modelsTemp/Product.java
+ com.example.accessingdatamysql.modelsTemp.Product
+com/example/accessingdatamysql/Repository/ProductRepository.java
+ com.example.accessingdatamysql.Repository.ProductRepository
+com/example/accessingdatamysql/Repository/UserRepository.java
+ com.example.accessingdatamysql.Repository.UserRepository
+com/example/accessingdatamysql/modelsTemp/User.java
+ com.example.accessingdatamysql.modelsTemp.User
+com/example/accessingdatamysql/AccessingDataMysqlApplication.java
+ com.example.accessingdatamysql.AccessingDataMysqlApplication
+com/example/accessingdatamysql/Controllers/ProductController.java
+ com.example.accessingdatamysql.Controllers.ProductController
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController

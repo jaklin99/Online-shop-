@@ -1,18 +1,16 @@
 package service.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.UUID;
-
 public class User {
-
-    private int userId;
+   private int userId;
     private String name;
+    private String email;
 
-
-    public User(@JsonProperty("id") int userNumber, @JsonProperty("name") String name) {
+    public User(int userNumber, String name) {
         this.userId = userNumber;
         this.name = name;
+    }
+
+    public User() {
 
     }
 
@@ -32,6 +30,12 @@ public class User {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     @Override
     public String toString() {
         return "User{" +
