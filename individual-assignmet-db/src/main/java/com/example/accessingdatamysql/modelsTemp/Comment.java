@@ -15,7 +15,8 @@ public class Comment{
     @Lob
     private String text;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Post.class)
+    @JoinColumn(name="post_id", referencedColumnName = "post_id")
     private Post post;
 
     public long getCommentId() {

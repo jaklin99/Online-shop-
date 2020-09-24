@@ -29,13 +29,13 @@ public class ProductController {
     Iterable<Product> getAllProducts() {
         return productRepository.findAll();
     }
-
+    
     @PutMapping("/{id}/update")
     public Product updateProduct(@PathVariable long productId, @RequestBody Product productRequest) {
         return productRepository.findById(productId).map(product -> {
-            product.setName(productRequest.getProductName());
+            product.setProductName(productRequest.getProductName());
             product.setPrice(productRequest.getPrice());
-            // post.setContent(postRequest.getContent());
+            product.setCategory(productRequest.getCategory());
             return productRepository.save(product);
         }).orElseThrow(() -> new ResourceNotFoundException("ProductId " + productId + " not found"));
     }

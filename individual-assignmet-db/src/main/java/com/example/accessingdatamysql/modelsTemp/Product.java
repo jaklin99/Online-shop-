@@ -8,24 +8,36 @@ public class Product {
     @Column(name = "PRODUCT_ID", nullable = false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long productId;
-    @Column(length = 20)
+    @Column(nullable = false, length = 40)
     private String name;
-    @Column(length = 6)
+    @Column(nullable = false, precision = 2)
     private double price;
 
-    public long getProductNumber() {
+    @ManyToOne(optional = false, targetEntity = Category.class) //vruzvane s klasa
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID") //foreign key + teibula ot klasa
+    private Category category;
+
+    public long getProductId() {
         return productId;
     }
 
-    public void setProductNumber(long productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getProductName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setProductName(String name) {
         this.name = name;
     }
 

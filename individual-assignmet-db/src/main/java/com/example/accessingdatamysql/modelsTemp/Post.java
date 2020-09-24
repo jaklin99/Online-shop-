@@ -15,9 +15,8 @@ public class Post{
     @Column(updatable = true, length = 100)
     private String description;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    //@JoinColumn(name = "post_id")
-    private List<Comment> comments = new ArrayList<>();
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
 
     public long getPostId() {
         return postId;
