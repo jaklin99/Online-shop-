@@ -1,4 +1,0 @@
-package:
-  stage: build
-  script:
-    - C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment\gradlew assemble

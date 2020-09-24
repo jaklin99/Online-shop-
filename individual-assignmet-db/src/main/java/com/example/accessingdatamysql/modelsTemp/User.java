@@ -1,24 +1,29 @@
 package com.example.accessingdatamysql.modelsTemp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
+@Entity(name = "USER")
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int userId;
-
+    @Column(name = "USER_ID", nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long userId;
+    @Column(name = "USER_NAME", length = 20)
     private String name;
-
+    @Column(name = "USER_EMAIL",length = 20)
     private String email;
-    public int getUserNumber() {
+
+    @OneToOne(targetEntity = Purchase.class) //vruzvane s klasa
+    @JoinColumn(name = "order_id", referencedColumnName = "PURCHASE_ID") //foreign key + teibula ot klasa
+    private long orderId;
+
+    public long getUserNumber() {
         return userId;
     }
 
-    public void setUserNumber(int userNumber) {
+    public void setUserNumber(long userNumber) {
         this.userId = userNumber;
     }
 

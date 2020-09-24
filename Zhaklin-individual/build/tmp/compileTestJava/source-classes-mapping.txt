@@ -1,6 +1,0 @@
-com/example/servingwebcontent/ServingWebContentApplicationTests.java
- com.example.servingwebcontent.ServingWebContentApplicationTests
-service/model/UserTest.java
- service.model.UserTest
-service/model/ProductTest.java
- service.model.ProductTest

@@ -1,24 +1,24 @@
 package com.example.accessingdatamysql.modelsTemp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity (name = "PRODUCT")
 public class Product {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private int productNumber;
+    @Column(name = "PRODUCT_ID", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long productId;
+    @Column(length = 20)
     private String name;
+    @Column(length = 6)
     private double price;
 
-    public int getProductNumber() {
-        return productNumber;
+    public long getProductNumber() {
+        return productId;
     }
 
-    public void setProductNumber(int productNumber) {
-        this.productNumber = productNumber;
+    public void setProductNumber(long productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -41,7 +41,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productNumber=" + productNumber +
+                "productNumber=" + productId +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 '}';
