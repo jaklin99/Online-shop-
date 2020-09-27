@@ -1,5 +1,5 @@
 package:
   stage: build
   script:
-    - C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment-db\gradlew assemble
+    - .\gradlew assemble
 
