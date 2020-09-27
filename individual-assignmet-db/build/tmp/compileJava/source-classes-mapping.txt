@@ -32,5 +32,7 @@ com/example/accessingdatamysql/modelsTemp/Product.java
  com.example.accessingdatamysql.modelsTemp.Product
 com/example/accessingdatamysql/modelsTemp/Category.java
  com.example.accessingdatamysql.modelsTemp.Category
+com/example/accessingdatamysql/Controllers/CategoryController.java
+ com.example.accessingdatamysql.Controllers.CategoryController
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController
