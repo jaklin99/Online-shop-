@@ -4,7 +4,7 @@ before_script:
  
 build:
   script:
-    - ./gradlew assemble
+    - C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment-db\gradlew assemble
  
 test:
   stage: test
