@@ -13,9 +13,14 @@ public class Product {
     @Column(nullable = false, precision = 2)
     private double price;
 
-    @ManyToOne(optional = false, targetEntity = Category.class) //vruzvane s klasa
-    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "CATEGORY_ID") //foreign key + teibula ot klasa
+    @ManyToOne(optional = false, targetEntity = Category.class)
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
     private Category category;
+
+    @ManyToOne(optional = false, targetEntity = Purchase.class)
+    @JoinColumn(name = "purchase_id", referencedColumnName = "purchase_id")
+    private Purchase purchase;
+
 
     public long getProductId() {
         return productId;
@@ -31,6 +36,14 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
     }
 
     public String getProductName() {

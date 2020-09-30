@@ -19,6 +19,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Purchase> purchase;
 
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comment;
+
     public long getUserNumber() {
         return userId;
     }

@@ -19,6 +19,10 @@ public class Comment{
     @JoinColumn(name="post_id", referencedColumnName = "post_id")
     private Post post;
 
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
+    private User user;
+
     public long getCommentId() {
         return commentId;
     }

@@ -14,8 +14,8 @@ public class Purchase {
     @Enumerated(EnumType.STRING)
     private PurchaseStatus purchaseStatus;
 
-    /*@OneToMany(mappedBy = "purchase")
-    private List<Product>products;*/
+    @OneToMany(mappedBy = "purchase")
+    private List<Product>products;
 
     @ManyToOne(optional = false, targetEntity = User.class) //vruzvane s klasa
     @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID") //foreign key + teibula ot klasa

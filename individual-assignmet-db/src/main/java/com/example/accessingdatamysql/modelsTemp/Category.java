@@ -8,7 +8,7 @@ import java.util.List;
 @Entity(name = "Category")
 public class Category {
     @Id
-    @Column(name = "CATEGORY_ID", nullable = false)
+    @Column(name = "category_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long categoryId;
 
