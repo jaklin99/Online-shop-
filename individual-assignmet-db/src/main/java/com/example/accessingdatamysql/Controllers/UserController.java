@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/user")
+@CrossOrigin(origins = {"http://localhost:3001", "http://localhost:3000"})
+
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;

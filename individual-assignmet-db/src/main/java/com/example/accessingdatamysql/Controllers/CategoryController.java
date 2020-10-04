@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(path = "/category")
+@CrossOrigin(origins = {"http://localhost:3001", "http://localhost:3000"})
+
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
