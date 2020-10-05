@@ -5,13 +5,15 @@ import com.example.accessingdatamysql.ResourceNotFoundException;
 import com.example.accessingdatamysql.modelsTemp.Product;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/user")
-@CrossOrigin(origins = {"http://localhost:3001", "http://localhost:3000"})
+@CrossOrigin(origins = "http://localhost:3000")
 
 public class UserController {
 	@Autowired
@@ -23,28 +25,38 @@ public class UserController {
 		return "<h1> Hello, "+ name+ "</h1>";
 	}
 
-	@PostMapping(path="/add") // Map ONLY POST Requests
-	public @ResponseBody User addNewUser (@RequestBody User user) {
-		userRepository.save(user);
-		return user;
-	}
-
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
+	@PostMapping("/add")
+	public ResponseEntity<User> addNewUser(@RequestBody User user) {
+		userRepository.save(user);
+		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+	}
+
 	@PutMapping("/{id}/update")
-	public User updateProduct(@PathVariable long userId, @RequestBody User userRequest) {
-		return userRepository.findById(userId).map(user -> {
-				user.setUserName(userRequest.getUserName());
-				user.setUserNumber(userRequest.getUserNumber());
-				return userRepository.save(user);
-		}).orElseThrow(() -> new ResourceNotFoundException("UserId " + userId + " not found"));
+	public ResponseEntity<User> updateUser(@PathVariable long userId, @RequestBody User updatedUser) {
+		if (userRepository.existsById(userId)){
+			userRepository.findById(userId).map(u -> {
+				u.setUserName(u.getUserName());
+				u.setEmail(u.getEmail());
+				userRepository.save(u);
+				return updatedUser;
+			});
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@DeleteMapping("/{id}/delete")
-	public void deleteUser(@PathVariable("id") long id) throws Exception {
-		userRepository.deleteById(id);
+	public ResponseEntity<User> deleteUser(@PathVariable long id){
+		if (userRepository.existsById(id)) {
+			userRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }
