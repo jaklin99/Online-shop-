@@ -1,2 +1,2 @@
 include:
-    -local: 'individual-assignmet-db/.gitlab-ci.yml'
+  - local: '/individual-assignment-db/.gitlab-ci.yml'
