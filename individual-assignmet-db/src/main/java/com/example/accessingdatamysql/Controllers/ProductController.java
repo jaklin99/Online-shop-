@@ -31,7 +31,7 @@ public class ProductController {
     @PostMapping("/add")
     public ResponseEntity<Product> addNewProduct(@RequestBody Product product) {
         productRepository.save(product);
-        return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Product>(HttpStatus.CREATED);
     }
 
 

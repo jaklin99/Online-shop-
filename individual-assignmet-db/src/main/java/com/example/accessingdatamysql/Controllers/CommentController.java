@@ -41,7 +41,7 @@ public class CommentController {
     @PostMapping("/add")
     public ResponseEntity<Comment> addNewComment(@RequestBody Comment comment) {
         commentRepository.save(comment);
-        return new ResponseEntity<Comment>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Comment>(HttpStatus.CREATED);
     }
 
     @PutMapping("/posts/{postId}/comments/{commentId}/update")

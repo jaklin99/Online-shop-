@@ -33,7 +33,7 @@ public class UserController {
 	@PostMapping("/add")
 	public ResponseEntity<User> addNewUser(@RequestBody User user) {
 		userRepository.save(user);
-		return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<User>(HttpStatus.CREATED);
 	}
 
 	@PutMapping("/{id}/update")

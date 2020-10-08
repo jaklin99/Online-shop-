@@ -27,7 +27,7 @@ public class PostController {
     @PostMapping("/add")
     public ResponseEntity<Post> addNewPost(@RequestBody Post post) {
         postRepository.save(post);
-        return new ResponseEntity<Post>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Post>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}/update")

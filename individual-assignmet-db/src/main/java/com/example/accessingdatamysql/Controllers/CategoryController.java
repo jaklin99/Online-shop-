@@ -31,7 +31,7 @@ public class CategoryController {
     @PostMapping("/add")
     public ResponseEntity<Category> addNewCategory(@RequestBody Category category) {
         categoryRepository.save(category);
-        return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}/update")
