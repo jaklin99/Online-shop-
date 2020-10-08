@@ -35,7 +35,7 @@ public class ProductController {
     }
 
 
-    @PutMapping("/{id}/update")
+    @PutMapping("/{productId}/update")
     public ResponseEntity<Product> updateProduct(@PathVariable long productId, @RequestBody Product updatedProduct) {
         if (productRepository.existsById(productId)){
             productRepository.findById(productId).map(p -> {

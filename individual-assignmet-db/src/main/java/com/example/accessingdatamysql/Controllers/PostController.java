@@ -30,7 +30,7 @@ public class PostController {
         return new ResponseEntity<Post>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}/update")
+    @PutMapping("/{postId}/update")
     public ResponseEntity<Post> updatePost(@PathVariable long postId, @RequestBody Post updatedPost) {
         if (postRepository.existsById(postId)){
             postRepository.findById(postId).map(p -> {

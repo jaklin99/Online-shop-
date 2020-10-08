@@ -1,6 +1,7 @@
 package com.example.accessingdatamysql.modelsTemp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,7 @@ public class User {
     @Column(nullable = false, length = 20)
     private String name;
     @Column(nullable = false,length = 20)
+    @Email
     private String email;
 
     @OneToMany(mappedBy = "user")
@@ -22,19 +24,20 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Comment> comment;
 
-    public long getUserNumber() {
+
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserNumber(long userNumber) {
-        this.userId = userNumber;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public String getUserName() {
+    public String getName() {
         return name;
     }
 
-    public void setUserName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -45,6 +48,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     @Override
     public String toString() {

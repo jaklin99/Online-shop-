@@ -36,11 +36,11 @@ public class UserController {
 		return new ResponseEntity<User>(HttpStatus.CREATED);
 	}
 
-	@PutMapping("/{id}/update")
+	@PutMapping("/{userId}/update")
 	public ResponseEntity<User> updateUser(@PathVariable long userId, @RequestBody User updatedUser) {
 		if (userRepository.existsById(userId)){
 			userRepository.findById(userId).map(u -> {
-				u.setUserName(u.getUserName());
+				u.setName(u.getName());
 				u.setEmail(u.getEmail());
 				userRepository.save(u);
 				return updatedUser;
