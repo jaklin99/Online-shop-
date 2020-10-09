@@ -4,10 +4,14 @@ import com.example.accessingdatamysql.Repository.PostRepository;
 import com.example.accessingdatamysql.ResourceNotFoundException;
 import com.example.accessingdatamysql.modelsTemp.Post;
 import com.example.accessingdatamysql.modelsTemp.Product;
+import com.example.accessingdatamysql.modelsTemp.User;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
@@ -29,21 +33,40 @@ public class PostController {
         postRepository.save(post);
         return new ResponseEntity<Post>(HttpStatus.CREATED);
     }
-
-    @PutMapping("/{postId}/update")
-    public ResponseEntity<Post> updatePost(@PathVariable long postId, @RequestBody Post updatedPost) {
-        if (postRepository.existsById(postId)){
-            postRepository.findById(postId).map(p -> {
-                p.setTitle(p.getTitle());
-                p.setDescription(p.getDescription());
-                postRepository.save(p);
-                return updatedPost;
-            });
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @GetMapping("/{postId}")
+    public ResponseEntity<Post> getPostById(@PathVariable("postId") long id) {
+        Optional<Post> postInfo = postRepository.findById(id);
+        return postInfo.map(post -> new ResponseEntity<>(post, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+//
+//    @PutMapping("/{postId}/update")
+//    public ResponseEntity<Post> updatePost(@PathVariable long postId, @RequestBody Post updatedPost) {
+//        if (postRepository.existsById(postId)){
+//            postRepository.findById(postId).map(p -> {
+//                p.setTitle(p.getTitle());
+//                p.setDescription(p.getDescription());
+//                postRepository.save(p);
+//                return updatedPost;
+//            });
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        else
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//    }
+//	}
+@PutMapping("/{postId}/update")
+public ResponseEntity<Post> updatePost(@PathVariable long postId, @RequestBody Post updatedPost) {
+    Optional<Post> postInfo = postRepository.findById(postId);
+    if (postInfo.isPresent()) {
+        Post post = postInfo.get();
+        post.setTitle(updatedPost.getTitle());
+        post.setDescription(updatedPost.getDescription());
+        postRepository.save(post);
+        return new ResponseEntity<>(post, HttpStatus.NO_CONTENT);
+    } else {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}
 
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<Post> deletePost(@PathVariable long id){

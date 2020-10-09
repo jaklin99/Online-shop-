@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/user")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -30,28 +32,48 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
+	@GetMapping("/{userId}")
+	public ResponseEntity<User> getUserById(@PathVariable("userId") long id) {
+		Optional<User> userInfo = userRepository.findById(id);
+		return userInfo.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
 	@PostMapping("/add")
 	public ResponseEntity<User> addNewUser(@RequestBody User user) {
 		userRepository.save(user);
 		return new ResponseEntity<User>(HttpStatus.CREATED);
 	}
 
+//	@PutMapping("/{userId}/update")
+//	public ResponseEntity<User> updateUser(@PathVariable long userId, @RequestBody User updatedUser) {
+//		if (userRepository.existsById(userId)){
+//			userRepository.findById(userId).map(u -> {
+//				u.setName(u.getName());
+//				u.setEmail(u.getEmail());
+//				u.setPassword(u.getPassword());
+//				userRepository.save(u);
+//				return updatedUser;
+//			});
+//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//		}
+//		else
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//	}
 	@PutMapping("/{userId}/update")
 	public ResponseEntity<User> updateUser(@PathVariable long userId, @RequestBody User updatedUser) {
-		if (userRepository.existsById(userId)){
-			userRepository.findById(userId).map(u -> {
-				u.setName(u.getName());
-				u.setEmail(u.getEmail());
-				u.setPassword(u.getPassword());
-				userRepository.save(u);
-				return updatedUser;
-			});
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		else
+		Optional<User> userInfo = userRepository.findById(userId);
+		if (userInfo.isPresent()) {
+			User user = userInfo.get();
+			user.setName(updatedUser.getName());
+			user.setEmail(updatedUser.getEmail());
+			user.setPassword(updatedUser.getPassword());
+			userRepository.save(user);
+			return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);
+		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
+		}
 
+	}
 	@DeleteMapping("/{id}/delete")
 	public ResponseEntity<User> deleteUser(@PathVariable long id){
 		if (userRepository.existsById(id)) {

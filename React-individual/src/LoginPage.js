@@ -6,7 +6,7 @@ function LoginPage(props) {
   return (
     <span className="h3">
       <center>
-        <img src="/imgs/login.png" alt="logo img" />
+        <img class="loginImg"src="/imgs/login.png" alt="logo img" />
         <div className="col-12 col-lg-4 mt-2 hv-center">
           <form>
             <div className="form-group text-left">

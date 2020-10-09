@@ -4,7 +4,9 @@ class UserService {
   getAll() {
     return http.get("/user/all");
   }
-
+  get(id) {
+    return http.get(`/user/${id}`);
+  }
   create(data) {
     return http.post("/user/add", data);
   }

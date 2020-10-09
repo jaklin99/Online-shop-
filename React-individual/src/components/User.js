@@ -16,6 +16,7 @@ export default class User extends Component {
         id: null,
         name: "",
         email: "",
+        password: "",
       },
       message: "",
     };
@@ -71,7 +72,7 @@ export default class User extends Component {
       });
 
     var data = {
-      id: this.state.currentTutorial.id,
+      id: this.state.currentUser.id,
       name: this.state.currentUser.name,
       email: this.state.currentUser.email,
       password: this.state.currentUser.password,
@@ -145,7 +146,7 @@ export default class User extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   className="form-control"

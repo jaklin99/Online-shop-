@@ -22,11 +22,11 @@ function CustomNavbar() {
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="posts">Posts</Nav.Link>
             <Nav.Link href="onlineShop">Online shop</Nav.Link>
+            <Nav.Link href="users">Users</Nav.Link>
             <Nav.Link href="login">Login</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="account">My Account</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="home">Logout</NavDropdown.Item>
             </NavDropdown>
@@ -35,13 +35,13 @@ function CustomNavbar() {
       </Navbar>
 
       <Switch>
-        <Route exact path={["/", "/users"]} component={UserList} />
+        <Route exact path="/" component={UserList} />
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/posts" component={posts} />
         <Route exact path="/onlineShop" component={onlineShop} />
         <Route path="/login" component={login} />
         <Route path="/register" component={register} />
-        <Route path="/users/:id" component={User} />
+        <Route path="/users" component={User} />
       </Switch>
     </Router>
   );

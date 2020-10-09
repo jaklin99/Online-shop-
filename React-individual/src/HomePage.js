@@ -4,52 +4,42 @@ import Carousel from "react-bootstrap/Carousel";
 
 function HomePage(props) {
   return (
-    // <div class="App-header">
-    // <div class="main">
-    //   <div class="callout">
-    //     <div class="callout-header">Welcome to the tennis club</div>
-    //   </div>
-    // </div>
-    // </div>
+    <div class="carousel">
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/imgs/tennis1.jfif"
+        <img class="img"
+          src="/imgs/tennis3.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+          <h3>Welcome to MatchPoint</h3>
+                  </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="/imgs/tennis2.jfif"
+          class="img"
+          src="/imgs/tennis3.jpg"
           alt="Second slide"
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Watch videos</h3>
+         
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          class="img"
           src="/imgs/tennis3.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Shop online</h3>
+          
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel>
+    </Carousel></div>
   );
 }
 export default HomePage;
