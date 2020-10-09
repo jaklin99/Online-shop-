@@ -42,6 +42,7 @@ public class UserController {
 			userRepository.findById(userId).map(u -> {
 				u.setName(u.getName());
 				u.setEmail(u.getEmail());
+				u.setPassword(u.getPassword());
 				userRepository.save(u);
 				return updatedUser;
 			});

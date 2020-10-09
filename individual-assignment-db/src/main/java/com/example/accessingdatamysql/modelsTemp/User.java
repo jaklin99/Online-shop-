@@ -14,9 +14,20 @@ public class User {
     private long userId;
     @Column(nullable = false, length = 20)
     private String name;
-    @Column(nullable = false,length = 20)
+    @Column(nullable = false,length = 30)
     @Email
     private String email;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Column(nullable = false, length = 20)
+    private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Purchase> purchase;
@@ -24,14 +35,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Comment> comment;
 
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
 
     public String getName() {
         return name;
