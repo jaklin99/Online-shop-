@@ -1,12 +1,8 @@
 package com.example.accessingdatamysql.Controllers;
 import com.example.accessingdatamysql.Repository.CommentRepository;
 import com.example.accessingdatamysql.Repository.PostRepository;
-import com.example.accessingdatamysql.ResourceNotFoundException;
 import com.example.accessingdatamysql.modelsTemp.Comment;
-import com.example.accessingdatamysql.modelsTemp.Product;
-import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

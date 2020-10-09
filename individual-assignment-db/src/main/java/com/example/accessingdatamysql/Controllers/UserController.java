@@ -1,8 +1,6 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.UserRepository;
-import com.example.accessingdatamysql.ResourceNotFoundException;
-import com.example.accessingdatamysql.modelsTemp.Product;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
