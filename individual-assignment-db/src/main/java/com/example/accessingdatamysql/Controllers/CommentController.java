@@ -25,14 +25,14 @@ public class CommentController {
         return commentRepository.findAll();
     }
 
-    @PostMapping("/posts/{postId}/comments")
-    public Comment createComment(@PathVariable (value = "postId") Long postId,
-                                 @RequestBody Comment comment) {
-        return postRepository.findById(postId).map(post -> {
-            comment.setPost(post);
-            return commentRepository.save(comment);
-        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
-    }
+//    @PostMapping("/posts/{postId}/comments")
+//    public Comment createComment(@PathVariable (value = "postId") Long postId,
+//                                 @RequestBody Comment comment) {
+//        return postRepository.findById(postId).map(post -> {
+//            comment.setPost(post);
+//            return commentRepository.save(comment);
+//        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+//    }
 
     @PostMapping("/add")
     public ResponseEntity<Comment> addNewComment(@RequestBody Comment comment) {
