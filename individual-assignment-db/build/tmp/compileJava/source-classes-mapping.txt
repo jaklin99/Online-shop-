@@ -34,3 +34,5 @@ com/example/accessingdatamysql/modelsTemp/PurchaseStatus.java
  com.example.accessingdatamysql.modelsTemp.PurchaseStatus
 com/example/accessingdatamysql/Repository/UserRepository.java
  com.example.accessingdatamysql.Repository.UserRepository
+com/example/accessingdatamysql/Repository/PurchaseRepository.java
+ com.example.accessingdatamysql.Repository.PurchaseRepository

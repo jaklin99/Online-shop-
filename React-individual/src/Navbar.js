@@ -33,7 +33,7 @@ function CustomNavbar() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
+     
       <Switch>
         <Route exact path="/" component={UserList} />
         <Route exact path="/home" component={HomePage} />

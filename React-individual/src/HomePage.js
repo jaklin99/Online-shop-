@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Carousel from "react-bootstrap/Carousel";
+import CustomFooter from "./Footer";
 
 function HomePage(props) {
   return (
@@ -39,7 +40,8 @@ function HomePage(props) {
           
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel></div>
+    </Carousel><CustomFooter/>
+    </div>
   );
 }
 export default HomePage;

@@ -1,0 +1,62 @@
+package com.example.accessingdatamysql.Controllers;
+
+import com.example.accessingdatamysql.Repository.PurchaseRepository;
+import com.example.accessingdatamysql.Repository.UserRepository;
+import com.example.accessingdatamysql.modelsTemp.Purchase;
+import com.example.accessingdatamysql.modelsTemp.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
+@Controller	// This means that this class is a Controller
+@RequestMapping(path="/purchase")
+@CrossOrigin(origins = "http://localhost:3000")
+
+public class PurchaseController {
+    @Autowired
+    private PurchaseRepository purchaseRepository;
+
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<Purchase> getAllPurchases() {
+        return purchaseRepository.findAll();
+    }
+
+    @GetMapping("/{purchaseId}")
+    public ResponseEntity<Purchase> getPurchaseById(@PathVariable("purchaseId") long id) {
+        Optional<Purchase> pInfo = purchaseRepository.findById(id);
+        return pInfo.map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Purchase> addNewPurchase(@RequestBody Purchase p) {
+        purchaseRepository.save(p);
+        return new ResponseEntity<Purchase>(HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{purchaseId}/update")
+    public ResponseEntity<Purchase> updatePurchase(@PathVariable long purchaseId, @RequestBody Purchase updatedPurchase) {
+        Optional<Purchase> pInfo = purchaseRepository.findById(purchaseId);
+        if (pInfo.isPresent()) {
+            Purchase p = pInfo.get();
+            p.setPurchaseStatus(updatedPurchase.getPurchaseStatus());
+            purchaseRepository.save(p);
+            return new ResponseEntity<>(p, HttpStatus.NO_CONTENT);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Purchase> deletePurchase(@PathVariable long id){
+        if (purchaseRepository.existsById(id)) {
+            purchaseRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}

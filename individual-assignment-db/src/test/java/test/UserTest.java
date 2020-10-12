@@ -26,7 +26,7 @@ public class UserTest {
     private UserRepository userRepository;
 
     @Test
-    public void greetingShouldReturnMessageFromService() throws Exception {
+    public void getAllUsers() throws Exception {
        doReturn(userRepository.findAll()).when(userRepository.findAll());
         this.mockMvc.perform(get("/user/all")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello, Mock")));

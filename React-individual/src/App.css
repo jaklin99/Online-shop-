@@ -1,11 +1,3 @@
-.App-header {
-  font-family: "Roboto Slab", serif;
-  background-image: url("./home-tennis.jpg");
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
 .main {
   margin-left: 30%;
   margin-top: 15%;
@@ -15,6 +7,12 @@
   width: 100%;
   height: 100%;
 }
+.login-img {
+  margin-left: -40%;
+  width: 130%;
+  height: 60%;
+  float: left;
+}
 span.h3 {
   text-align: left;
   font-size: xx-large;
@@ -23,30 +21,16 @@ center {
   background-color: #3bc1df98;
   width: 100%;
 }
-.callout {
-  max-width: 570px;
-}
-
-.callout-header {
-  padding: 70px;
-  background-color: #1794b088;
-  color: black;
-  font-size: 60px;
-}
 
 input {
   padding: 10px;
   width: 20%;
   margin-bottom: 1%;
 }
-.loginImg {
-  width: 200px;
-  height: 200px;
-  margin-top: 5%;
-}
+
 a.btn.btn-info {
   color: black;
-  background-color: #1794b0;
+  background-color: rgb(255, 255, 255);
   font-size: 25px;
   padding: 0px 10px;
   margin-top: 5%;
@@ -56,6 +40,18 @@ a.btn.btn-register {
   background-color: #1794b0;
   font-size: 25px;
   padding: 0px 10px;
+}
+.content {
+  min-height: 100vh;
+}
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 h1 {
   font-style: inherit;
@@ -70,15 +66,18 @@ a.linksLogin {
   color: black;
   margin-bottom: 20%;
 }
-.sidenav a:hover {
-  background-color: #0b6579;
+.card-img{
+  width: 250px;
+  height: 250px;
 }
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
 }
-
+.form-l {
+  margin-top: 20%;
+}
 .submit-form {
   max-width: 300px;
   margin: auto;

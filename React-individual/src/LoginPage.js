@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
+import CustomFooter from "./Footer";
+import GoogleBtn from './GoogleBtn';
 
-import register from "./RegisterPage";
 function LoginPage(props) {
   return (
-    <span className="h3">
-      <center>
-        <img class="loginImg"src="/imgs/login.png" alt="logo img" />
-        <div className="col-12 col-lg-4 mt-2 hv-center">
-          <form>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <img class="login-img"
+          src="/imgs/tennis-login.jpg"
+          alt="First slide"
+        />
+    </div>
+    <div class="col-sm">
+    <form class="form-l">
+      <h2>Login</h2>
             <div className="form-group text-left">
               <input
                 type="username"
@@ -30,17 +37,24 @@ function LoginPage(props) {
               Forgotten password/username?{" "}
             </a>
             <br></br>
-            <a class="linksLogin" href="/register">
-              Don't have an account? Sign in
-            </a>
+          
+            <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
             <br></br>
             <a href="home" class="btn btn-info" active>
-              Login
+              Login 
+            </a><a href="register" class="btn btn-info" active>
+              Register 
             </a>
+            {/* <GoogleBtn/> */}
           </form>
-        </div>
-      </center>
-    </span>
+          <CustomFooter/>
+    </div>
+   </div>
+   </div>
+ 
   );
 }
 export default LoginPage;
