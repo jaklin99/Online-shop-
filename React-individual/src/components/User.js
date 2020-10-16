@@ -8,6 +8,7 @@ export default class User extends Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword= this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
+    this.updatePublished = this.updatePublished.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
 
@@ -70,7 +71,8 @@ export default class User extends Component {
       .catch((e) => {
         console.log(e);
       });
-
+    }
+  updatePublished(status) {
     var data = {
       id: this.state.currentUser.id,
       name: this.state.currentUser.name,
@@ -93,26 +95,33 @@ export default class User extends Component {
   }
 
   updateUser() {
-    UserService.update(this.state.currentUser.id, this.state.currentUser)
+    UserService.update(this.state.currentUser)
       .then((response) => {
         console.log(response.data);
+        this.props.history.push("/users");
         this.setState({
           message: "The user was updated successfully!",
         });
       })
-      .catch((e) => {
-        console.log(e);
+      .catch(() => {
+        this.setState({
+          message: "Unsuccessful update."
+        })
       });
   }
 
   deleteUser() {
-    UserService.delete(this.state.currentUser.id)
-      .then((response) => {
-        console.log(response.data);
-        this.props.history.push("/user/delete");
+    UserService.delete(this.state.currentUser)
+      .then(() => {
+        this.props.history.push("/users"); //redirect 
+        this.setState({
+          message: "The user was deleted successfully."
+        });
       })
       .catch((e) => {
-        console.log(e);
+        this.setState({
+          message: "Something went wrong." + e
+        });
       });
   }
 
@@ -162,7 +171,7 @@ export default class User extends Component {
             >
               Delete
             </button>
-
+            
             <button
               type="submit"
               className="badge badge-success"
@@ -176,6 +185,7 @@ export default class User extends Component {
           <div>
             <br />
             <p>Please click on a User...</p>
+            <p>{this.state.message}</p>
           </div>
         )}
       </div>

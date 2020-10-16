@@ -14,9 +14,11 @@ public class User {
     private long userId;
     @Column(nullable = false, length = 30)
     private String name;
-    @Column(nullable = false,length = 30)
+    @Column(unique = true,nullable = false,length = 30)
     @Email
     private String email;
+//    @Enumerated(EnumType.STRING)
+//    private UserType userType;
 
     public String getPassword() {
         return password;
@@ -34,7 +36,6 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comment;
-
 
     public String getName() {
         return name;

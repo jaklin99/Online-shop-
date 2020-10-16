@@ -94,7 +94,7 @@ export default class UserList extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by title"
+              placeholder="Search by name"
               value={searchName}
               onChange={this.onChangeSearchName}
             />
@@ -153,7 +153,7 @@ export default class UserList extends Component {
               </div>
 
               <Link
-                to={"/user/" + currentUser.id}
+                to={"/users/"}
                 className="badge badge-warning"
               >
                 Edit
