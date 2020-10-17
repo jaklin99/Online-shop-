@@ -9,6 +9,7 @@ import HomePage from "./HomePage";
 import login from "./LoginPage";
 import register from "./components/AddUser";
 import posts from "./components/Posts";
+import Articles from "./components/Articles";
 import onlineShop from "./components/OnlineShop";
 
 function CustomNavbar() {
@@ -21,6 +22,7 @@ function CustomNavbar() {
           <Nav className="mr-auto">
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="posts">Posts</Nav.Link>
+            <Nav.Link href="articles">Articles</Nav.Link>
             <Nav.Link href="onlineShop">Online shop</Nav.Link>
             <Nav.Link href="users">Users</Nav.Link>
             <Nav.Link href="login">Login</Nav.Link>
@@ -42,6 +44,7 @@ function CustomNavbar() {
         <Route path="/login" component={login} />
         <Route path="/register" component={register} />
         <Route path="/users" component={User} />
+        <Route path="/articles" component={Articles} />
       </Switch>
     </Router>
   );

@@ -153,7 +153,7 @@ export default class UserList extends Component {
               </div>
 
               <Link
-                to={"/users/"}
+                to={"/users/" + currentUser.id}
                 className="badge badge-warning"
               >
                 Edit

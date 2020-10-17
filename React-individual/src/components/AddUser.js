@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserService from "../services/UserService";
+import CustomFooter from "../Footer";
 
 export default class AddUser extends Component {
   constructor(props) {
@@ -68,68 +69,18 @@ export default class AddUser extends Component {
       submitted: false,
     });
   }
-  // render() {
-  //   return (
-  // <div class="container">
-  // <div class="row">
-  //   <div class="col-sm">
-  //   <img class="login-img"
-  //         src="/imgs/tennis-login.jpg"
-  //         alt="First slide"
-  //       />
-  //   </div>
-  //   <div class="col-sm">
-  //   <form class="form-l">
-  //     <h2>Login</h2>
-  //           <div className="form-group text-left">
-  //             <input
-  //               type="username"
-  //               className="form-control"
-  //               id="username"
-  //               placeholder="Username"
-  //             />
-  //           </div>
-  //           <div className="form-group text-left">
-  //             <input
-  //               type="password"
-  //               className="form-control"
-  //               id="Password"
-  //               placeholder="Password"
-  //             />
-  //           </div>
-
-  //           <a class="linksLogin" href="/">
-  //             Forgotten password/username?{" "}
-  //           </a>
-  //           <br></br>
-          
-  //           <div class="form-check">
-  //   <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-  //   <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  // </div>
-  //           <br></br>
-  //           <a href="home" class="btn btn-info" active>
-  //             Login 
-  //           </a><a href="register" class="btn btn-info" active>
-  //             Register 
-  //           </a>
-  //           {/* <GoogleBtn/> */}
-  //         </form>
-  //         <CustomFooter/>
-  //   </div>
-  //  </div>
-  //  </div>
- 
-  render() {
-    return (
-      <span className="h3">
-      <center>
-            
-            <div className="col-12 col-lg-4 mt-2 hv-center">
-          <form>
-            <div className="form-group text-left">
-             
-              <input
+   render() {
+     return (
+   <div class="container" >
+     <img class="login-img"
+           src="/imgs/tennis.jpg"
+           alt="First slide"
+         />
+    
+     <form class="form-l">
+       <h2>Register</h2>
+             <div className="form-group text-left">
+               <input
                 type="text"
                 className="form-control"
                 id="name"
@@ -139,11 +90,9 @@ export default class AddUser extends Component {
                 name="name"
                 placeholder="Name"
               />
-            </div>
-
-            <div className="form-group text-left">
-             
-              <input
+             </div>
+           <div className="form-group text-left">
+             <input
                 type="text"
                 className="form-control"
                 id="email"
@@ -153,8 +102,8 @@ export default class AddUser extends Component {
                 name="email"
                 placeholder="Email"
               />
-            </div>
-            <div className="form-group text-left">
+       </div>
+  <div className="form-group text-left">
               
               <input
                 type="password"
@@ -167,12 +116,69 @@ export default class AddUser extends Component {
                 placeholder="Password"
               />
             </div>
-            <button onClick={this.saveUser} className="btn btn-info">
+            <button onClick={this.saveUser} className="btn btn-register">
               Register
             </button>
-            </form>
-        </div>
-         </center></span>
+            <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+          </form>
+          <CustomFooter/>
+    </div>
+
+  
+ 
+  // render() {
+  //   return (
+  //     <span className="h3">
+  //     <center>
+            
+  //           <div className="col-12 col-lg-4 mt-2 hv-center">
+  //         <form>
+  //           <div className="form-group text-left">
+             
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               id="name"
+  //               required
+  //               value={this.state.name}
+  //               onChange={this.onChangeName}
+  //               name="name"
+  //               placeholder="Name"
+  //             />
+  //           </div>
+
+  //           <div className="form-group text-left">
+             
+  //             <input
+  //               type="text"
+  //               className="form-control"
+  //               id="email"
+  //               required
+  //               value={this.state.email}
+  //               onChange={this.onChangeEmail}
+  //               name="email"
+  //               placeholder="Email"
+  //             />
+  //           </div>
+  //           <div className="form-group text-left">
+              
+  //             <input
+  //               type="password"
+  //               className="form-control"
+  //               id="password"
+  //               required
+  //               value={this.state.password}
+  //               onChange={this.onChangePassword}
+  //               name="password"
+  //               placeholder="Password"
+  //             />
+  //           </div>
+  //           <button onClick={this.saveUser} className="btn btn-info">
+  //             Register
+  //           </button>
+  //           </form>
+  //       </div>
+  //        </center></span>
         )};
-  }
+   }
 

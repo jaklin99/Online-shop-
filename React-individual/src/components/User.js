@@ -8,7 +8,7 @@ export default class User extends Component {
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword= this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
+    this.saveUpdate = this.saveUpdate.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
 
@@ -60,8 +60,8 @@ export default class User extends Component {
       },
     }));
   }
-  getUser(id) {
-    UserService.get(id)
+  getUser(email) {
+    UserService.get(email)
       .then((response) => {
         this.setState({
           currentUser: response.data,
@@ -72,43 +72,55 @@ export default class User extends Component {
         console.log(e);
       });
     }
-  updatePublished(status) {
-    var data = {
-      id: this.state.currentUser.id,
-      name: this.state.currentUser.name,
-      email: this.state.currentUser.email,
-      password: this.state.currentUser.password,
-    };
-
-    UserService.update(this.state.currentUser.id, data)
-      .then((response) => {
-        this.setState((prevState) => ({
-          currentUser: {
-            ...prevState.currentUser,
-          },
-        }));
-        console.log(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  updateUser() {
-    UserService.update(this.state.currentUser)
-      .then((response) => {
-        console.log(response.data);
-        this.props.history.push("/users");
-        this.setState({
-          message: "The user was updated successfully!",
-        });
-      })
-      .catch(() => {
-        this.setState({
-          message: "Unsuccessful update."
+    saveUpdate(status) {
+      var data = {
+        name: this.state.currentUser.username,
+        email: this.state.currentUser.email,
+        password: this.state.currentUser.password,
+        published: status
+      };
+  
+      UserService.update(this.state.currentUser.email, data)
+        .then(response => {
+          this.setState(prevState => ({
+            currentUser: {
+              ...prevState.currentUser,
+              published: status
+            }
+          }));
+          console.log(response.data);
         })
-      });
-  }
+        .catch(e => {
+          console.log(e);
+        });
+    }
+    updateUser() {
+        UserService.update(
+          this.state.currentUser
+        )
+          .then(response => {
+            console.log(response.data);
+            this.setState({
+              message: "Your profile was updated successfully!"
+            });
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
+    // UserService.update(this.state.currentUser)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     this.props.history.push("/users");
+    //     this.setState({
+    //       message: "The user was updated successfully!",
+    //     });
+    //   })
+    //   .catch(() => {
+    //     this.setState({
+    //       message: "Unsuccessful update."
+    //     })
+    //   });
 
   deleteUser() {
     UserService.delete(this.state.currentUser)
@@ -164,7 +176,28 @@ export default class User extends Component {
                   onChange={this.onChangePassword}
                 />
               </div>
+            <div className="form-group">
+                <label>
+                  <strong>Status:</strong>
+                </label>
+                {currentUser.published ? "Published" : "Pending"}
+              </div>
             </form>
+
+            {currentUser.published ? (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => this.saveUpdate(false)}
+              >
+                UnPublish
+              </button>
+            ) : (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => this.saveUpdate(true)}
+              >
+                Save
+              </button> )}
             <button
               className="badge badge-danger mr-2"
               onClick={this.deleteUser}

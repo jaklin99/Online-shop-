@@ -1,0 +1,6 @@
+Notes(Sprint 2):
+1. see how to do the videos on the website
+2. create an Article-page
+3. do the Account-page
+4. Update-btn
+5. Authenthication
