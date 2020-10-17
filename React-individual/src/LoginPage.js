@@ -5,14 +5,18 @@ import GoogleBtn from './GoogleBtn';
 import RememberMe from './RememberMe'
 function LoginPage(props) {
   return (
-  <div className="login">
+    <div class="row"> 
+            <div class="col-lg-6 mb-4"> 
     <img class="login-img"
           src="/imgs/tennis-login.jpg"
           alt="First slide"
         />
+        </div>
+        
+        <div class="col-lg-4 mb-4">
     <form class="form-l">
       <h2>Login</h2>
-            {/* <div className="form-group text-left">
+           <div className="form-group text-left">
               <input
                 type="username"
                 className="form-control"
@@ -39,17 +43,13 @@ function LoginPage(props) {
                                 <label>Remember me</label></td>
                         </tr>
             <br></br>
-            <a href="home" class="btn btn-info" active>
+            <a href="home" class="btn btn-watch" active>
               Login 
-            </a><a href="register" class="btn btn-info" active>
+            </a><a href="register" class="btn btn-comment" active>
               Register 
             </a>
             {/* <GoogleBtn/> */}
-          </form> 
-          <RememberMe/>
-          <CustomFooter/>
-    </div>
- 
-  );
+          </form></div> {/* <RememberMe/> */}<CustomFooter/> </div> 
+         );
 }
 export default LoginPage;

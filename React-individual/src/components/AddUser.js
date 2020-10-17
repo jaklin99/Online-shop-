@@ -71,12 +71,14 @@ export default class AddUser extends Component {
   }
    render() {
      return (
-   <div class="container" >
+      <div class="row"> 
+      <div class="col-lg-6 mb-4"> 
      <img class="login-img"
            src="/imgs/tennis.jpg"
            alt="First slide"
          />
-    
+    </div>
+    <div class="col-lg-4 mb-4">
      <form class="form-l">
        <h2>Register</h2>
              <div className="form-group text-left">
@@ -116,12 +118,28 @@ export default class AddUser extends Component {
                 placeholder="Password"
               />
             </div>
-            <button onClick={this.saveUser} className="btn btn-register">
+            <div className="form-group text-left">
+              
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                required
+                value={this.state.password}
+                onChange={this.onChangePassword}
+                name="confirmPassword"
+                placeholder="Confirm password"
+              />
+            </div>
+            <button href="/home" className="btn btn-watch">
+              Cancel
+            </button>
+            <button onClick={this.saveUser} className="btn btn-comment">
               Register
             </button>
             <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
-          </form>
-          <CustomFooter/>
+          </form></div>
+           <CustomFooter/> 
     </div>
 
   

@@ -1,87 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import "../App.css";
+import Carousel from "react-bootstrap/Carousel";
 import CustomFooter from "../Footer";
 
-class Articles extends React.Component {
-  render() {
-    return (
-      <div class="container"> 
-        <div class="row"> 
-            <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                <source src="/videos/video1.mp4" type="video/mp4"/>
-  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Sharapova vs Williams</h5> 
-                        <p class="card-text"> 
-                            Check this out if you want to see the unique tournament between one of the best two rackets in the world.
-                        </p> 
-  
-                        <a href="/comment" class="btn btn-outline-primary btn-sm"> 
-                            Watch 
+function HomePage(props) {
+  return (
+    <div class="carousel">
+    <Carousel>
+      <Carousel.Item>
+        <img class="img"
+          src="/imgs/sharapova-williams.jpg"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>Sharapova VS Williams</h3>
+          <a href="#" class="btn btn-info"> 
+                            Want to read more? 
                         </a> 
-                    </div> 
-                </div> 
-            </div> <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                    <img class="card-img-top" src="../imgs/court.jpg" alt=""/> 
-  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Card title</h5> 
-                        <p class="card-text"> 
-                            Some quick example text to build on the  
-                            card title and make up the bulk of the  
-                            card's content. 
-                        </p> 
-                          
-                        <a href="#" class="btn btn-outline-primary btn-sm"> 
-                            Card link 
+                  </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          class="img"
+          src="/imgs/d-n.jpg"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Djokovic VS Nadal </h3>
+          <a href="#" class="btn btn-info"> 
+                            Want to read more? 
                         </a> 
-                       
-                    </div> 
-                </div> 
-            </div> 
-            <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                    <img class="card-img-top" src="../imgs/court.jpg" alt=""/> 
-  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Card title</h5> 
-                        <p class="card-text"> 
-                            Some quick example text to build on  
-                            the card title and make up the bulk  
-                            of the card's content. 
-                        </p> 
-  
-                        <a href="#" class="btn btn-outline-primary btn-sm"> 
-                            Card link 
-                        </a> 
-                        
-                    </div> 
-                </div> 
-            </div> <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                    <img class="card-img-top" src="../imgs/court.jpg" alt=""/> 
-  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Card title</h5> 
-                        <p class="card-text"> 
-                            Some quick example text to build on the  
-                            card title and make up the bulk of the  
-                            card's content. 
-                        </p> 
-                          
-                        <a href="#" class="btn btn-outline-primary btn-sm"> 
-                            Card link 
-                        </a> 
-                        
-                    </div> 
-                </div> 
-            </div>  
-        </div> 
-        <CustomFooter/>
-    </div> 
-  
-    );
-  }
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel><CustomFooter/>
+    </div>
+  );
 }
-export default Articles;
+export default HomePage;
