@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-import UserService from "../services/UserService";
+import ProductService from "../services/UserService";
 
-export default class User extends Component {
+export default class Product extends Component {
   constructor(props) {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword= this.onChangePassword.bind(this);
-    this.getUser = this.getUser.bind(this);
+    this.onChangePrice = this.onChangePrice.bind(this);
+    this.onChangeCategory= this.onChangeCategory.bind(this);
+    this.getProduct = this.getProduct.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-    this.deleteUser = this.deleteUser.bind(this);
+    this.updateProduct = this.updateProduct.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
 
     this.state = {
-      currentUser: {
+      currentProduct: {
         id: null,
         name: "",
-        email: "",
-        password: "",
+        price: "",
+        category: "",
       },
       message: "",
     };
   }
 
   componentDidMount() {
-    this.getUser(this.props.match.params.email);
+    this.getProduct(this.props.match.params.id);
   }
 
   onChangeName(e) {
@@ -32,39 +32,39 @@ export default class User extends Component {
 
     this.setState(function (prevState) {
       return {
-        currentUser: {
-          ...prevState.currentUser,
+        currentProduct: {
+          ...prevState.currentProduct,
           name: name,
         },
       };
     });
   }
 
-  onChangeEmail(e) {
-    const email = e.target.value;
+  onChangePrice(e) {
+    const price = e.target.value;
 
     this.setState((prevState) => ({
-      currentUser: {
-        ...prevState.currentUser,
-        email: email,
+      currentProduct: {
+        ...prevState.currentProduct,
+        price: price,
       },
     }));
   }
-  onChangePassword(e) {
-    const password = e.target.value;
+  onChangeCategory(e) {
+    const category = e.target.value;
 
     this.setState((prevState) => ({
-      currentUser: {
-        ...prevState.currentUser,
-        password: password,
+      currentProduct: {
+        ...prevState.currentProduct,
+        category: category,
       },
     }));
   }
-  getUser(email) {
-    UserService.get(email)
+  getProduct(product) {
+    ProductService.get(product)
       .then((response) => {
         this.setState({
-          currentUser: response.data,
+          currentProduct: response.data,
         });
         console.log(response.data);
       })
@@ -75,16 +75,16 @@ export default class User extends Component {
     saveUpdate(status) {
       var data = {
         name: this.state.currentUser.name,
-        email: this.state.currentUser.email,
-        password: this.state.currentUser.password,
+        price: this.state.currentUser.price,
+        category: this.state.currentUser.category,
         published: status
       };
   
-      UserService.update(this.state.currentUser.email, data)
+      ProductService.update(this.state.currentProduct.name, data)
         .then(response => {
           this.setState(prevState => ({
-            currentUser: {
-              ...prevState.currentUser,
+            currentProduct: {
+              ...prevState.currentProduct,
               published: status
             }
           }));
@@ -94,14 +94,14 @@ export default class User extends Component {
           console.log(e);
         });
     }
-    updateUser() {
-        UserService.update(
-          this.state.currentUser
+    updateProduct() {
+        ProductService.update(
+          this.state.currentProduct
         )
           .then(response => {
             console.log(response.data);
             this.setState({
-              message: "Your profile was updated successfully!"
+              message: "The product was updated successfully!"
             });
           })
           .catch(e => {
@@ -122,12 +122,12 @@ export default class User extends Component {
     //     })
     //   });
 
-  deleteUser() {
-    UserService.delete(this.state.currentUser)
+  deleteProduct() {
+    ProductService.delete(this.state.currentProduct)
       .then(() => {
-        this.props.history.push("/users"); //redirect 
+        this.props.history.push("/products"); //redirect 
         this.setState({
-          message: "The user was deleted successfully."
+          message: "The product was deleted successfully."
         });
       })
       .catch((e) => {
@@ -138,13 +138,13 @@ export default class User extends Component {
   }
 
   render() {
-    const { currentUser } = this.state;
+    const { currentProduct } = this.state;
 
     return (
       <div>
-        {currentUser ? (
+        {currentProduct ? (
           <div className="edit-form">
-            <h4>User</h4>
+            <h4>Product</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -152,39 +152,39 @@ export default class User extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentUser.name}
+                  value={currentProduct.name}
                   onChange={this.onChangeName}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="price">Price</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="email"
-                  value={currentUser.email}
-                  onChange={this.onChangeEmail}
+                  id="price"
+                  value={currentProduct.price}
+                  onChange={this.onChangePrice}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="category">Category</label>
                 <input
-                  type="password"
+                  type="text"
                   className="form-control"
-                  id="password"
-                  value={currentUser.password}
-                  onChange={this.onChangePassword}
+                  id="category"
+                  value={currentProduct.category}
+                  onChange={this.onChangeCategory}
                 />
               </div>
             <div className="form-group">
                 <label>
                   <strong>Status:</strong>
                 </label>
-                {currentUser.published ? "Published" : "Pending"}
+                {currentProduct.published ? "Published" : "Pending"}
               </div>
             </form>
 
-            {currentUser.published ? (
+            {currentProduct.published ? (
               <button
                 className="badge badge-primary mr-2"
                 onClick={() => this.saveUpdate(false)}
@@ -200,7 +200,7 @@ export default class User extends Component {
               </button> )}
             <button
               className="badge badge-danger mr-2"
-              onClick={this.deleteUser}
+              onClick={this.deleteProduct}
             >
               Delete
             </button>
@@ -208,7 +208,7 @@ export default class User extends Component {
             <button
               type="submit"
               className="badge badge-success"
-              onClick={this.updateUser}
+              onClick={this.updateProduct}
             >
               Update
             </button>

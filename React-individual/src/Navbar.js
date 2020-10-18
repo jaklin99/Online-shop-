@@ -8,6 +8,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import HomePage from "./HomePage";
 import login from "./LoginPage";
 import register from "./components/AddUser";
+import AddProduct from "./components/AddProduct";
+import Product from "./components/Product";
+import ProductList from "./components/ProductList";
 import posts from "./components/Posts";
 import Articles from "./components/Articles";
 import onlineShop from "./components/OnlineShop";
@@ -20,13 +23,18 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="posts">Posts</Nav.Link>
             <Nav.Link href="articles">Articles</Nav.Link>
             <Nav.Link href="onlineShop">Online shop</Nav.Link>
-            <Nav.Link href="users">Users</Nav.Link>
-            <Nav.Link href="login">Login</Nav.Link>
-            <NavDropdown title="Account" id="basic-nav-dropdown">
+            <NavDropdown title="Service" id="basic-nav-dropdown">
+              <NavDropdown.Item href="user">User</NavDropdown.Item>
+              <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
+              <NavDropdown.Item href="product">Product</NavDropdown.Item>
+              <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
+              <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link className="loginItem" href="login">Login</Nav.Link>
+            <NavDropdown className="loginItem" title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="account">My Account</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -37,13 +45,16 @@ function CustomNavbar() {
       </Navbar>
      
       <Switch>
-        <Route exact path="/" component={UserList} />
-        <Route exact path="/home" component={HomePage} />
+        <Route exact path="/userList" component={UserList} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/posts" component={posts} />
         <Route exact path="/onlineShop" component={onlineShop} />
         <Route path="/login" component={login} />
+        <Route path="/addProduct" component={AddProduct} />
         <Route path="/register" component={register} />
-        <Route path="/users" component={User} />
+        <Route path="/user" component={User} />
+        <Route exact path="/product" component={Product} />
+        <Route exact path="/productList" component={ProductList} />
         <Route path="/articles" component={Articles} />
       </Switch>
     </Router>

@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import UserService from "../services/UserService";
+import ProductService from "../services/ProductService";
 import { Link } from "react-router-dom";
 
-export default class UserList extends Component {
+export default class ProductList extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchName = this.onChangeSearchName.bind(this);
-    this.retrieveUsers = this.retrieveUsers.bind(this);
+    this.retrieveProducts = this.removeAllProducts.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveUser = this.setActiveUser.bind(this);
-    this.removeAllUsers = this.removeAllUsers.bind(this);
+    this.setActiveProduct = this.setActiveProduct.bind(this);
+    this.removeAllProducts = this.removeAllProducts.bind(this);
     this.searchName = this.searchName.bind(this);
 
     this.state = {
-      users: [],
-      currentUser: null,
+      products: [],
+      currentProduct: null,
       currentIndex: -1,
       searchName: "",
     };
   }
 
   componentDidMount() {
-    this.retrieveUsers();
+    this.retrieveProducts();
   }
 
   onChangeSearchName(e) {
@@ -32,11 +32,11 @@ export default class UserList extends Component {
     });
   }
 
-  retrieveUsers() {
-    UserService.getAll()
+  retrieveProducts() {
+    ProductService.getAll()
       .then((response) => {
         this.setState({
-          users: response.data,
+          products: response.data,
         });
         console.log(response.data);
       })
@@ -46,22 +46,22 @@ export default class UserList extends Component {
   }
 
   refreshList() {
-    this.retrieveUsers();
+    this.retrieveProducts();
     this.setState({
-      currentUser: null,
+      currentProduct: null,
       currentIndex: -1,
     });
   }
 
-  setActiveUser(user, index) {
+  setActiveProduct(product, index) {
     this.setState({
-      currentUser: user,
+       currentProduct: product,
       currentIndex: index,
     });
   }
 
-  removeAllUsers() {
-    UserService.deleteAll()
+  removeAllProducts() {
+    ProductService.deleteAll()
       .then((response) => {
         console.log(response.data);
         this.refreshList();
@@ -72,10 +72,10 @@ export default class UserList extends Component {
   }
 
   searchName() {
-    UserService.findByName(this.state.searchName)
+    ProductService.findByName(this.state.searchName)
       .then((response) => {
         this.setState({
-          users: response.data,
+          products: response.data,
         });
         console.log(response.data);
       })
@@ -85,7 +85,7 @@ export default class UserList extends Component {
   }
 
   render() {
-    const { searchName, users, currentUser, currentIndex } = this.state;
+    const { searchName, products, currentProduct, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -110,50 +110,50 @@ export default class UserList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Users List</h4>
+          <h4>Products List</h4>
 
           <ul className="list-group">
-            {users &&
-              users.map((user, index) => (
+            {products &&
+              products.map((product, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveUser(user, index)}
+                  onClick={() => this.setActiveProduct(product, index)}
                   key={index}
                 >
-                  {user.name}
+                  {product.name}
                 </li>
               ))}
           </ul>
 
           <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllUsers}
+            onClick={this.removeAllProducts}
           >
             Remove All
           </button>
         </div>
         <div className="col-md-6">
-          {currentUser ? (
+          {currentProduct ? (
             <div>
-              <h4>User</h4>
+              <h4>Product</h4>
               <div>
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentUser.name}
+                {currentProduct.name}
               </div>
               <div>
                 <label>
-                  <strong>Email:</strong>
+                  <strong>Price:</strong>
                 </label>{" "}
-                {currentUser.email}
+                {currentProduct.price}
               </div>
 
               <Link
-                to={"/users/" + currentUser.name}
+                to={"/products/" + currentProduct.name}
                 className="badge badge-warning"
               >
                 Edit
@@ -162,7 +162,7 @@ export default class UserList extends Component {
           ) : (
             <div>
               <br />
-              <p>Please click on a user...</p>
+              <p>Please click on a product...</p>
             </div>
           )}
         </div>

@@ -111,7 +111,9 @@ a.linksLogin {
   max-width: 750px;
   margin: auto;
 }
-
+.loginItem{
+  float: right;
+}
 .form-l {
   float: right;
   margin-top: 20%;
