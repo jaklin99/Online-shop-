@@ -2,6 +2,7 @@ package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.ProductRepository;
 import com.example.accessingdatamysql.modelsTemp.Product;
+import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Controller
@@ -28,9 +30,9 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-    @GetMapping("/{prouctId}")
-    public ResponseEntity<Product> getProductById(@PathVariable("productId") long id) {
-        Optional<Product> productInfo = productRepository.findById(id);
+    @GetMapping("/{productName}")
+    public ResponseEntity<Product> getProductById(@PathVariable("productName") String name) {
+        Optional<Product> productInfo = productRepository.findByName(name);
         return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
@@ -56,9 +58,9 @@ public class ProductController {
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //        }
 //	}
-@PutMapping("/{productId}/update")
-public ResponseEntity<Product> updateProduct(@PathVariable long productId, @RequestBody Product updatedProduct) {
-    Optional<Product> productInfo = productRepository.findById(productId);
+@PutMapping("/{productName}/update")
+public ResponseEntity<Product> updateProduct(@PathVariable String productName, @RequestBody Product updatedProduct) {
+    Optional<Product> productInfo = productRepository.findByName(productName);
     if (productInfo.isPresent()) {
         Product product = productInfo.get();
         product.setProductName(updatedProduct.getProductName());
@@ -69,12 +71,18 @@ public ResponseEntity<Product> updateProduct(@PathVariable long productId, @Requ
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-    @DeleteMapping("/{id}/delete")
-    public ResponseEntity<Product> deleteProduct(@PathVariable long id){
-        if (productRepository.existsById(id)) {
-            productRepository.deleteById(id);
+    @Transactional
+    @DeleteMapping("/{productName}/delete")
+    public ResponseEntity<Product> deleteProduct(@PathVariable String productName){
+        if (productRepository.existsByName(productName)) {
+            productRepository.deleteByName(productName);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<Product> deleteAllProducts() {
+        productRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -4,8 +4,8 @@ com/example/accessingdatamysql/Repository/UserRepository.java
  com.example.accessingdatamysql.Repository.UserRepository
 com/example/accessingdatamysql/Controllers/CategoryController.java
  com.example.accessingdatamysql.Controllers.CategoryController
-com/example/accessingdatamysql/Repository/ProductRepository.java
- com.example.accessingdatamysql.Repository.ProductRepository
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController
 com/example/accessingdatamysql/modelsTemp/PurchaseStatus.java
  com.example.accessingdatamysql.modelsTemp.PurchaseStatus
 com/example/accessingdatamysql/modelsTemp/Category.java
@@ -32,9 +32,9 @@ com/example/accessingdatamysql/modelsTemp/Purchase.java
  com.example.accessingdatamysql.modelsTemp.Purchase
 com/example/accessingdatamysql/modelsTemp/Comment.java
  com.example.accessingdatamysql.modelsTemp.Comment
-com/example/accessingdatamysql/Controllers/ProductController.java
- com.example.accessingdatamysql.Controllers.ProductController
 com/example/accessingdatamysql/modelsTemp/User.java
  com.example.accessingdatamysql.modelsTemp.User
-com/example/accessingdatamysql/Controllers/UserController.java
- com.example.accessingdatamysql.Controllers.UserController
+com/example/accessingdatamysql/Repository/ProductRepository.java
+ com.example.accessingdatamysql.Repository.ProductRepository
+com/example/accessingdatamysql/Controllers/ProductController.java
+ com.example.accessingdatamysql.Controllers.ProductController
