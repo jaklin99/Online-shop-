@@ -40,6 +40,16 @@ input {
   padding: 0px 10px;
   margin-top: 5%;
 } */
+.btn.btn-home{
+  color: black;
+  background-color: rgb(255, 255, 255);
+  font-size: 28px;
+  padding: 0px 10px;
+  border: 1px solid black;
+}.btn.btn-home:hover {
+  background-color: rgba(0, 0, 0, 0.329);
+  color: whitesmoke;
+}
 
 .btn.btn-register {
   color: rgb(240, 124, 29);
@@ -81,6 +91,12 @@ input {
   width: 100%;
   position: relative;
 }
+.contact {
+  background-color: #1794b062;
+}
+.col{
+  margin-top: 2%;
+}
 h1 {
   font-style: inherit;
   font-size: 30pt;
@@ -111,7 +127,7 @@ a.linksLogin {
   max-width: 750px;
   margin: auto;
 }
-.loginItem{
+.loginItem {
   float: right;
 }
 .form-l {

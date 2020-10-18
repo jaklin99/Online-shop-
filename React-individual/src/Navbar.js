@@ -14,6 +14,7 @@ import ProductList from "./components/ProductList";
 import posts from "./components/Posts";
 import Articles from "./components/Articles";
 import onlineShop from "./components/OnlineShop";
+import contact from "./Contact";
 
 function CustomNavbar() {
   return (
@@ -33,13 +34,17 @@ function CustomNavbar() {
               <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
               <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="contact">Contact</Nav.Link>
             <Nav.Link className="loginItem" href="login">Login</Nav.Link>
             <NavDropdown className="loginItem" title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="account">My Account</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="home">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/">Logout</NavDropdown.Item>
             </NavDropdown>
+            <a class="btn btn-cart" href="#">
+        <i class="fa fa-shopping-cart"></i> Cart
+    </a>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -56,6 +61,7 @@ function CustomNavbar() {
         <Route exact path="/product" component={Product} />
         <Route exact path="/productList" component={ProductList} />
         <Route path="/articles" component={Articles} />
+        <Route path="/contact" component={contact} />
       </Switch>
     </Router>
   );

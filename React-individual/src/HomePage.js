@@ -19,24 +19,28 @@ function HomePage(props) {
       <Carousel.Item>
         <img
           class="img"
-          src="/imgs/tennis3.jpg"
+          src="/imgs/sharapova-azarenka.jpg"
           alt="Second slide"
         />
 
         <Carousel.Caption>
-          <h3>Watch videos</h3>
+        <a href="#" class="btn btn-home"> 
+                           Watch videos
+                        </a> 
          
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           class="img"
-          src="/imgs/tennis3.jpg"
+          src="/imgs/shopping.jpg"
           alt="Third slide"
         />
 
         <Carousel.Caption>
-          <h3>Shop online</h3>
+        <a href="#" class="btn btn-home"> 
+                            Shop Online 
+                        </a> 
           
         </Carousel.Caption>
       </Carousel.Item>
