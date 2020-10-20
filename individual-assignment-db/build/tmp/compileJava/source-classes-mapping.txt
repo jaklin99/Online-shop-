@@ -2,39 +2,33 @@ com/example/accessingdatamysql/Repository/CommentRepository.java
  com.example.accessingdatamysql.Repository.CommentRepository
 com/example/accessingdatamysql/Repository/UserRepository.java
  com.example.accessingdatamysql.Repository.UserRepository
-com/example/accessingdatamysql/Controllers/CategoryController.java
- com.example.accessingdatamysql.Controllers.CategoryController
-com/example/accessingdatamysql/Controllers/UserController.java
- com.example.accessingdatamysql.Controllers.UserController
-com/example/accessingdatamysql/modelsTemp/PurchaseStatus.java
- com.example.accessingdatamysql.modelsTemp.PurchaseStatus
 com/example/accessingdatamysql/modelsTemp/Category.java
  com.example.accessingdatamysql.modelsTemp.Category
-com/example/accessingdatamysql/modelsTemp/Post.java
- com.example.accessingdatamysql.modelsTemp.Post
+com/example/accessingdatamysql/Repository/ProductRepository.java
+ com.example.accessingdatamysql.Repository.ProductRepository
+com/example/accessingdatamysql/Controllers/CategoryController.java
+ com.example.accessingdatamysql.Controllers.CategoryController
+com/example/accessingdatamysql/modelsTemp/UserType.java
+ com.example.accessingdatamysql.modelsTemp.UserType
+com/example/accessingdatamysql/Repository/CategoryRepository.java
+ com.example.accessingdatamysql.Repository.CategoryRepository
 com/example/accessingdatamysql/Repository/PostRepository.java
  com.example.accessingdatamysql.Repository.PostRepository
 com/example/accessingdatamysql/AccessingDataMysqlApplication.java
  com.example.accessingdatamysql.AccessingDataMysqlApplication
-com/example/accessingdatamysql/modelsTemp/UserType.java
- com.example.accessingdatamysql.modelsTemp.UserType
-com/example/accessingdatamysql/Repository/PurchaseRepository.java
- com.example.accessingdatamysql.Repository.PurchaseRepository
-com/example/accessingdatamysql/Repository/CategoryRepository.java
- com.example.accessingdatamysql.Repository.CategoryRepository
-com/example/accessingdatamysql/Controllers/PostController.java
- com.example.accessingdatamysql.Controllers.PostController
+com/example/accessingdatamysql/modelsTemp/Post.java
+ com.example.accessingdatamysql.modelsTemp.Post
 com/example/accessingdatamysql/Controllers/CommentController.java
  com.example.accessingdatamysql.Controllers.CommentController
-com/example/accessingdatamysql/modelsTemp/Product.java
- com.example.accessingdatamysql.modelsTemp.Product
-com/example/accessingdatamysql/modelsTemp/Purchase.java
- com.example.accessingdatamysql.modelsTemp.Purchase
-com/example/accessingdatamysql/modelsTemp/Comment.java
- com.example.accessingdatamysql.modelsTemp.Comment
+com/example/accessingdatamysql/Controllers/PostController.java
+ com.example.accessingdatamysql.Controllers.PostController
 com/example/accessingdatamysql/modelsTemp/User.java
  com.example.accessingdatamysql.modelsTemp.User
-com/example/accessingdatamysql/Repository/ProductRepository.java
- com.example.accessingdatamysql.Repository.ProductRepository
+com/example/accessingdatamysql/modelsTemp/Comment.java
+ com.example.accessingdatamysql.modelsTemp.Comment
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController
+com/example/accessingdatamysql/modelsTemp/Product.java
+ com.example.accessingdatamysql.modelsTemp.Product
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController

@@ -17,6 +17,8 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 
+    public Category() {}
+
     public long getCategoryId() {
         return categoryId;
     }
@@ -32,4 +34,5 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
 }

@@ -32,9 +32,6 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private List<Purchase> purchase;
-
-    @OneToMany(mappedBy = "user")
     private List<Comment> comment;
 
     public String getName() {
@@ -61,4 +58,5 @@ public class User {
                 ", name='" + name + '\'' +
                 '}';
     }
+    public User(){}
 }

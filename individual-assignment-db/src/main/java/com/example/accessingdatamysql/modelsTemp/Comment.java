@@ -46,4 +46,5 @@ public class Comment{
     public void setPost(Post post) {
         this.post = post;
     }
+    public Comment(){}
 }//content/ids - post,customer- foreign key/id za comments

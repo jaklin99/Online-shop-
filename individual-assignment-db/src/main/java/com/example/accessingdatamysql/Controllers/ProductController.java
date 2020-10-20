@@ -2,7 +2,6 @@ package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.ProductRepository;
 import com.example.accessingdatamysql.modelsTemp.Product;
-import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
