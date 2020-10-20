@@ -48,7 +48,7 @@ function LoginPage(props) {
             </a><a href="register" class="btn btn-comment" active>
               Register 
             </a>
-            {/* <GoogleBtn/> */}
+             {/* <GoogleBtn/>  */}
           </form></div> {/* <RememberMe/> */}<CustomFooter/> </div> 
          );
 }

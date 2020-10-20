@@ -24,7 +24,7 @@ function HomePage(props) {
         />
 
         <Carousel.Caption>
-        <a href="#" class="btn btn-home"> 
+        <a href="posts" class="btn btn-home"> 
                            Watch videos
                         </a> 
          
@@ -38,7 +38,7 @@ function HomePage(props) {
         />
 
         <Carousel.Caption>
-        <a href="#" class="btn btn-home"> 
+        <a href="onlineShop" class="btn btn-home"> 
                             Shop Online 
                         </a> 
           

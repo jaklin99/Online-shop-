@@ -14,8 +14,10 @@ export default class AddProduct extends Component {
     this.state = {
       id: null,
       name: "",
-      price: "",
-      category: "",
+      price: 0,
+      category: {
+        category_id: 0
+      },
       submitted: false
     };
   }
@@ -64,25 +66,27 @@ export default class AddProduct extends Component {
     this.setState({
       id: null,
       name: "",
-      price: "",
-      category:"",
+      price: 0,
+      category: {
+        category_id: 0
+      },
       submitted: false,
     });
   }
-   render() {
-     return (
-      <div class="row"> 
-      <div class="col-lg-6 mb-4"> 
-     <img class="login-img"
-           src="/imgs/tennis.jpg"
-           alt="First slide"
-         />
-    </div>
-    <div class="col-lg-4 mb-4">
-     <form class="form-l">
-       <h2>Add new product</h2>
-             <div className="form-group text-left">
-               <input
+  render() {
+    return (
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <img class="login-img"
+            src="/imgs/tennis.jpg"
+            alt="First slide"
+          />
+        </div>
+        <div class="col-lg-4 mb-4">
+          <form class="form-l">
+            <h2>Add new product</h2>
+            <div className="form-group text-left">
+              <input
                 type="text"
                 className="form-control"
                 id="name"
@@ -92,9 +96,9 @@ export default class AddProduct extends Component {
                 name="name"
                 placeholder="Name"
               />
-             </div>
-           <div className="form-group text-left">
-             <input
+            </div>
+            <div className="form-group text-left">
+              <input
                 type="number"
                 className="form-control"
                 id="price"
@@ -104,9 +108,9 @@ export default class AddProduct extends Component {
                 name="price"
                 placeholder="Price"
               />
-       </div>
-  <div className="form-group text-left">
-              
+            </div>
+            <div className="form-group text-left">
+
               <input
                 type="text"
                 className="form-control"
@@ -118,15 +122,16 @@ export default class AddProduct extends Component {
                 placeholder="Category"
               />
             </div>
-            <button href="/home" className="btn btn-watch">
+            <button href="/" className="btn btn-watch">
               Cancel
             </button>
             <button onClick={this.saveProduct} className="btn btn-comment">
               Add
             </button>
           </form></div>
-           <CustomFooter/> 
-    </div>
-     )};
-   }
+        <CustomFooter />
+      </div>
+    )
+  };
+}
 
