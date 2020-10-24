@@ -24,7 +24,7 @@ export default class User extends Component {
   }
 
   componentDidMount() {
-    this.getUser(this.props.match.params.email);
+    this.getUser(this.props.match.params.amail);
   }
 
   onChangeName(e) {
@@ -62,14 +62,14 @@ export default class User extends Component {
   }
   getUser(email) {
     UserService.get(email)
-      .then((response) => {
+      .then(response => {
         this.setState({
           currentUser: response.data,
         });
         console.log(response.data);
       })
       .catch((e) => {
-        console.log(e);
+        console.log(e+"fgh");
       });
     }
     saveUpdate(status) {
@@ -96,6 +96,7 @@ export default class User extends Component {
     }
     updateUser() {
         UserService.update(
+          this.state.currentUser.email,
           this.state.currentUser
         )
           .then(response => {
@@ -125,7 +126,7 @@ export default class User extends Component {
   deleteUser() {
     UserService.delete(this.state.currentUser)
       .then(() => {
-        this.props.history.push("/users"); //redirect 
+        this.props.history.push("/userList"); //redirect 
         this.setState({
           message: "The user was deleted successfully."
         });

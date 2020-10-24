@@ -4,6 +4,7 @@ import CustomFooter from "../Footer";
 class Posts extends React.Component {
   render() {
     return (
+        <>
       <div class="container"> 
         <div class="row"> 
             <div class="col-lg-10 mb-4"> 
@@ -45,9 +46,9 @@ class Posts extends React.Component {
                     </div> 
                 </div> 
             </div> 
-           </div>
+           </div></div> 
         <CustomFooter/>
-    </div> 
+    </>
   
     );
   }

@@ -26,9 +26,9 @@ com/example/accessingdatamysql/modelsTemp/User.java
  com.example.accessingdatamysql.modelsTemp.User
 com/example/accessingdatamysql/modelsTemp/Comment.java
  com.example.accessingdatamysql.modelsTemp.Comment
-com/example/accessingdatamysql/Controllers/UserController.java
- com.example.accessingdatamysql.Controllers.UserController
-com/example/accessingdatamysql/modelsTemp/Product.java
- com.example.accessingdatamysql.modelsTemp.Product
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController
+com/example/accessingdatamysql/modelsTemp/Product.java
+ com.example.accessingdatamysql.modelsTemp.Product
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController

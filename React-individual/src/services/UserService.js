@@ -11,14 +11,10 @@ class UserService {
     return http.post("/user/add", data);
   }
 
-  update(user, data) { return this.get(user.email).then(result=>{
-    if(user.email == result.data.email){
-   return http.put(`/user/${user.email}/update`, data);
-  }else{
-    throw new Error("Wrong credentials")
-   }
- });
-}
+  update(email, data) {
+    return http.put(`/user/${email}/update`, data);
+  }
+
 
   delete(user) {
    return this.get(user.email).then(result=>{

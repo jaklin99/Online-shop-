@@ -7,12 +7,13 @@ function AccountPage(props) {
       <div className="contact">
 <div class="container">
 <div class="row">
-<div class="col">
+<div class="col-lg-12 mb-4">
 <div class="card">
     <div class="card-header"> My Account
     </div>
-    <div class="card-body">
+            <div class="card-body">
         <form>
+            {/* REMINDER: make the credentials appear for each logged-in user */}
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required/>
@@ -33,7 +34,8 @@ function AccountPage(props) {
     </div></div>
 </div>
 </div>
-</div><CustomFooter/></div>
+</div>
+<CustomFooter/></div>
          );
 }
 export default AccountPage;

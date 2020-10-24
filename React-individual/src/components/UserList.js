@@ -153,18 +153,18 @@ export default class UserList extends Component {
               </div>
 
               <Link
-                to={"/user/"}
+                to={"/user/" + currentUser.email}
                 className="badge badge-warning"
               >
                 Edit
               </Link>
             </div>
           ) : (
-            <div>
-              <br />
-              <p>Please click on a user...</p>
-            </div>
-          )}
+              <div>
+                <br />
+                <p>Please click on a user...</p>
+              </div>
+            )}
         </div>
       </div>
     );

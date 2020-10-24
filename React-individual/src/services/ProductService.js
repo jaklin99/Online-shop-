@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class ProductService {
   getAll() {
-    return http.get("/prpduct/all");
+    return http.get("/product/all");
   }
   get(name) {
     return http.get(`/product/${name}`);
@@ -11,23 +11,24 @@ class ProductService {
     return http.post("/product/add", data);
   }
 
-  update(product, data) { return this.get(product.name).then(result=>{
-    if(product.name == result.data.name){
-   return http.put(`/product/${product.name}/update`, data);
-  }else{
-    throw new Error("Wrong information")
-   }
- });
-}
+  update(product, data) {
+    return this.get(product.name).then(result => {
+      if (product.name == result.data.name) {
+        return http.put(`/product/${product.name}/update`, data);
+      } else {
+        throw new Error("Wrong information")
+      }
+    });
+  }
 
   delete(product) {
-   return this.get(product.name).then(result=>{
-     if(product.name == result.data.name && product.price == result.data.price && product.category == result.data.category){
-      return http.delete(`/product/${product.name}/delete`);
-     }else{
-      throw new Error("Wrong information")
-     }
-   });
+    return this.get(product.name).then(result => {
+      if (product.name == result.data.name && product.price == result.data.price && product.category == result.data.category) {
+        return http.delete(`/product/${product.name}/delete`);
+      } else {
+        throw new Error("Wrong information")
+      }
+    });
   }
   deleteAll() {
     return http.delete(`/product/deleteAll`);

@@ -6,7 +6,7 @@ export default class ProductList extends Component {
   constructor(props) {
     super(props);
     this.onChangeSearchName = this.onChangeSearchName.bind(this);
-    this.retrieveProducts = this.removeAllProducts.bind(this);
+    this.retrieveProducts = this.retrieveProducts.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveProduct = this.setActiveProduct.bind(this);
     this.removeAllProducts = this.removeAllProducts.bind(this);
@@ -55,7 +55,7 @@ export default class ProductList extends Component {
 
   setActiveProduct(product, index) {
     this.setState({
-       currentProduct: product,
+      currentProduct: product,
       currentIndex: index,
     });
   }
@@ -123,7 +123,7 @@ export default class ProductList extends Component {
                   onClick={() => this.setActiveProduct(product, index)}
                   key={index}
                 >
-                  {product.name}
+                  {product.productName}
                 </li>
               ))}
           </ul>
@@ -143,7 +143,7 @@ export default class ProductList extends Component {
                 <label>
                   <strong>Name:</strong>
                 </label>{" "}
-                {currentProduct.name}
+                {currentProduct.productName}
               </div>
               <div>
                 <label>
@@ -153,18 +153,18 @@ export default class ProductList extends Component {
               </div>
 
               <Link
-                to={"/products/" + currentProduct.name}
+                to={"/product/" + currentProduct.productName}
                 className="badge badge-warning"
               >
                 Edit
               </Link>
             </div>
           ) : (
-            <div>
-              <br />
-              <p>Please click on a product...</p>
-            </div>
-          )}
+              <div>
+                <br />
+                <p>Please click on a product...</p>
+              </div>
+            )}
         </div>
       </div>
     );

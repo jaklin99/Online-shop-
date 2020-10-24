@@ -18,8 +18,16 @@ function CustomFooter() {
         <div class="row">
           <div class="col-md-6 mt-md-0 mt-3">
             <h5 class="text-uppercase">Matchpoint</h5>
-            <p>Address: <br /> Oxford Str., London, UK<br /><br />Contact information: <br />+44746378278<br />matchpoint@gmail.com</p>
+
+            Contact information: <br />+44746378278<br />matchpoint@gmail.com
           </div>
+          <h5 class="text-uppercase">Address</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Oxford Str., London, UK</a>
+              </li>            
+            </ul>
           <hr class="clearfix w-100 d-md-none pb-3" />
           <div class="col-md-2 mb-md-0 mb-2">
             <h5 class="text-uppercase">Shop Online</h5>
@@ -29,53 +37,18 @@ function CustomFooter() {
                 <a href="#!">Shop online</a>
               </li>
               <li>
-                <a href="#!">Posts</a>
+                <a href="#!">Cart</a>
               </li>
-              <li>
-                <a href="#!">Articles</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
+             
             </ul>
           </div>
           <div class="col-md-2 mb-md-0 mb-2">
             <h5 class="text-uppercase">Articles</h5>
 
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
+          
           </div>
           <div class="col-md-2 mb-md-0 mb-2">
             <h5 class="text-uppercase">Posts</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
           </div>
         </div>
       </div>

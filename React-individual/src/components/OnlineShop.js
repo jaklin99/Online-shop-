@@ -8,6 +8,7 @@ import CustomFooter from "../Footer";
 class OnlineShop extends React.Component {
   render() {
     return (
+        <>
       <div class="container"> 
         <div class="row"> 
             <div class="col-lg-3 mb-4"> 
@@ -83,9 +84,9 @@ class OnlineShop extends React.Component {
                 </div> 
             </div> 
         </div> 
-        <CustomFooter/>
-    </div> 
-  
+        
+    </div> <CustomFooter/>
+  </>
     );
   }
 }

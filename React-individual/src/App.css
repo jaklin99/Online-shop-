@@ -5,6 +5,7 @@
 div {
   margin: 0;
 }
+
 .body {
   height: 100%;
   overflow-y: hidden;
@@ -40,13 +41,18 @@ input {
   padding: 0px 10px;
   margin-top: 5%;
 } */
-.btn.btn-home{
+.total {
+  align-items: center;
+  background-color: turquoise;
+}
+.btn.btn-home {
   color: black;
   background-color: rgb(255, 255, 255);
   font-size: 28px;
   padding: 0px 10px;
   border: 1px solid black;
-}.btn.btn-home:hover {
+}
+.btn.btn-home:hover {
   background-color: rgba(0, 0, 0, 0.329);
   color: whitesmoke;
 }
@@ -57,6 +63,17 @@ input {
   font-size: 20px;
   padding: 10px 20px;
 }
+.btn.btn-pay {
+  color: black;
+  background-color: rgb(255, 255, 255);
+  font-size: 18px;
+  padding: 0px 10px;
+  border: 1px solid black;
+}
+.btn.btn-pay:hover {
+  background-color: black;
+  color: white;
+}
 .btn.btn-watch {
   color: black;
   background-color: rgb(255, 255, 255);
@@ -65,11 +82,18 @@ input {
   border: 1px solid black;
   float: left;
 }
+.fa {
+  margin-top: 3%;
+  margin-left: 1%;
+  font-size: 24px;
+}
 .btn.btn-watch:hover {
-  background-color: rgba(0, 0, 0, 0.329);
+  background-color: black;
+  color: white;
 }
 .btn.btn-comment:hover {
-  background-color: rgba(0, 0, 0, 0.329);
+  background-color: black;
+  color: white;
 }
 .btn.btn-comment {
   color: black;
@@ -81,6 +105,14 @@ input {
 }
 .content {
   min-height: 100vh;
+}
+.cart {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.product-cart {
+  width: 150px;
+  height: 150px;
 }
 .footer {
   margin-top: 1rem;
@@ -94,7 +126,7 @@ input {
 .contact {
   background-color: #1794b062;
 }
-.col{
+.col {
   margin-top: 2%;
 }
 h1 {
@@ -176,4 +208,15 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+.img-cart {
+  width: 150px;
+  height: 150px;
+}
+.col-sm.sm {
+  background-color: #fff;
+  margin-top: 3%;
+}
+.col-sm.s {
+  margin-top: 1.3%;
 }

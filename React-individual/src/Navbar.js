@@ -16,6 +16,7 @@ import Articles from "./components/Articles";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
 import contact from "./Contact";
+import Cart from "./components/Cart";
 
 function CustomNavbar() {
   return (
@@ -43,13 +44,13 @@ function CustomNavbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/">Logout</NavDropdown.Item>
             </NavDropdown>
-            <a class="btn btn-cart" href="#">
-        <i class="fa fa-shopping-cart"></i> Cart
+            <a class="btn btn-cart" href="cart">
+              <i class="fa fa-shopping-cart"></i> Cart
     </a>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-     
+
       <Switch>
         <Route exact path="/userList" component={UserList} />
         <Route exact path="/" component={HomePage} />
@@ -59,11 +60,12 @@ function CustomNavbar() {
         <Route path="/addProduct" component={AddProduct} />
         <Route path="/register" component={register} />
         <Route path="/user" component={User} />
-        <Route exact path="/product" component={Product} />
+        <Route path="/product" component={Product} />
         <Route exact path="/productList" component={ProductList} />
         <Route path="/articles" component={Articles} />
         <Route path="/contact" component={contact} />
         <Route path="/account" component={Account} />
+        <Route path="/cart" component={Cart} />
       </Switch>
     </Router>
   );

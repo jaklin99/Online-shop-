@@ -38,6 +38,7 @@ public class UserController {
 //		return userInfo.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 //	}
 
+	@Transactional
 	@GetMapping("/{email}")
 			public ResponseEntity<User> getUserByEmail(@PathVariable("email")String email){
 		Optional<User> userEmail = userRepository.findByEmail(email);
@@ -64,6 +65,7 @@ public class UserController {
 //		else
 //			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //	}
+@Transactional
 	@PutMapping("/{email}/update")
 	public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody User updatedUser) {
 		Optional<User> userInfo = userRepository.findByEmail(email);

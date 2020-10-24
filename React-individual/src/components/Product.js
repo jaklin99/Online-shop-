@@ -24,7 +24,7 @@ export default class Product extends Component {
   }
 
   componentDidMount() {
-    this.getProduct(this.props.match.params.id);
+    this.getProduct(this.props.match.params.name);
   }
 
   onChangeName(e) {
@@ -60,8 +60,8 @@ export default class Product extends Component {
       },
     }));
   }
-  getProduct(product) {
-    ProductService.get(product)
+  getProduct(name) {
+    ProductService.get(name)
       .then((response) => {
         this.setState({
           currentProduct: response.data,
@@ -96,6 +96,7 @@ export default class Product extends Component {
     }
     updateProduct() {
         ProductService.update(
+          this.state.currentProduct.name,
           this.state.currentProduct
         )
           .then(response => {
