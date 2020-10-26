@@ -24,7 +24,8 @@ export default class User extends Component {
   }
 
   componentDidMount() {
-    this.getUser(this.props.match.params.amail);
+    console.log(this.props);
+    this.getUser(this.props.match.params.email);
   }
 
   onChangeName(e) {

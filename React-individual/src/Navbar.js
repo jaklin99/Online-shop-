@@ -59,7 +59,7 @@ function CustomNavbar() {
         <Route path="/login" component={login} />
         <Route path="/addProduct" component={AddProduct} />
         <Route path="/register" component={register} />
-        <Route path="/user" component={User} />
+        <Route path="/user/:email" component={User} />
         <Route path="/product" component={Product} />
         <Route exact path="/productList" component={ProductList} />
         <Route path="/articles" component={Articles} />

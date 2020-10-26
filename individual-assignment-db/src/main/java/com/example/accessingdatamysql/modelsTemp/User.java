@@ -24,8 +24,9 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     @Column(nullable = false, length = 20)
@@ -38,23 +39,27 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    public User setName(String name) {
+
         this.name = name;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
+
         this.email = email;
+        return this;
     }
 
 
     @Override
     public String toString() {
         return "User{" +
-                "userNumber=" + userId +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 '}';
     }

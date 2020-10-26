@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Controller	// This means that this class is a Controller
@@ -28,7 +29,7 @@ public class UserController {
 	}
 
 	@GetMapping(path="/all")
-	public @ResponseBody Iterable<User> getAllUsers() {
+	public @ResponseBody List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
@@ -46,8 +47,8 @@ public class UserController {
 	}
 	@PostMapping("/add")
 	public ResponseEntity<User> addNewUser(@RequestBody User user) {
-		userRepository.save(user);
-		return new ResponseEntity<User>(HttpStatus.CREATED);
+		User fromDb = userRepository.save(user);
+		return new ResponseEntity<User>(fromDb, HttpStatus.CREATED);
 	}
 
 //	@PutMapping("/{userId}/update")
@@ -66,7 +67,7 @@ public class UserController {
 //			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //	}
 @Transactional
-	@PutMapping("/{email}/update")
+	@PutMapping("/{email}/update") //business logic
 	public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody User updatedUser) {
 		Optional<User> userInfo = userRepository.findByEmail(email);
 		if (userInfo.isPresent()) {

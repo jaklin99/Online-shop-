@@ -1,7 +1,7 @@
 com/example/accessingdatamysql/Repository/CommentRepository.java
  com.example.accessingdatamysql.Repository.CommentRepository
-com/example/accessingdatamysql/Repository/UserRepository.java
- com.example.accessingdatamysql.Repository.UserRepository
+com/example/accessingdatamysql/modelsTemp/Product.java
+ com.example.accessingdatamysql.modelsTemp.Product
 com/example/accessingdatamysql/modelsTemp/Category.java
  com.example.accessingdatamysql.modelsTemp.Category
 com/example/accessingdatamysql/Repository/ProductRepository.java
@@ -22,13 +22,13 @@ com/example/accessingdatamysql/Controllers/CommentController.java
  com.example.accessingdatamysql.Controllers.CommentController
 com/example/accessingdatamysql/Controllers/PostController.java
  com.example.accessingdatamysql.Controllers.PostController
-com/example/accessingdatamysql/modelsTemp/User.java
- com.example.accessingdatamysql.modelsTemp.User
-com/example/accessingdatamysql/modelsTemp/Comment.java
- com.example.accessingdatamysql.modelsTemp.Comment
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController
-com/example/accessingdatamysql/modelsTemp/Product.java
- com.example.accessingdatamysql.modelsTemp.Product
+com/example/accessingdatamysql/Repository/UserRepository.java
+ com.example.accessingdatamysql.Repository.UserRepository
+com/example/accessingdatamysql/modelsTemp/Comment.java
+ com.example.accessingdatamysql.modelsTemp.Comment
+com/example/accessingdatamysql/modelsTemp/User.java
+ com.example.accessingdatamysql.modelsTemp.User
 com/example/accessingdatamysql/Controllers/UserController.java
  com.example.accessingdatamysql.Controllers.UserController
