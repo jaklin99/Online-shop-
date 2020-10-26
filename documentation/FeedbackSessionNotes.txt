@@ -1,0 +1,12 @@
+ci solution in the design document
+sonaquabe - explain
+ask maia about the ms documents
+C4:
+why did I pick mysql?
+1st diagram - outside the server
+2nd- explanation-why arrows? what talks to what?
+3rd- how are the layers separated?
+database-hibernate
+-no need of the high-level architecture
+-add methods used from the dot framework
+certain technology used,

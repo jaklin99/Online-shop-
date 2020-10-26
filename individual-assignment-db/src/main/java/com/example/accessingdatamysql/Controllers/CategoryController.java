@@ -1,6 +1,7 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.CategoryRepository;
+import com.example.accessingdatamysql.Services.CategoryService;
 import com.example.accessingdatamysql.modelsTemp.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -21,11 +23,13 @@ import java.util.Optional;
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping(path = "/all")
     public @ResponseBody
-    Iterable<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
     @GetMapping("/{categoryId}")

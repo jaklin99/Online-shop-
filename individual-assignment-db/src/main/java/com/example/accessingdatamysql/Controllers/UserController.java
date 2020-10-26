@@ -1,6 +1,7 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.UserRepository;
+import com.example.accessingdatamysql.Services.UserService;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,8 @@ import java.util.Optional;
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
-
+@Autowired
+private UserService userService;
 
 	@GetMapping("/greeting")
 	public @ResponseBody String greeting(@RequestParam(name = "name", required = false, defaultValue = "There") String name, Model model) {
@@ -30,7 +32,7 @@ public class UserController {
 
 	@GetMapping(path="/all")
 	public @ResponseBody List<User> getAllUsers() {
-		return userRepository.findAll();
+		return userService.getAllUsers();
 	}
 
 //	@GetMapping("/{userId}")
