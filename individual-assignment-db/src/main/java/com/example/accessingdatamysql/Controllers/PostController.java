@@ -1,12 +1,15 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.PostRepository;
+import com.example.accessingdatamysql.Services.PostService;
+import com.example.accessingdatamysql.Services.ProductService;
 import com.example.accessingdatamysql.modelsTemp.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -18,10 +21,12 @@ public class PostController {
 
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private PostService postService;
 
     @GetMapping("/all")
-    public Iterable<Post> getAllPosts() {
-        return postRepository.findAll();
+    public List<Post> getAllPosts() {
+        return postService.getAllPosts();
     }
 
     @PostMapping("/add")
