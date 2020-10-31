@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import CustomFooter from "../Footer";
+import Axios from "axios";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -16,10 +17,21 @@ export default class AddProduct extends Component {
       name: "",
       price: 0,
       category: {
-        category_id: 0
+        categoryId: 0
       },
-      submitted: false
+      submitted: false,
+      categories: []
     };
+  }
+
+  componentDidMount() {
+    Axios.get('http://localhost:8080/category/all')
+      .then(result => {
+        const categories = result.data;
+        this.setState({
+          categories
+        })
+      })
   }
 
   onChangeName(e) {
@@ -32,11 +44,15 @@ export default class AddProduct extends Component {
     this.setState({
       price: e.target.value,
     });
+    console.log(this.state);
   }
   onChangeCategory(e) {
     this.setState({
-      category: e.target.value,
+      category: {
+        categoryId: e.target.value
+      }
     });
+    console.log(this.state);
   }
 
   saveProduct() {
@@ -111,16 +127,12 @@ export default class AddProduct extends Component {
             </div>
             <div className="form-group text-left">
 
-              <input
-                type="text"
-                className="form-control"
-                id="category"
-                required
-                value={this.state.category}
-                onChange={this.onChangeCategory}
-                name="category"
-                placeholder="Category"
-              />
+              <select name="Categories" onChange={this.onChangeCategory} id="category">
+                <option></option>
+                {this.state.categories.map(category => (
+                  <option key={category.categoryId} value={category.categoryId}>{category.name}</option>
+                ))}
+              </select>
             </div>
             <button href="/" className="btn btn-watch">
               Cancel

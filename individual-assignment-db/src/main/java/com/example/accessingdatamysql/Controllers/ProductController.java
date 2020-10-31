@@ -1,7 +1,6 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.ProductRepository;
-import com.example.accessingdatamysql.Services.ProductService;
 import com.example.accessingdatamysql.modelsTemp.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,14 +22,14 @@ import java.util.Optional;
 
 public class ProductController {
     @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private ProductService productService;
+   private ProductRepository productRepository;
+//    @Autowired
+//    private ProductService productService;
 
     @GetMapping(path = "/all")
     public @ResponseBody
     List<Product> getAllProducts() {
-        return productService.getAllProducts();
+        return productRepository.findAll();
     }
 
     @GetMapping("/{productName}")

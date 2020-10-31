@@ -18,13 +18,13 @@ class UserService {
 
 
   delete(user) {
-   return this.get(user.email).then(result=>{
-     if(user.email == result.data.email && user.password == result.data.password && user.name == result.data.name){
-      return http.delete(`/user/${user.email}/delete`);
-     }else{
-      throw new Error("Wrong credentials")
-     }
-   });
+    return this.get(user.email).then(result => {
+      if (user.email == result.data.email && user.password == result.data.password && user.name == result.data.name) {
+        return http.delete(`/user/${user.email}/delete`);
+      } else {
+        throw new Error("Wrong credentials")
+      }
+    });
   }
   deleteAll() {
     return http.delete(`/user/deleteAll`);

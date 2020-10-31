@@ -7,6 +7,9 @@ class ProductService {
   get(name) {
     return http.get(`/product/${name}`);
   }
+  getAllCategories() {
+    return http.get(`/category/all`);
+  }
   create(data) {
     return http.post("/product/add", data);
   }

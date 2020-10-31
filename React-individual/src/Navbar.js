@@ -52,16 +52,16 @@ function CustomNavbar() {
       </Navbar>
 
       <Switch>
-        <Route exact path="/userList" component={UserList} />
+        <Route path="/userList" component={UserList} />
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/posts" component={posts} />
-        <Route exact path="/onlineShop" component={onlineShop} />
+        <Route path="/posts" component={posts} />
+        <Route path="/onlineShop" component={onlineShop} />
         <Route path="/login" component={login} />
         <Route path="/addProduct" component={AddProduct} />
         <Route path="/register" component={register} />
         <Route path="/user/:email" component={User} />
         <Route path="/product" component={Product} />
-        <Route exact path="/productList" component={ProductList} />
+        <Route path="/productList" component={ProductList} />
         <Route path="/articles" component={Articles} />
         <Route path="/contact" component={contact} />
         <Route path="/account" component={Account} />

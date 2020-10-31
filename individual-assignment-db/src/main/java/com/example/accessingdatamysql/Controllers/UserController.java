@@ -21,18 +21,15 @@ import java.util.Optional;
 public class UserController {
 	@Autowired
 	private UserRepository userRepository;
-@Autowired
-private UserService userService;
+	@Autowired
+	private UserService userService;
 
-	@GetMapping("/greeting")
-	public @ResponseBody String greeting(@RequestParam(name = "name", required = false, defaultValue = "There") String name, Model model) {
-		model.addAttribute("name", name);
-		return "<h1> Hello, "+ name+ "</h1>";
-	}
+//@Autowired
+//private UserService userService;
 
 	@GetMapping(path="/all")
 	public @ResponseBody List<User> getAllUsers() {
-		return userService.getAllUsers();
+		return userService.allUsers();
 	}
 
 //	@GetMapping("/{userId}")

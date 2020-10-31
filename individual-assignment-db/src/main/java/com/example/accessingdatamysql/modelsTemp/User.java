@@ -17,6 +17,9 @@ public class User {
     @Column(unique = true,nullable = false,length = 30)
     @Email
     private String email;
+    @Column(nullable = false, length = 20)
+    private String password;
+
 //    @Enumerated(EnumType.STRING)
 //    private UserType userType;
 
@@ -28,9 +31,6 @@ public class User {
         this.password = password;
         return this;
     }
-
-    @Column(nullable = false, length = 20)
-    private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comment;

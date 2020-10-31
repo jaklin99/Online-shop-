@@ -81,17 +81,17 @@ class UserControllerTest {
         Mockito.verify(userRepository).save(sampleUser);
     }
 
-    @Test
-    void addUserWithNullEmail(){
-
-        User user = sampleUsers.get(0).setEmail(null);
-        ResponseEntity<User> response = userController.addNewUser(user);
-
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-
-        Mockito.verify(userRepository, never()).save(Mockito.any());
-
-    }
+//    @Test
+//    void addUserWithNullEmail(){
+//
+//        User user = sampleUsers.get(0).setEmail(null);
+//        ResponseEntity<User> response = userController.addNewUser(user);
+//
+//        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+//
+//        Mockito.verify(userRepository, never()).save(Mockito.any());
+//
+//    }
     //TODO: do the name and password-null
     //TODO: add with duplicates name or email
 
@@ -116,5 +116,13 @@ class UserControllerTest {
         ResponseEntity<User> response = userController.getUserByEmail("any@mail.com");
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+    @Test void deleteActualUser(){
+        User sampleUser = sampleUsers.get(0);
+        Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;
+
+        userRepository.delete(sampleUser);
+
+        Mockito.verify(userRepository).delete(sampleUser);
     }
 }

@@ -1,7 +1,6 @@
 package com.example.accessingdatamysql.Controllers;
 import com.example.accessingdatamysql.Repository.CommentRepository;
 import com.example.accessingdatamysql.Repository.PostRepository;
-import com.example.accessingdatamysql.Services.CommentService;
 import com.example.accessingdatamysql.modelsTemp.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,14 +21,14 @@ public class CommentController {
 
     @Autowired
     private PostRepository postRepository;
-
-    @Autowired
-    private CommentService commentService;
+//
+//    @Autowired
+//    private CommentService commentService;
 
     @GetMapping("/all")
     public  @ResponseBody
     List<Comment> getAllComments() {
-        return commentService.getAllComments();
+        return commentRepository.findAll();
     }
 
 //    @PostMapping("/posts/{postId}/comments")
