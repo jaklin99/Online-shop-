@@ -1,56 +1,32 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import "../App.css";
+import Carousel from "react-bootstrap/Carousel";
 import CustomFooter from "../Footer";
-class Posts extends React.Component {
-  render() {
-    return (
-        <>
-      <div class="container"> 
-        <div class="row"> 
-            <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                <img class="card-img-top" src="../imgs/sharapova-williams.jpg" />
-        <a href="./img/test_2.mp4" download></a
-        >  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Sharapova vs Williams</h5> 
-                        <p class="card-text"> 
-                            Check this out if you want to see the unique tournament between one of the best two woman rackets in the world.
-                        </p> 
-  
-                        <a href="https://www.youtube.com/watch?v=I77-CKHYFds" class="btn btn-watch"> 
-                            Watch 
+
+function Post(props) {
+  return (
+    <div class="carousel">
+    <Carousel>
+      <Carousel.Item>
+      <iframe width="100%" height="700" src="https://www.youtube.com/embed/I77-CKHYFds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <Carousel.Caption>
+          <h3>Sharapova VS Williams</h3>
+          <a href="#" class="btn btn-info"> 
+                          Comment
                         </a> 
-                        <a href="/comment" class="btn btn-comment"> 
-                            Comment 
+                  </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <iframe width="100%" height="700" src="https://www.youtube.com/embed/V96sSCV03ng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                            
+        <Carousel.Caption>
+          <h3>Djokovic VS Nadal </h3>
+          <a href="#" class="btn btn-info"> 
+                            Comment
                         </a> 
-                    </div> 
-                </div> 
-            </div> <div class="col-lg-10 mb-4"> 
-                <div class="card-post"> 
-                    <img class="card-img-top" src="../imgs/d-n.jpg" alt=""/> 
-  
-                    <div class="card-body"> 
-                        <h5 class="card-title">Card title</h5> 
-                        <p class="card-text"> 
-                        Check this out if you want to see the unique tournament between one of the best two man rackets in the world.
-                        </p>
-                          
-                        <a href="https://www.tokyvideo.com/video/rafa-nadal-vs-novak-djokovic-2020-roland-garros-final-full-match" class="btn btn-watch"> 
-                            Watch 
-                        </a> 
-                        <a href="/comment" class="btn btn-comment"> 
-                            Comment 
-                        </a> 
-                       
-                    </div> 
-                </div> 
-            </div> 
-           </div></div> 
-        <CustomFooter/>
-    </>
-  
-    );
-  }
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel><CustomFooter/>
+    </div>
+  );
 }
-export default Posts;
+export default Post;

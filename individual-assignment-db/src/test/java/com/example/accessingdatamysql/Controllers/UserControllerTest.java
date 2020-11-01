@@ -117,6 +117,14 @@ class UserControllerTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
+    @Test
+    void updateExistingUser(){
+        User sampleUser = sampleUsers.get(0);
+        Mockito.when(userRepository.save(sampleUser)).thenReturn(sampleUser); //expect a fetch, return a "fetched" person;
+        //User expectedUser=userController.updateUser(sampleUser.getEmail());
+        //assertNotNull(expectedUser);
+        //Mockito.verify(userRepository).save(any(sampleUser);
+    }
     @Test void deleteActualUser(){
         User sampleUser = sampleUsers.get(0);
         Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;

@@ -29,7 +29,7 @@ public class UserController {
 
 	@GetMapping(path="/all")
 	public @ResponseBody List<User> getAllUsers() {
-		return userService.allUsers();
+		return userService.findUsers();
 	}
 
 //	@GetMapping("/{userId}")
@@ -41,7 +41,7 @@ public class UserController {
 	@Transactional
 	@GetMapping("/{email}")
 			public ResponseEntity<User> getUserByEmail(@PathVariable("email")String email){
-		Optional<User> userEmail = userRepository.findByEmail(email);
+		Optional<User> userEmail = userService.findByEmail(email);
 		return userEmail.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	@PostMapping("/add")

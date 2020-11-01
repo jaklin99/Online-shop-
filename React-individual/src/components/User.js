@@ -110,20 +110,7 @@ export default class User extends Component {
             console.log(e);
           });
       }
-    // UserService.update(this.state.currentUser)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     this.props.history.push("/users");
-    //     this.setState({
-    //       message: "The user was updated successfully!",
-    //     });
-    //   })
-    //   .catch(() => {
-    //     this.setState({
-    //       message: "Unsuccessful update."
-    //     })
-    //   });
-
+    
   deleteUser() {
     UserService.delete(this.state.currentUser)
       .then(() => {

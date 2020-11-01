@@ -12,7 +12,6 @@ import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
 import posts from "./components/Posts";
-import Articles from "./components/Articles";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
 import contact from "./Contact";
@@ -27,14 +26,11 @@ function CustomNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="posts">Posts</Nav.Link>
-            <Nav.Link href="articles">Articles</Nav.Link>
             <Nav.Link href="onlineShop">Online shop</Nav.Link>
             <Nav.Link href="contact">Contact</Nav.Link>
             <Nav.Link className="loginItem" href="login">Login</Nav.Link>
             <NavDropdown title="Service" id="basic-nav-dropdown">
-              <NavDropdown.Item href="user">User</NavDropdown.Item>
               <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
-              <NavDropdown.Item href="product">Product</NavDropdown.Item>
               <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
               <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
             </NavDropdown>
@@ -62,7 +58,6 @@ function CustomNavbar() {
         <Route path="/user/:email" component={User} />
         <Route path="/product" component={Product} />
         <Route path="/productList" component={ProductList} />
-        <Route path="/articles" component={Articles} />
         <Route path="/contact" component={contact} />
         <Route path="/account" component={Account} />
         <Route path="/cart" component={Cart} />

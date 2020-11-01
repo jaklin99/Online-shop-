@@ -4,8 +4,8 @@ com/example/accessingdatamysql/modelsTemp/Product.java
  com.example.accessingdatamysql.modelsTemp.Product
 com/example/accessingdatamysql/modelsTemp/Category.java
  com.example.accessingdatamysql.modelsTemp.Category
-com/example/accessingdatamysql/Repository/UserRepository.java
- com.example.accessingdatamysql.Repository.UserRepository
+com/example/accessingdatamysql/Services/ProductService.java
+ com.example.accessingdatamysql.Services.ProductService
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController
 com/example/accessingdatamysql/modelsTemp/Post.java
@@ -34,5 +34,5 @@ com/example/accessingdatamysql/Controllers/UserController.java
  com.example.accessingdatamysql.Controllers.UserController
 com/example/accessingdatamysql/Services/UserService.java
  com.example.accessingdatamysql.Services.UserService
-com/example/accessingdatamysql/Services/ProductService.java
- com.example.accessingdatamysql.Services.ProductService
+com/example/accessingdatamysql/Repository/UserRepository.java
+ com.example.accessingdatamysql.Repository.UserRepository

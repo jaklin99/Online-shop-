@@ -14,44 +14,136 @@ function CustomFooter() {
   return (
     <div className="footer">
 
-      <div class="container-fluid text-center text-md-left">
-        <div class="row">
-          <div class="col-md-6 mt-md-0 mt-3">
-            <h5 class="text-uppercase">Matchpoint</h5>
+<footer class="page-footer font-small stylish-color-dark pt-4">
 
-            Contact information: <br />+44746378278<br />matchpoint@gmail.com
-          </div>
-          <h5 class="text-uppercase">Address</h5>
+  <div class="container text-center text-md-left">
 
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Oxford Str., London, UK</a>
-              </li>            
-            </ul>
-          <hr class="clearfix w-100 d-md-none pb-3" />
-          <div class="col-md-2 mb-md-0 mb-2">
-            <h5 class="text-uppercase">Shop Online</h5>
+    <div class="row">
+      <hr class="clearfix w-100 d-md-none"/>
 
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Shop online</a>
-              </li>
-              <li>
-                <a href="#!">Cart</a>
-              </li>
-             
-            </ul>
-          </div>
-          <div class="col-md-2 mb-md-0 mb-2">
-            <h5 class="text-uppercase">Articles</h5>
+      <div class="col-md-2 mx-auto">
 
-          
-          </div>
-          <div class="col-md-2 mb-md-0 mb-2">
-            <h5 class="text-uppercase">Posts</h5>
-          </div>
-        </div>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Posts</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div><hr class="clearfix w-100 d-md-none"/>
+
+<div class="col-md-2 mx-auto">
+
+  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Comments</h5>
+
+  <ul class="list-unstyled">
+    <li>
+      <a href="#!">Link 1</a>
+    </li>
+    <li>
+      <a href="#!">Link 2</a>
+    </li>
+    <li>
+      <a href="#!">Link 3</a>
+    </li>
+    <li>
+      <a href="#!">Link 4</a>
+    </li>
+  </ul>
+
+</div>
+      <hr class="clearfix w-100 d-md-none"/>
+
+      <div class="col-md-2 mx-auto">
+
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Online shop</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
       </div>
+      <hr class="clearfix w-100 d-md-none"/>
+
+      <div class="col-md-2 mx-auto">
+
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address & Contact</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <hr class="clearfix w-100 d-md-none"/>
+
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+        <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+        <a type="button" class="btn-floating btn-fb">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a type="button" class="btn-floating btn-tw">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a type="button" class="btn-floating btn-gplus">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+        <a type="button" class="btn-floating btn-dribbble">
+          <i class="fab fa-dribbble"></i>
+        </a>
+
+      </div>
+
+    </div>
+    </div>
+  <hr></hr>
+  <ul class="list-unstyled list-inline text-center py-2">
+    <li class="list-inline-item">
+      <h5 class="mb-1">Register for free</h5>
+    </li>
+    <li class="list-inline-item">
+      <a href="register" class="btn btn-danger btn-rounded">Sign up!</a>
+    </li>
+  </ul>
+
+  <hr></hr>
+  <div class="footer-copyright text-center py-3">© 2020 Matchpoint
+  </div>
+
+</footer>
     </div>
   );
 }
