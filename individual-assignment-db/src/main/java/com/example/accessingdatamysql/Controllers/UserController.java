@@ -19,17 +19,13 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 
 public class UserController {
-	@Autowired
-	private UserRepository userRepository;
+
 	@Autowired
 	private UserService userService;
 
-//@Autowired
-//private UserService userService;
-
 	@GetMapping(path="/all")
 	public @ResponseBody List<User> getAllUsers() {
-		return userService.findUsers();
+		return userService.findAll();
 	}
 
 //	@GetMapping("/{userId}")
@@ -46,35 +42,20 @@ public class UserController {
 	}
 	@PostMapping("/add")
 	public ResponseEntity<User> addNewUser(@RequestBody User user) {
-		User fromDb = userRepository.save(user);
+		User fromDb = userService.save(user);
 		return new ResponseEntity<User>(fromDb, HttpStatus.CREATED);
 	}
 
-//	@PutMapping("/{userId}/update")
-//	public ResponseEntity<User> updateUser(@PathVariable long userId, @RequestBody User updatedUser) {
-//		if (userRepository.existsById(userId)){
-//			userRepository.findById(userId).map(u -> {
-//				u.setName(u.getName());
-//				u.setEmail(u.getEmail());
-//				u.setPassword(u.getPassword());
-//				userRepository.save(u);
-//				return updatedUser;
-//			});
-//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		}
-//		else
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//	}
 @Transactional
 	@PutMapping("/{email}/update") //business logic
 	public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody User updatedUser) {
-		Optional<User> userInfo = userRepository.findByEmail(email);
+		Optional<User> userInfo = userService.findByEmail(email);
 		if (userInfo.isPresent()) {
 			User user = userInfo.get();
 			user.setName(updatedUser.getName());
 			user.setEmail(updatedUser.getEmail());
 			user.setPassword(updatedUser.getPassword());
-			userRepository.save(user);
+			userService.save(user);
 			return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -84,15 +65,15 @@ public class UserController {
 	@Transactional
 	@DeleteMapping("/{email}/delete")
 	public ResponseEntity<User> deleteUser(@PathVariable String email){
-		if (userRepository.existsByEmail(email)) {
-			userRepository.deleteByEmail(email);
+		if (userService.existsByEmail(email)) {
+			userService.deleteByEmail(email);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	@DeleteMapping("/deleteAll")
 	public ResponseEntity<User> deleteAllUsers() {
-		userRepository.deleteAll();
+		userService.deleteAll();
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }

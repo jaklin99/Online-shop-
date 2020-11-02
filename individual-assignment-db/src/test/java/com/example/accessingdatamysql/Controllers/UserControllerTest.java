@@ -60,14 +60,14 @@ class UserControllerTest {
     }
 
     @Test
-    void GetAllUsersWhenThereAreSome() {
+    void getAllUsersWhenThereAreSome() {
         Mockito.when(userRepository.findAll()).thenReturn(sampleUsers);
         List<User> actual = userController.getAllUsers();
         assertEquals(sampleUsers, actual);
     }
 
     @Test
-    void AddNewValidUser(){
+    void addNewValidUser(){
         //when sb calls this user, it returns the same user - this is because of the mock repository
         User sampleUser = sampleUsers.get(0);
 
@@ -117,15 +117,15 @@ class UserControllerTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
-    @Test
-    void updateExistingUser(){
-        User sampleUser = sampleUsers.get(0);
-        Mockito.when(userRepository.save(sampleUser)).thenReturn(sampleUser); //expect a fetch, return a "fetched" person;
-        //User expectedUser=userController.updateUser(sampleUser.getEmail());
-        //assertNotNull(expectedUser);
-        //Mockito.verify(userRepository).save(any(sampleUser);
-    }
-    @Test void deleteActualUser(){
+//    @Test
+//    void updateExistingUser(){
+//        User sampleUser = sampleUsers.get(0);
+//        Mockito.when(userRepository.save(sampleUser)).thenReturn(sampleUser); //expect a fetch, return a "fetched" person;
+//        ResponseEntity<User> expectedUser=userController.updateUser(sampleUser.getEmail(), sampleUser);
+//        assertNotNull(expectedUser);
+//        Mockito.verify(userRepository).save(sampleUser);
+//    }
+        @Test void deleteActualUser(){
         User sampleUser = sampleUsers.get(0);
         Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;
 

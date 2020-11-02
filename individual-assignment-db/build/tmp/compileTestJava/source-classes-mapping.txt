@@ -1,2 +1,4 @@
+com/example/accessingdatamysql/Controllers/ProductControllerTest.java
+ com.example.accessingdatamysql.Controllers.ProductControllerTest
 com/example/accessingdatamysql/Controllers/UserControllerTest.java
  com.example.accessingdatamysql.Controllers.UserControllerTest

@@ -29,24 +29,27 @@ public class Product {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public Product setCategory(Category category) {
         this.category = category;
+        return this;
     }
 
     public String getProductName() {
         return name;
     }
 
-    public void setProductName(String name) {
+    public Product setProductName(String name) {
         this.name = name;
+        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public Product setPrice(double price) {
         this.price = price;
+        return this;
     }
 
     public Product(){}
