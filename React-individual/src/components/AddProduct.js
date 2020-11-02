@@ -99,7 +99,7 @@ export default class AddProduct extends Component {
                 <div class="card-header"> Add product
           </div>
                 <div class="card-body">
-                  <form>
+                  <form method="POST">
                     <div class="form-group">
                       <label for="name">Name</label>
                       <input

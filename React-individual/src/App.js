@@ -7,8 +7,8 @@ import AuthNav from "./AuthNav";
 class App extends Component {
   render() {
     return (
-    <CustomNavbar />
-    //<AuthNav />
+    //<CustomNavbar />
+    <AuthNav />
     );
   }
 }

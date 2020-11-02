@@ -11,7 +11,7 @@ function Post(props) {
       <iframe width="100%" height="700" src="https://www.youtube.com/embed/I77-CKHYFds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <Carousel.Caption>
           <h3>Sharapova VS Williams</h3>
-          <a href="#" class="btn btn-info"> 
+          <a href="comment" class="btn btn-info"> 
                           Comment
                         </a> 
                   </Carousel.Caption>
@@ -20,7 +20,7 @@ function Post(props) {
       <iframe width="100%" height="700" src="https://www.youtube.com/embed/V96sSCV03ng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                            
         <Carousel.Caption>
           <h3>Djokovic VS Nadal </h3>
-          <a href="#" class="btn btn-info"> 
+          <a href="comment" class="btn btn-info"> 
                             Comment
                         </a> 
         </Carousel.Caption>

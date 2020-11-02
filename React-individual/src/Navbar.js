@@ -16,6 +16,8 @@ import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
 import contact from "./Contact";
 import Cart from "./components/Cart";
+import Comment from "./components/Comment";
+
 
 function CustomNavbar() {
   return (
@@ -61,6 +63,7 @@ function CustomNavbar() {
         <Route path="/contact" component={contact} />
         <Route path="/account" component={Account} />
         <Route path="/cart" component={Cart} />
+        <Route path="/comment" component={Comment} />
       </Switch>
     </Router>
   );

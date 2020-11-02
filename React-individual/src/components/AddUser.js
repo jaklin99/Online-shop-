@@ -120,7 +120,7 @@ export default class AddUser extends Component {
               
                   </div>
                   <div class="mx-auto">
-                  <button type="submit" class="btn btn-register">Submit</button></div>
+                  <button onClick={this.saveUser} type="submit" class="btn btn-register">Submit</button></div>
               </form>
           </div></div>
       </div>
