@@ -13,117 +13,105 @@ import { IconName } from "react-icons/bs";
 
 function CustomFooter() {
   return (
-    <div className="footer">
-
-      <footer class="page-footer font-small stylish-color-dark pt-4">
-
-        <div class="container text-center text-md-left">
-
-          <div class="row">
-            <hr class="clearfix w-100 d-md-none" />
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Posts</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="posts">Watch</a>
-                </li>
-                <li>
-                  <a href="comment">Comment</a>
-                </li>
-              </ul>
-
-            </div><hr class="clearfix w-100 d-md-none" />
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Comments</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="comment">See comments</a>
-                </li>
-              </ul>
-
+    <footer class="page-footer font-small blue-grey lighten-5">
+      <div class="footer-class">
+        <div class="container">
+    
+          <div class="row py-4 d-flex align-items-center">
+    
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
             </div>
-            <hr class="clearfix w-100 d-md-none" />
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Online shop</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="">Shop</a>
-                </li>
-                <li>
-                  <a href="#!">Orders</a>
-                </li>
-                <li>
-                  <a href="cart">Cart</a>
-                </li>
-              </ul>
-
+            
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+    
+              <a class="fb-ic">
+                <i class="fab fa-facebook-f white-text mr-4"> </i>
+              </a>
+              <a class="tw-ic">
+                <i class="fab fa-twitter white-text mr-4"> </i>
+              </a>
+              <a class="gplus-ic">
+                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+              </a>
+              <a class="li-ic">
+                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+              </a>
+              <a class="ins-ic">
+                <i class="fab fa-instagram white-text"> </i>
+              </a>
+    
             </div>
-            <hr class="clearfix w-100 d-md-none" />
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Address & Contact</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-
-            </div>
-            <hr class="clearfix w-100 d-md-none" />
-
-            <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-              <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-
-              <a type="button" class="btn-floating btn-fb">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a type="button" class="btn-floating btn-tw">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a type="button" class="btn-floating btn-gplus">
-                <i class="fab fa-google-plus-g"></i>
-              </a>
-              <a type="button" class="btn-floating btn-dribbble">
-                <i class="fab fa-dribbble"></i>
-              </a>
-
-            </div>
-
           </div>
         </div>
-        <hr></hr>
-        <ul class="list-unstyled list-inline text-center py-2">
-          <li class="list-inline-item">
-            <h5 class="mb-1">Register for free</h5>
-          </li>
-          <li class="list-inline-item">
-            <a href="register" class="btn btn-danger btn-rounded">Sign up!</a>
-          </li>
-        </ul>
-
-      </footer>
-    </div>
+      </div>
+      <div class="container text-center text-md-left mt-5">
+        <div class="row mt-3 dark-grey-text">
+          <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+    
+            <h6 class="text-uppercase font-weight-bold">Company name</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" />
+            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+              consectetur
+              adipisicing elit.</p>
+    
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <h6 class="text-uppercase font-weight-bold">Products</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" />
+            <p>
+              <a class="dark-grey-text" href="#!">MDBootstrap</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">MDWordPress</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">BrandFlow</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
+            </p>
+    
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" />
+            <p>
+              <a class="dark-grey-text" href="#!">Your Account</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a class="dark-grey-text" href="#!">Help</a>
+            </p>
+    
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" />
+            <p>
+              <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+            <p>
+              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p>
+              <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+    
+          </div>
+        </div>
+    
+      </div>
+      <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+        <a class="dark-grey-text" href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+     </div>
+    </footer>
   );
 }
 export default CustomFooter;

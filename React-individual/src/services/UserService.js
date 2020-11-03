@@ -5,7 +5,6 @@ class UserService {
     return http.get("/user/all");
   }
   get(email) {
-    console.log("gfds");
     return http.get(`/user/${email}`);
   }
   create(data) {
