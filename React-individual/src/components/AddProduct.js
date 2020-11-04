@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import CustomFooter from "../Footer";
 import Axios from "axios";
-
+import { Form, Button } from "react-bootstrap"
+import { Link } from "react-router-dom";
 export default class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -145,7 +146,32 @@ export default class AddProduct extends Component {
                 </div></div>
             </div>
           </div>
-        </div><CustomFooter /></div>
+        </div><CustomFooter />
+        <Form>
+          <Form.Group controlId="name">
+            <Form.Label>Name*</Form.Label>
+            <Form.Control name="name" onChange={this.onChangeName} type="name" placeholder="Water" value={this.state.name} />
+          </Form.Group>
+          <Form.Group controlId="price">
+            <Form.Label>Price*</Form.Label>
+            <Form.Control name="price" onChange={this.onChangePrice} type="number" placeholder="0.00" value={this.state.price} />
+          </Form.Group>
+          <Form.Group controlId="categoryId">
+            <Form.Label>Select category*</Form.Label>
+            <Form.Control as="select" name="categoryId" onChange={this.onChangeCategory}>
+              <option>Select category</option>
+              {this.state.categories.map(category => (
+                <option key={category.categoryId} value={category.categoryId}>{category.name}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="image">
+            <Form.File name="image" accept="image/png,image/jpeg" label="Upload product image" />
+          </Form.Group>
+          <Link to="/productsmanager">
+            <Button variant="primary" onClick={this.saveProduct}>Submit</Button>
+          </Link>
+        </Form></div>
     );
   }
 }

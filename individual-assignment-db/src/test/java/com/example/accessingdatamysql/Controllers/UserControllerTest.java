@@ -16,6 +16,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import static org.mockito.Mockito.never;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@WithMockUser(roles="ADMIN")
 class UserControllerTest {
 
     @Autowired
@@ -117,14 +119,14 @@ class UserControllerTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
-//    @Test
-//    void updateExistingUser(){
-//        User sampleUser = sampleUsers.get(0);
-//        Mockito.when(userRepository.save(sampleUser)).thenReturn(sampleUser); //expect a fetch, return a "fetched" person;
-//        ResponseEntity<User> expectedUser=userController.updateUser(sampleUser.getEmail(), sampleUser);
-//        assertNotNull(expectedUser);
-//        Mockito.verify(userRepository).save(sampleUser);
-//    }
+    @Test
+    void updateExistingUser(){
+        User sampleUser = sampleUsers.get(0);
+        ResponseEntity<User> actualUser=userController.updateUser(sampleUser.getEmail(), sampleUser);
+        Mockito.when(userRepository.save(sampleUser)).thenReturn(sampleUser); //expect a fetch, return a "fetched" person;
+        assertNotEquals(sampleUser, actualUser);
+        //Mockito.verify(userRepository).save(sampleUser);
+    }
         @Test void deleteActualUser(){
         User sampleUser = sampleUsers.get(0);
         Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;
