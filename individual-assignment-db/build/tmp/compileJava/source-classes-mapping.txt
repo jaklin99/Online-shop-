@@ -32,8 +32,8 @@ com/example/accessingdatamysql/payload/request/LoginRequest.java
  com.example.accessingdatamysql.payload.request.LoginRequest
 com/example/accessingdatamysql/modelsTemp/ERole.java
  com.example.accessingdatamysql.modelsTemp.ERole
-com/example/accessingdatamysql/payload/response/MessageResponse.java
- com.example.accessingdatamysql.payload.response.MessageResponse
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController
 com/example/accessingdatamysql/Services/IProductService.java
  com.example.accessingdatamysql.Services.IProductService
 com/example/accessingdatamysql/security/WebSecurityConfig.java
@@ -82,5 +82,5 @@ com/example/accessingdatamysql/Repository/PostRepository.java
  com.example.accessingdatamysql.Repository.PostRepository
 com/example/accessingdatamysql/Controllers/AuthController.java
  com.example.accessingdatamysql.Controllers.AuthController
-com/example/accessingdatamysql/Controllers/UserController.java
- com.example.accessingdatamysql.Controllers.UserController
+com/example/accessingdatamysql/payload/response/MessageResponse.java
+ com.example.accessingdatamysql.payload.response.MessageResponse
