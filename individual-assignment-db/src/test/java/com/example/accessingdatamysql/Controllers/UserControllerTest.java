@@ -128,6 +128,15 @@ class UserControllerTest {
 //        assertEquals(sampleUser, actualUser);
 //        //Mockito.verify(userRepository).save(sampleUser);
 //    }
+//@Test void updateUser(){
+//    User sampleUser = sampleUsers.get(0);
+//    Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;
+//    User updatedUser=sampleUser.setEmail("Pisna mi").setPassword(sampleUser.getPassword()).setName(sampleUser.getName());
+//    ResponseEntity<User> actualUser=userController.updateUser("Pisna mi", updatedUser);
+//    Mockito.when(userRepository.save(updatedUser)).thenReturn(updatedUser);
+//    assertEquals(updatedUser, actualUser.getBody());
+//    Mockito.verify(userRepository).save(updatedUser);
+//}
         @Test void deleteActualUser(){
         User sampleUser = sampleUsers.get(0);
         Mockito.when(userRepository.findByEmail(sampleUser.getEmail())).thenReturn(Optional.empty()); //expect a fetch, return a "fetched" person;
