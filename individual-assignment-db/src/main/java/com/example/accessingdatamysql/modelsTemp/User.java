@@ -8,15 +8,19 @@ import java.util.Set;
 
 @Entity(name = "USER")
 public class User {
+
     @Id
     @Column(name = "user_id", nullable = false)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long userId;
+
     @Column(nullable = false, length = 30)
     private String name;
+
     @Column(unique = true,nullable = false,length = 30)
     @Email
     private String email;
+
     @Column(nullable = false, length = 20)
     private String password;
 

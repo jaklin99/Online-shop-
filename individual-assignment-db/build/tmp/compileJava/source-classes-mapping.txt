@@ -6,8 +6,8 @@ com/example/accessingdatamysql/modelsTemp/Role.java
  com.example.accessingdatamysql.modelsTemp.Role
 com/example/accessingdatamysql/Repository/ProductRepository.java
  com.example.accessingdatamysql.Repository.ProductRepository
-com/example/accessingdatamysql/modelsTemp/Comment.java
- com.example.accessingdatamysql.modelsTemp.Comment
+com/example/accessingdatamysql/Controllers/AuthController.java
+ com.example.accessingdatamysql.Controllers.AuthController
 com/example/accessingdatamysql/modelsTemp/Post.java
  com.example.accessingdatamysql.modelsTemp.Post
 com/example/accessingdatamysql/Controllers/TestController.java
@@ -40,8 +40,8 @@ com/example/accessingdatamysql/security/WebSecurityConfig.java
  com.example.accessingdatamysql.security.WebSecurityConfig
 com/example/accessingdatamysql/Controllers/ProductController.java
  com.example.accessingdatamysql.Controllers.ProductController
-com/example/accessingdatamysql/Services/IUserService.java
- com.example.accessingdatamysql.Services.IUserService
+com/example/accessingdatamysql/Services/CategoryService.java
+ com.example.accessingdatamysql.Services.CategoryService
 com/example/accessingdatamysql/Repository/CategoryRepository.java
  com.example.accessingdatamysql.Repository.CategoryRepository
 com/example/accessingdatamysql/modelsTemp/Category.java
@@ -56,10 +56,10 @@ com/example/accessingdatamysql/Controllers/CategoryController.java
  com.example.accessingdatamysql.Controllers.CategoryController
 com/example/accessingdatamysql/security/jwt/AuthEntryPointJwt.java
  com.example.accessingdatamysql.security.jwt.AuthEntryPointJwt
-com/example/accessingdatamysql/Services/UserService.java
- com.example.accessingdatamysql.Services.UserService
-com/example/accessingdatamysql/modelsTemp/User.java
- com.example.accessingdatamysql.modelsTemp.User
+com/example/accessingdatamysql/Repository/PostRepository.java
+ com.example.accessingdatamysql.Repository.PostRepository
+com/example/accessingdatamysql/Controllers/CommentController.java
+ com.example.accessingdatamysql.Controllers.CommentController
 com/example/accessingdatamysql/payload/response/JwtResponse.java
  com.example.accessingdatamysql.payload.response.JwtResponse
 com/example/accessingdatamysql/Services/IPostService.java
@@ -74,13 +74,13 @@ com/example/accessingdatamysql/Controllers/PostController.java
  com.example.accessingdatamysql.Controllers.PostController
 com/example/accessingdatamysql/Services/PostService.java
  com.example.accessingdatamysql.Services.PostService
-com/example/accessingdatamysql/Services/CategoryService.java
- com.example.accessingdatamysql.Services.CategoryService
-com/example/accessingdatamysql/Controllers/CommentController.java
- com.example.accessingdatamysql.Controllers.CommentController
-com/example/accessingdatamysql/Repository/PostRepository.java
- com.example.accessingdatamysql.Repository.PostRepository
-com/example/accessingdatamysql/Controllers/AuthController.java
- com.example.accessingdatamysql.Controllers.AuthController
+com/example/accessingdatamysql/modelsTemp/Comment.java
+ com.example.accessingdatamysql.modelsTemp.Comment
+com/example/accessingdatamysql/Services/IUserService.java
+ com.example.accessingdatamysql.Services.IUserService
+com/example/accessingdatamysql/Services/UserService.java
+ com.example.accessingdatamysql.Services.UserService
+com/example/accessingdatamysql/modelsTemp/User.java
+ com.example.accessingdatamysql.modelsTemp.User
 com/example/accessingdatamysql/Controllers/UserController.java
  com.example.accessingdatamysql.Controllers.UserController

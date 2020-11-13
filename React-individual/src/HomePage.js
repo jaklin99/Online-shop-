@@ -6,45 +6,45 @@ import CustomFooter from "./Footer";
 function HomePage(props) {
   return (
     <div class="carousel">
-    <Carousel>
-      <Carousel.Item>
-        <img class="img"
-          src="/imgs/tennis3.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>Welcome to MatchPoint</h3>
-                  </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          class="img"
-          src="/imgs/sharapova-azarenka.jpg"
-          alt="Second slide"
-        />
+      <Carousel>
+        <Carousel.Item>
+          <img class="img"
+            src="/imgs/tennis-login.jpg"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>Welcome to MatchPoint</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            class="img"
+            src="/imgs/sharapova-azarenka.jpg"
+            alt="Second slide"
+          />
 
-        <Carousel.Caption>
-        <a href="posts" class="btn btn-home"> 
-                           Watch videos
-                        </a> 
-         
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          class="img"
-          src="/imgs/shopping.jpg"
-          alt="Third slide"
-        />
+          <Carousel.Caption>
+            <a href="posts" class="btn btn-home">
+              Watch videos
+                        </a>
 
-        <Carousel.Caption>
-        <a href="onlineShop" class="btn btn-home"> 
-                            Shop Online 
-                        </a> 
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel><CustomFooter/>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            class="img"
+            src="/imgs/shopping.jpg"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <a href="onlineShop" class="btn btn-home">
+              Shop Online
+            </a>
+
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel><CustomFooter />
     </div>
   );
 }

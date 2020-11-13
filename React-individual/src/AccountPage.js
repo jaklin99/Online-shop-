@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import AuthService from "./auth-service/auth-service";
+
 import "./App.css";
 import CustomFooter from "./Footer";
 
-function AccountPage(props) {
+export default class AccountPage extends Component  {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          currentUser: AuthService.getCurrentUser()
+        };
+      }
+      render() {
+        const { currentUser } = this.state;
+    
     return (
         <div className="contact">
             <div class="container">
@@ -13,14 +25,19 @@ function AccountPage(props) {
     </div>
                             <div class="card-body">
                                 <form>
-                                    {/* REMINDER: make the credentials appear for each logged-in user */}
+                                    {/* DONE: make the credentials appear for each logged-in user */}
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required />
+                                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder={currentUser.username} required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="token">Token</label>
+                                        {currentUser.accessToken.substring(0, 20)} ...{" "}
+          {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email address</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder={currentUser.email} required />
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                     </div>
                                     <div class="form-group">
@@ -28,6 +45,10 @@ function AccountPage(props) {
                                         <input type="text" class="form-control" id="password" aria-describedby="password" placeholder="Enter password" required />
                                         <small id="password" class="form-text text-muted">We'll never share your password with anyone else.</small>
                                     </div>
+                                    <ul>
+          {currentUser.roles &&
+            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+        </ul>
                                     <div class="mx-auto">
                                         <button type="submit" class="btn btn-info">Update information</button></div>
                                 </form>
@@ -38,4 +59,5 @@ function AccountPage(props) {
             <CustomFooter /></div>
     );
 }
-export default AccountPage;
+}
+

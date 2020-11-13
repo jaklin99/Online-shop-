@@ -19,7 +19,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import HomePage from "./HomePage";
 import login from "./LoginPage";
-import register from "./components/AddUser";
+//import Form from "./Form";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
@@ -66,58 +66,54 @@ class Header extends Component {
         return (
             <Router>
                 <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">Matchpoint</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="posts">Posts</Nav.Link>
-            <Nav.Link href="onlineShop">Online shop</Nav.Link>
-            <Nav.Link href="contact">Contact</Nav.Link>
-            <NavDropdown title="Service" id="basic-nav-dropdown">
-              <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
-              <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
-              <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown className="loginItem" title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="account">My Account</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item>
-              <NavDropdown.Divider />
-            </NavDropdown>
-            <a class="btn btn-cart" href="cart">
-              <i class="fa fa-shopping-cart"></i> Cart
-    </a>
-    {currentUser ? (
-                        <div className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <Link to={"/"} className="nav-link">
-                                    {currentUser.username}
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/login" className="nav-link" onClick={this.logOut}>
-                                    LogOut
-                </a>
-                            </li>
-                        </div>
-                    ) : (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to={"/login"} className="nav-link">
-                                        Login
-                </Link>
-                                </li>
+                    <Navbar.Brand href="/">Matchpoint</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="posts">Posts</Nav.Link>
+                            <Nav.Link href="onlineShop">Online shop</Nav.Link>
+                            <Nav.Link href="contact">Contact</Nav.Link>
+                            <NavDropdown title="Service" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
+                                <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
+                                <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
+                            </NavDropdown>                           
 
-                                <li className="nav-item">
-                                    <Link to={"/register"} className="nav-link">
-                                        Sign Up
-                </Link>
-                                </li>
+                            <a class="btn btn-cart" href="cart">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                            </a>
+                            {currentUser ? (
+                                <div className="navbar-nav">
+                                    <li className="nav-item">
+                                        <Link to={"/account"} className="nav-link">
+                                            {currentUser.username}
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item ">
+                                        <a href="/" className="nav-link" onClick={this.logOut}>
+                                            LogOut
+                                        </a>
+                                    </li>
+                                </div>
+                            ) : (
+                                    <div className="navbar-nav ml-auto">
+                                        <li className="nav-item">
+                                            <Link to={"/login"} className="nav-link">
+                                                Login
+                                            </Link>
+                                        </li>
 
-                            </div>
-                        )}
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+                                        <li className="nav-item">
+                                            <Link to={"/register"} className="nav-link">
+                                                Sign Up
+                                            </Link>
+                                        </li>
+
+                                    </div>
+                                )}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
 
 
 
@@ -132,7 +128,7 @@ class Header extends Component {
                                 Home
               </Link>
                         </li> */}
-{/* 
+                {/* 
                         {showModeratorBoard && (
                             <li className="nav-item">
                                 <Link to={"/mod"} className="nav-link">
@@ -141,7 +137,7 @@ class Header extends Component {
                             </li>
                         )} */}
 
-                        {/* {showAdminBoard && (
+                {/* {showAdminBoard && (
                             <li className="nav-item">
                                 <Link to={"/admin"} className="nav-link">
                                     Admin Board
@@ -156,7 +152,7 @@ class Header extends Component {
                 </Link>
                             </li>
                         )} */}
-                        {/* <li className="nav-item">
+                {/* <li className="nav-item">
                             <Link to={"/onlineShop"} className="nav-link">
                                 Online shop
                 </Link>
@@ -181,7 +177,7 @@ class Header extends Component {
                             <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item></NavDropdown>
                     </div> */}
 
-                    {/* {currentUser ? (
+                {/* {currentUser ? (
                         <div className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <Link to={"/profile"} className="nav-link">
@@ -214,7 +210,6 @@ class Header extends Component {
 
 
                 <Switch>
-                    <Route exact path="/home" component={Home} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/profile" component={Profile} />
@@ -233,6 +228,7 @@ class Header extends Component {
                     <Route path="/account" component={Account} />
                     <Route path="/cart" component={Cart} />
                     <Route path="/comment" component={Comment} />
+                    {/* <Route path="/form" component={Form} /> */}
                 </Switch>
 
 

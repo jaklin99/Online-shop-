@@ -22,7 +22,7 @@ import Comment from "./components/Comment";
 function CustomNavbar() {
   return (
     <Router>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">Matchpoint</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -50,7 +50,7 @@ function CustomNavbar() {
       </Navbar>
 
       <Switch>
-        <Route path="/userList" component={UserList} />
+        <Route exact path="/userList" component={UserList} />
         <Route exact path="/" component={HomePage} />
         <Route path="/posts" component={posts} />
         <Route path="/onlineShop" component={onlineShop} />

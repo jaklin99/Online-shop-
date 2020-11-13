@@ -6,7 +6,7 @@ export default class User extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword= this.onChangePassword.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -70,47 +70,47 @@ export default class User extends Component {
         console.log(response.data);
       })
       .catch((e) => {
-        console.log(e+"fgh");
+        console.log(e + "fgh");
       });
-    }
-    saveUpdate(status) {
-      var data = {
-        name: this.state.currentUser.name,
-        email: this.state.currentUser.email,
-        password: this.state.currentUser.password,
-        published: status
-      };
-  
-      UserService.update(this.state.currentUser.email, data)
-        .then(response => {
-          this.setState(prevState => ({
-            currentUser: {
-              ...prevState.currentUser,
-              published: status
-            }
-          }));
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
+  }
+  saveUpdate(status) {
+    var data = {
+      name: this.state.currentUser.name,
+      email: this.state.currentUser.email,
+      password: this.state.currentUser.password,
+      published: status
+    };
+
+    UserService.update(this.state.currentUser.email, data)
+      .then(response => {
+        this.setState(prevState => ({
+          currentUser: {
+            ...prevState.currentUser,
+            published: status
+          }
+        }));
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  updateUser() {
+    UserService.update(
+      this.state.currentUser.email,
+      this.state.currentUser
+    )
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          message: "Your profile was updated successfully!"
         });
-    }
-    updateUser() {
-        UserService.update(
-          this.state.currentUser.email,
-          this.state.currentUser
-        )
-          .then(response => {
-            console.log(response.data);
-            this.setState({
-              message: "Your profile was updated successfully!"
-            });
-          })
-          .catch(e => {
-            console.log(e);
-          });
-      }
-    
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   deleteUser() {
     UserService.delete(this.state.currentUser)
       .then(() => {
@@ -165,7 +165,7 @@ export default class User extends Component {
                   onChange={this.onChangePassword}
                 />
               </div>
-            <div className="form-group">
+              <div className="form-group">
                 <label>
                   <strong>Status:</strong>
                 </label>
@@ -181,19 +181,19 @@ export default class User extends Component {
                 UnPublish
               </button>
             ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.saveUpdate(true)}
-              >
-                Save
-              </button> )}
+                <button
+                  className="badge badge-primary mr-2"
+                  onClick={() => this.saveUpdate(true)}
+                >
+                  Save
+                </button>)}
             <button
               className="badge badge-danger mr-2"
               onClick={this.deleteUser}
             >
               Delete
             </button>
-            
+
             <button
               type="submit"
               className="badge badge-success"
@@ -204,12 +204,12 @@ export default class User extends Component {
             <p>{this.state.message}</p>
           </div>
         ) : (
-          <div>
-            <br />
-            <p>Please click on a User...</p>
-            <p>{this.state.message}</p>
-          </div>
-        )}
+            <div>
+              <br />
+              <p>Please click on a User...</p>
+              <p>{this.state.message}</p>
+            </div>
+          )}
       </div>
     );
   }

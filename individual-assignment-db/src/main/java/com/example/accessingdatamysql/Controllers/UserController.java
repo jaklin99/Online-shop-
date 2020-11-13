@@ -1,6 +1,7 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.UserRepository;
+import com.example.accessingdatamysql.Services.IUserService;
 import com.example.accessingdatamysql.Services.UserService;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +16,20 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Controller	// This means that this class is a Controller
-@RequestMapping(path="/user")
+@Controller    // This means that this class is a Controller
+@RequestMapping(path = "/user")
 @CrossOrigin(origins = "http://localhost:3000")
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private IUserService userService;
 
-	@GetMapping(path="/all")
-	public @ResponseBody List<User> getAllUsers() {
-		return userService.findAll();
-	}
+    @GetMapping(path = "/all")
+    public @ResponseBody
+    List<User> getAllUsers() {
+        return userService.findAll();
+    }
 
 //	@GetMapping("/{userId}")
 //	public ResponseEntity<User> getUserById(@PathVariable("userId") long id) {
@@ -35,47 +37,50 @@ public class UserController {
 //		return userInfo.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 //	}
 
-	@Transactional
-	@GetMapping("/{email}")
-			public ResponseEntity<User> getUserByEmail(@PathVariable("email")String email){
-		Optional<User> userEmail = userService.findByEmail(email);
-		return userEmail.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-	}
-	@PostMapping("/add")
-	public ResponseEntity<User> addNewUser(@RequestBody User user) {
-		User fromDb = userService.save(user);
-		return new ResponseEntity<User>(fromDb, HttpStatus.CREATED);
-	}
+    @Transactional
+    @GetMapping("/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable("email") String email) {
+        Optional<User> userEmail = userService.findByEmail(email);
+        return userEmail.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
-@Transactional
-	@PutMapping("/{email}/update") //business logic
-	public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody User updatedUser) {
-		Optional<User> userInfo = userService.findByEmail(email);
-		if (userInfo.isPresent()) {
-			User user = userInfo.get();
-			user.setName(updatedUser.getName());
-			user.setEmail(updatedUser.getEmail());
-			user.setPassword(updatedUser.getPassword());
-			userService.save(user);
-			return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);
-		}else{
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+    @PostMapping("/add")
+    public ResponseEntity<User> addNewUser(@RequestBody User user) {
+        User fromDb = userService.save(user);
+        return new ResponseEntity<User>(fromDb, HttpStatus.CREATED);
+    }
 
-	}
-	@Transactional
-	@DeleteMapping("/{email}/delete")
-	public ResponseEntity<User> deleteUser(@PathVariable String email){
-		if (userService.existsByEmail(email)) {
-			userService.deleteByEmail(email);
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
-	@DeleteMapping("/deleteAll")
-	public ResponseEntity<User> deleteAllUsers() {
-		userService.deleteAll();
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	}
+    @Transactional
+    @PutMapping("/{email}/update") //business logic
+    public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody User updatedUser) {
+        Optional<User> userInfo = userService.findByEmail(email);
+        if (userInfo.isPresent()) {
+            User user = userInfo.get();
+            user.setName(updatedUser.getName());
+            user.setEmail(updatedUser.getEmail());
+            user.setPassword(updatedUser.getPassword());
+            userService.save(user);
+            return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @Transactional
+    @DeleteMapping("/{email}/delete")
+    public ResponseEntity<User> deleteUser(@PathVariable String email) {
+        if (userService.existsByEmail(email)) {
+            userService.deleteByEmail(email);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<User> deleteAllUsers() {
+        userService.deleteAll();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
 
