@@ -1,32 +1,89 @@
 package com.example.accessingdatamysql.modelsTemp;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity(name = "USER")
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(	name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
 public class User {
-
     @Id
-    @Column(name = "user_id", nullable = false)
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long userId;
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(nullable = false, length = 30)
-    private String name;
+    @NotBlank
+    @Size(max = 20)
+    private String username;
 
-    @Column(unique = true,nullable = false,length = 30)
+    @NotBlank
+    @Size(max = 50)
     @Email
     private String email;
 
-    @Column(nullable = false, length = 20)
+    @JsonIgnore
+    @NotBlank
+    @Size(max = 120)
     private String password;
 
-//    @Enumerated(EnumType.STRING)
-//    private UserType userType;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_auth_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comment;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<Order> order;
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public User setUsername(String name) {
+
+        this.username = name;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User setEmail(String email) {
+        this.email = email;
+        return this;
+    }
     public String getPassword() {
         return password;
     }
@@ -36,36 +93,11 @@ public class User {
         return this;
     }
 
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comment;
-
-    public String getName() {
-        return name;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public User setName(String name) {
-
-        this.name = name;
-        return this;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public User setEmail(String email) {
-
-        this.email = email;
-        return this;
-    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", name='" + name + '\'' +
-                '}';
-    }
-    public User(){}
 }

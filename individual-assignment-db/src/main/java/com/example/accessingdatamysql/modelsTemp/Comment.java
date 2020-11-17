@@ -1,6 +1,5 @@
 package com.example.accessingdatamysql.modelsTemp;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import javax.persistence.*;
 
@@ -18,9 +17,13 @@ public class Comment{
     @ManyToOne(targetEntity = Post.class)
     @JoinColumn(name="post_id", referencedColumnName = "post_id")
     private Post post;
+//
+//    @ManyToOne(targetEntity = User.class)
+//    @JoinColumn(name="user_id", referencedColumnName = "user_id")
+//    private User user;
 
     @ManyToOne(targetEntity = User.class)
-    @JoinColumn(name="user_id", referencedColumnName = "user_id")
+    @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
     public long getCommentId() {

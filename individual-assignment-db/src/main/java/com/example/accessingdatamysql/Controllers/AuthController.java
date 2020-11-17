@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.example.accessingdatamysql.Repository.RoleRepository;
-import com.example.accessingdatamysql.Repository.UserAuthRepository;
+import com.example.accessingdatamysql.Repository.UserRepository;
 import com.example.accessingdatamysql.modelsTemp.ERole;
 import com.example.accessingdatamysql.modelsTemp.Role;
-import com.example.accessingdatamysql.modelsTemp.UserAuth;
+import com.example.accessingdatamysql.modelsTemp.User;
 import com.example.accessingdatamysql.payload.request.LoginRequest;
 import com.example.accessingdatamysql.payload.request.SignupRequest;
 import com.example.accessingdatamysql.payload.response.JwtResponse;
@@ -40,7 +40,7 @@ public class AuthController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    UserAuthRepository userRepository;
+    UserRepository userRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -87,7 +87,7 @@ public class AuthController {
         }
 
         // Create new user's account
-        UserAuth user = new UserAuth(signUpRequest.getUsername(),
+        User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
 

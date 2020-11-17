@@ -1,0 +1,16 @@
+In this sprint you should have finished:
+
+-Design document version 3
+Include a diagram of how your CI is setup. 
+Use sources in APA style formatting -check
+and used Method from DOT framework to backup design decisions and choices made.
+Make sure your architecture diagram matches your backend.!
+Give your documents a simple titlepage -check
+Add a versioning table to show differences between version -check
+-1st release version (demonstrating authentication/authorization integration) -check
+Planning: Actual use of Agile user stories -> What will you do, what have you done?
+Create a movie per finished user story, and share the link via canvas -check
+Backend set-up in multiple layers using interfaces and dependency injection -> SOLID? -check
+Up-to-date product, sprint backlogs and burn-down charts -check
+Sonarqube screenshot/report pre-post -> Quality assurance metrics -check
+UX feedback report (feedback from 2 different users) and resulting improvements on your UI !!!!

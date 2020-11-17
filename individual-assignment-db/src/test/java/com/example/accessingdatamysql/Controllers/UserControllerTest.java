@@ -6,14 +6,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -25,7 +21,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.never;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -44,10 +39,10 @@ class UserControllerTest {
     @BeforeEach
     void setUp() {
         sampleUsers = Arrays.asList(
-                new User().setEmail("lo6oJaki@gmail.com").setName("Lo6o Jaki").setPassword("13456789"),
-                new User().setEmail("Jaki@gmail.com").setName("Jaki").setPassword("156789"),
-                new User().setEmail("lo6o@gmail.com").setName("Laki").setPassword("134569"),
-                new User().setEmail("loki@gmail.com").setName("6oki").setPassword("16789")
+                new User().setEmail("lo6oJaki@gmail.com").setUsername("Lo6o Jaki").setPassword("13456789"),
+                new User().setEmail("Jaki@gmail.com").setUsername("Jaki").setPassword("156789"),
+                new User().setEmail("lo6o@gmail.com").setUsername("Laki").setPassword("134569"),
+                new User().setEmail("loki@gmail.com").setUsername("6oki").setPassword("16789")
         );
     }
 

@@ -1,15 +1,11 @@
 package com.example.accessingdatamysql.Controllers;
 
-import com.example.accessingdatamysql.Repository.UserRepository;
 import com.example.accessingdatamysql.Services.IUserService;
-import com.example.accessingdatamysql.Services.UserService;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -56,7 +52,7 @@ public class UserController {
         Optional<User> userInfo = userService.findByEmail(email);
         if (userInfo.isPresent()) {
             User user = userInfo.get();
-            user.setName(updatedUser.getName());
+            user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             userService.save(user);
