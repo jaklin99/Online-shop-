@@ -15,7 +15,7 @@ export default class AddProduct extends Component {
 
     this.state = {
       id: null,
-      name: "",
+      productName: "",
       price: 0,
       category: {
         categoryId: 0
@@ -37,8 +37,9 @@ export default class AddProduct extends Component {
 
   onChangeName(e) {
     this.setState({
-      name: e.target.value,
+      productName: e.target.value,
     });
+    console.log(this.state);
   }
 
   onChangePrice(e) {
@@ -58,7 +59,7 @@ export default class AddProduct extends Component {
 
   saveProduct() {
     var data = {
-      name: this.state.name,
+      productName: this.state.productName,
       price: this.state.price,
       category: this.state.category
     };
@@ -67,7 +68,7 @@ export default class AddProduct extends Component {
       .then((response) => {
         this.setState({
           id: response.data.id,
-          name: response.data.name,
+          productName: response.data.productName,
           price: response.data.price,
           category: response.data.category,
           submitted: true
@@ -82,7 +83,7 @@ export default class AddProduct extends Component {
   newProduct() {
     this.setState({
       id: null,
-      name: "",
+      productName: "",
       price: 0,
       category: {
         category_id: 0
@@ -93,68 +94,14 @@ export default class AddProduct extends Component {
   render() {
     return (
       <div className="register">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-header"> Add product
-          </div>
-                <div class="card-body">
-                  <form method="POST">
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="name"
-                        required
-                        value={this.state.name}
-                        onChange={this.onChangeName}
-                        name="name"
-                        placeholder="Name"
-                      /></div>
-                    <div class="form-group">
-                      <label for="price">Price</label>
-                      <input
-                        type="number"
-                        className="form-control"
-                        id="price"
-                        required
-                        value={this.state.price}
-                        onChange={this.onChangePrice}
-                        name="price"
-                        placeholder="Price"
-                      /></div>
-                    <div class="form-group">
-                      <label for="category">Category</label>
-                      <select name="Categories" onChange={this.onChangeCategory} id="category">
-                        <option>Select category</option>
-                        {this.state.categories.map(category => (
-                          <option key={category.categoryId} value={category.categoryId}>{category.name}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div class="mx-auto">
-                      <button onClick={this.saveProduct} className="btn btn-comment">
-                        Add
-            </button>
-                      <button href="/" className="btn btn-watch">
-                        Cancel
-            </button>
-                    </div>
-                  </form>
-                </div></div>
-            </div>
-          </div>
-        </div><CustomFooter />
-        <Form>
+      <Form className="addProductForm">
           <Form.Group controlId="name">
             <Form.Label>Name*</Form.Label>
-            <Form.Control name="name" onChange={this.onChangeName} type="name" placeholder="Water" value={this.state.name} />
+            <Form.Control name="name" onChange={this.onChangeName} type="name" placeholder="" value={this.state.productName} />
           </Form.Group>
           <Form.Group controlId="price">
             <Form.Label>Price*</Form.Label>
-            <Form.Control name="price" onChange={this.onChangePrice} type="number" placeholder="0.00" value={this.state.price} />
+            <Form.Control name="price" min="0"onChange={this.onChangePrice} type="number" placeholder="0.00" value={this.state.price} />
           </Form.Group>
           <Form.Group controlId="categoryId">
             <Form.Label>Select category*</Form.Label>
@@ -168,10 +115,11 @@ export default class AddProduct extends Component {
           <Form.Group controlId="image">
             <Form.File name="image" accept="image/png,image/jpeg" label="Upload product image" />
           </Form.Group>
-          <Link to="/productsmanager">
-            <Button variant="primary" onClick={this.saveProduct}>Submit</Button>
-          </Link>
-        </Form></div>
+            <Button  className="btn btn-comment"variant="primary" onClick={this.saveProduct}>Submit</Button>
+            <Button className="btn btn-watch" href="/" variant="primary">Cancel</Button>
+        </Form>
+        <CustomFooter />
+       </div>
     );
   }
 }

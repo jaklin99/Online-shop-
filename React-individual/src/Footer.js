@@ -39,7 +39,7 @@ function CustomFooter() {
   </div>
 </div><hr></hr>
     </div>© {new Date().getFullYear()} 
-  <strong> Matchpoint</strong></div>
+  <h7> Matchpoint</h7></div>
     
   );
 }

@@ -15,7 +15,7 @@ export default class User extends Component {
     this.state = {
       currentUser: {
         id: null,
-        name: "",
+        username: "",
         email: "",
         password: "",
       },
@@ -29,13 +29,13 @@ export default class User extends Component {
   }
 
   onChangeName(e) {
-    const name = e.target.value;
+    const username = e.target.value;
 
     this.setState(function (prevState) {
       return {
         currentUser: {
           ...prevState.currentUser,
-          name: name,
+          username: username,
         },
       };
     });
@@ -75,7 +75,7 @@ export default class User extends Component {
   }
   saveUpdate(status) {
     var data = {
-      name: this.state.currentUser.name,
+      username: this.state.currentUser.username,
       email: this.state.currentUser.email,
       password: this.state.currentUser.password,
       published: status
@@ -141,7 +141,7 @@ export default class User extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentUser.name}
+                  value={currentUser.username}
                   onChange={this.onChangeName}
                 />
               </div>

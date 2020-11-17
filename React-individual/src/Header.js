@@ -7,7 +7,6 @@ import "./App.css";
 import AuthService from "./auth-service/auth-service";
 import Login from "./auth-components/login-component";
 import Register from "./auth-components/register-component";
-import Home from "./auth-components/home-component";
 import Profile from "./auth-components/profile-component";
 import BoardUser from "./auth-components/board-user-component";
 import BoardModerator from "./auth-components/board-moderator-component";
@@ -18,7 +17,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import HomePage from "./HomePage";
-import login from "./LoginPage";
 //import Form from "./Form";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
@@ -27,7 +25,6 @@ import posts from "./components/Posts";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
 import contact from "./Contact";
-import Cart from "./components/Cart";
 import Comment from "./components/Comment";
 
 
@@ -65,7 +62,7 @@ class Header extends Component {
 
         return (
             <Router>
-                <Navbar bg="light" expand="lg">
+                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="/">Matchpoint</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -77,11 +74,8 @@ class Header extends Component {
                                 <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
                                 <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
                                 <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
-                            </NavDropdown>                           
-
-                            <a class="btn btn-cart" href="cart">
-                                <i class="fa fa-shopping-cart"></i> Cart
-                            </a>
+                            </NavDropdown>   </Nav>
+                        <Nav>
                             {currentUser ? (
                                 <div className="navbar-nav">
                                     <li className="nav-item">
@@ -96,7 +90,7 @@ class Header extends Component {
                                     </li>
                                 </div>
                             ) : (
-                                    <div className="navbar-nav ml-auto">
+                                    <div className="navbar-nav">
                                         <li className="nav-item">
                                             <Link to={"/login"} className="nav-link">
                                                 Login
@@ -226,7 +220,6 @@ class Header extends Component {
                     <Route path="/productList" component={ProductList} />
                     <Route path="/contact" component={contact} />
                     <Route path="/account" component={Account} />
-                    <Route path="/cart" component={Cart} />
                     <Route path="/comment" component={Comment} />
                     {/* <Route path="/form" component={Form} /> */}
                 </Switch>
