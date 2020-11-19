@@ -21,8 +21,9 @@ public class Product {
         return productId;
     }
 
-    public void setProductId(long productId) {
+    public Product setProductId(long productId) {
         this.productId = productId;
+        return this;
     }
 
     public Category getCategory() {
@@ -54,12 +55,4 @@ public class Product {
 
     public Product(){}
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productNumber=" + productId +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 }
