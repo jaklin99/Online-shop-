@@ -1,0 +1,65 @@
+
+Ÿcom.example.accessingdatamysql.Controllers.UserController#addNewUser(Lcom/example/accessingdatamysql/modelsTemp/User;)Lorg/springframework/http/ResponseEntity;™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java,  ,(*"startingBlock*Ç
+startingBlock™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java,* ,(B¤
+¡
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java,+ ,(7
+%5"
+__annotate*75
+3org.springframework.web.bind.annotation.RequestBody*8
+6
+user.com.example.accessingdatamysql.modelsTemp.Userí
+ê
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java,= ,(A6
+user.com.example.accessingdatamysql.modelsTemp.User"__annotation*
+
+%5*
+1*ä
+1™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java- -(!±
+®
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java- -(!:
+%04com.example.accessingdatamysql.Services.IUserService"__id*N*L;
+9com.example.accessingdatamysql.Controllers.UserController"
+userService£ 
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java- -(,4
+%1.com.example.accessingdatamysql.modelsTemp.User"›com.example.accessingdatamysql.Services.IUserService#save(Lcom/example/accessingdatamysql/modelsTemp/User;)Lcom/example/accessingdatamysql/modelsTemp/User;*<
+:
+%04com.example.accessingdatamysql.Services.IUserService*8
+6
+user.com.example.accessingdatamysql.modelsTemp.User26save(Lcom/example/accessingdatamysql/modelsTemp/User;)—
+”
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java- -(-8
+fromDb.com.example.accessingdatamysql.modelsTemp.User"__id*6
+4
+%1.com.example.accessingdatamysql.modelsTemp.UserØ
+Õ
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java.0 .(B)
+%2#org.springframework.http.HttpStatus"__id*
+""÷ô
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java. .('-
+%3'org.springframework.http.ResponseEntity"'org.springframework.http.ResponseEntity©
+¦
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java. .(C
+%4"horg.springframework.http.ResponseEntity#<init>(Ljava/lang/Object;Lorg/springframework/http/HttpStatus;)V*/
+-
+%3'org.springframework.http.ResponseEntity*:
+8
+fromDb.com.example.accessingdatamysql.modelsTemp.User*+
+)
+%2#org.springframework.http.HttpStatus"Í
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java. .(D/
+-
+%3'org.springframework.http.ResponseEntity:6
+user.com.example.accessingdatamysql.modelsTemp.UserB=;
+9com.example.accessingdatamysql.Controllers.UserController

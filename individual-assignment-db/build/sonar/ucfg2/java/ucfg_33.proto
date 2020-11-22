@@ -1,0 +1,21 @@
+
+Pcom.example.accessingdatamysql.Services.ProductService#findAll()Ljava/util/List;–
+‹C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/ProductService.java ( "1*á
+1–
+‹C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/ProductService.java ( ¸
+µ
+–
+‹C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/ProductService.java ( A
+%0;com.example.accessingdatamysql.Repository.ProductRepository"__id*Q*O8
+6com.example.accessingdatamysql.Services.ProductService"
+productRepositoryÓÐ
+–
+‹C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/ProductService.java (*
+%1java.util.List"Oorg.springframework.data.jpa.repository.JpaRepository#findAll()Ljava/util/List;*C
+A
+%0;com.example.accessingdatamysql.Repository.ProductRepository2	findAll()"±
+–
+‹C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/ProductService.java (+
+
+%1java.util.ListB:8
+6com.example.accessingdatamysql.Services.ProductService

@@ -1,0 +1,69 @@
+
+…com.example.accessingdatamysql.Controllers.UserController#getUserByEmail(Ljava/lang/String;)Lorg/springframework/http/ResponseEntity;™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java&  &(."startingBlock*Œ
+startingBlock™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java&. &(Só
+ð
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java$ $(
+%4"
+__annotate*#!
+javax.transaction.Transactional*
+
+emailjava.lang.Stringˆ
+…
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java&/ &(E
+%5"
+__annotate*86
+4org.springframework.web.bind.annotation.PathVariable*
+
+emailjava.lang.StringØ
+Õ
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java&M &(R
+emailjava.lang.String"__annotation*
+
+%4*
+
+%5*
+1*ð
+1™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java'# '(.±
+®
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java'# '(.:
+%04com.example.accessingdatamysql.Services.IUserService"__id*N*L;
+9com.example.accessingdatamysql.Controllers.UserController"
+userServiceŸœ
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java'# '(A
+%1java.util.Optional"hcom.example.accessingdatamysql.Services.IUserService#findByEmail(Ljava/lang/String;)Ljava/util/Optional;*<
+:
+%04com.example.accessingdatamysql.Services.IUserService*
+
+emailjava.lang.String2findByEmail(Ljava/lang/String;)â
+ß
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java' '(B
+	userEmailjava.util.Optional"__id*
+
+%1java.util.OptionalÓÐ
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java( ((O
+%2java.util.Optional"Ijava.util.Optional#map(Ljava/util/function/Function;)Ljava/util/Optional;*!
+
+	userEmailjava.util.Optional*
+""2"map(Ljava/util/function/Function;)ìé
+š
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java( ((‹-
+%3'org.springframework.http.ResponseEntity"Mjava.util.Optional#orElseGet(Ljava/util/function/Supplier;)Ljava/lang/Object;*
+
+%2java.util.Optional*
+""2(orElseGet(Ljava/util/function/Supplier;)"Î
+š
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java( ((Œ/
+-
+%3'org.springframework.http.ResponseEntity:
+emailjava.lang.StringB=;
+9com.example.accessingdatamysql.Controllers.UserController

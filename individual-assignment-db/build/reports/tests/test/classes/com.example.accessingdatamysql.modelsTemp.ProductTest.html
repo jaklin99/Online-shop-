@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.088s</div>
+<div class="counter">0.016s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,32 +79,32 @@
 </thead>
 <tr>
 <td class="success">getPrice()</td>
-<td class="success">0.003s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getProductId()</td>
-<td class="success">0.004s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getProductName()</td>
-<td class="success">0.069s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setPrice()</td>
-<td class="success">0.004s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setProductId()</td>
-<td class="success">0.004s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setProductName()</td>
-<td class="success">0.004s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -112,57 +112,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>17:47:12.312 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-17:47:12.323 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-17:47:12.344 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.accessingdatamysql.modelsTemp.ProductTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-17:47:12.358 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.accessingdatamysql.modelsTemp.ProductTest], using SpringBootContextLoader
-17:47:12.361 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: class path resource [com/example/accessingdatamysql/modelsTemp/ProductTest-context.xml] does not exist
-17:47:12.362 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: class path resource [com/example/accessingdatamysql/modelsTemp/ProductTestContext.groovy] does not exist
-17:47:12.362 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-17:47:12.362 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: ProductTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:47:12.395 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.accessingdatamysql.modelsTemp.ProductTest]
-17:47:12.462 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment-db\build\classes\java\main\com\example\accessingdatamysql\AccessingDataMysqlApplication.class]
-17:47:12.463 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.accessingdatamysql.AccessingDataMysqlApplication for test class com.example.accessingdatamysql.modelsTemp.ProductTest
-17:47:12.545 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.accessingdatamysql.modelsTemp.ProductTest]: using defaults.
-17:47:12.548 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-17:47:12.566 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@19b27991, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@275b63b2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5973fa6f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@12dc2c9f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@18a8b1a4, org.springframework.test.context.transaction.TransactionalTestExecutionListener@641217f0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@22f4399f, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@513f518a, org.springframework.test.context.event.EventPublishingTestExecutionListener@cc7ef98, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@789ec467, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7b25322a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@503d9fc5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@63350175, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6d065c88, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3f608760, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@31fe4fe]
-17:47:12.569 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@3728edfe testClass = ProductTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@74e22bba testClass = ProductTest, locations = '{}', classes = '{class com.example.accessingdatamysql.AccessingDataMysqlApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@601adea6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1303c9f3, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@32a3d584, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4daf7642, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
-17:47:12.590 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v2.3.2.RELEASE)
-
-2020-11-19 17:47:12.790  INFO 6960 --- [    Test worker] c.e.a.modelsTemp.ProductTest             : Starting ProductTest on DESKTOP-THMDKJJ with PID 6960 (started by jakit in C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment-db)
-2020-11-19 17:47:12.790  INFO 6960 --- [    Test worker] c.e.a.modelsTemp.ProductTest             : No active profile set, falling back to default profiles: default
-2020-11-19 17:47:13.361  INFO 6960 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2020-11-19 17:47:13.447  INFO 6960 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77ms. Found 6 JPA repository interfaces.
-2020-11-19 17:47:13.740  INFO 6960 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@79d5b4db' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 17:47:13.751  INFO 6960 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-11-19 17:47:13.968  INFO 6960 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-19 17:47:14.036  INFO 6960 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-11-19 17:47:14.092  INFO 6960 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
-2020-11-19 17:47:14.105  WARN 6960 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-11-19 17:47:14.309  INFO 6960 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-11-19 17:47:14.424  INFO 6960 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-11-19 17:47:14.586  INFO 6960 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-11-19 17:47:14.611  INFO 6960 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-11-19 17:47:14.678  INFO 6960 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2020-11-19 17:47:14.899  INFO 6960 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25d3f1fe, org.springframework.security.web.context.SecurityContextPersistenceFilter@43f6871a, org.springframework.security.web.header.HeaderWriterFilter@79e1047f, org.springframework.web.filter.CorsFilter@6ed42b19, org.springframework.security.web.authentication.logout.LogoutFilter@7aa94496, com.example.accessingdatamysql.security.jwt.AuthTokenFilter@6cf5645c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@fb8da81, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cc6b60d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3ec6f517, org.springframework.security.web.session.SessionManagementFilter@6adbaa9c, org.springframework.security.web.access.ExceptionTranslationFilter@3de14d11, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@574d5bd2]
-2020-11-19 17:47:15.340  INFO 6960 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-Hibernate: alter table comment add constraint FKs1slvnkuemjsq2kj4h3vhx7i1 foreign key (post_id) references post (post_id)
-Hibernate: alter table comment add constraint FKqm52p1v3o13hy268he0wcngr5 foreign key (user_id) references users (id)
-Hibernate: alter table product add constraint FK1mtsbur82frn64de7balymq9s foreign key (category_id) references category (category_id)
-Hibernate: alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id)
-Hibernate: alter table user_roles add constraint FKdbvuadud2ojo5h5eophd815rv foreign key (user_auth_id) references users (id)
-2020-11-19 17:47:15.596  INFO 6960 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-11-19 17:47:15.603  INFO 6960 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-11-19 17:47:16.094  INFO 6960 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2020-11-19 17:47:16.102  INFO 6960 --- [    Test worker] c.e.a.modelsTemp.ProductTest             : Started ProductTest in 3.505 seconds (JVM running for 4.412)
+<pre>2020-11-20 00:29:54.150  INFO 9620 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.accessingdatamysql.modelsTemp.ProductTest], using SpringBootContextLoader
+2020-11-20 00:29:54.151  INFO 9620 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-11-20 00:29:54.151  INFO 9620 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.accessingdatamysql.modelsTemp.ProductTest]: ProductTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-11-20 00:29:54.152  INFO 9620 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.accessingdatamysql.AccessingDataMysqlApplication for test class com.example.accessingdatamysql.modelsTemp.ProductTest
+2020-11-20 00:29:54.154  INFO 9620 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-11-20 00:29:54.154  INFO 9620 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11d395f5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7ca8e25c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6ffcb4d1, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4093c14b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4d628891, org.springframework.test.context.transaction.TransactionalTestExecutionListener@76e32963, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7c335152, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@22745e06, org.springframework.test.context.event.EventPublishingTestExecutionListener@7b8b6cd9, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@14ccfafa, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@729390f0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@721774ca, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@52da33f5, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2132087e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4fc818b8, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6b084af]
 </pre>
 </span>
 </div>
@@ -174,7 +129,7 @@ Hibernate: alter table user_roles add constraint FKdbvuadud2ojo5h5eophd815rv for
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.5.1</a> at 19-Nov-2020 17:47:16</p>
+<a href="http://www.gradle.org">Gradle 6.5.1</a> at 20 Nov 2020, 00:29:54</p>
 </div>
 </div>
 </body>

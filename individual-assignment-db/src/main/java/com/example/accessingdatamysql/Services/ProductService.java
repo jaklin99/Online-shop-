@@ -24,6 +24,11 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    @Override
     public boolean existsByName(String name) {
         return true;
     }

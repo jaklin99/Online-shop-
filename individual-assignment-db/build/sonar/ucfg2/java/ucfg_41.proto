@@ -1,0 +1,16 @@
+
+gcom.example.accessingdatamysql.security.services.UserDetailsImpl#getAuthorities()Ljava/util/Collection; 
+•C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.java52 5(@"1*Œ
+1 
+•C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.java6 6(Ÿ
+œ
+ 
+•C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.java6 6(
+%0java.util.Collection"__id*U*SB
+@com.example.accessingdatamysql.security.services.UserDetailsImpl"
+authorities"Á
+ 
+•C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.java6 6(
+
+%0java.util.CollectionBDB
+@com.example.accessingdatamysql.security.services.UserDetailsImpl

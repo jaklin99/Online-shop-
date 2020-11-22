@@ -71,24 +71,24 @@ class ProductControllerTest {
 //
 //        Mockito.verify(productRepository).save(sampleProduct);
 //    }
-    @Test
-    void findProductByName(){
-        Product product = sampleProducts.get(0).setProductName("bamBam");
-        Mockito.when(productRepository.findByName("bamBam")).thenReturn(Optional.of(product));
-        ResponseEntity<Product> actualProduct=productController.getProductByName("bamBam");
-        assertEquals(product,actualProduct.getBody());
-        assertEquals(HttpStatus.OK, actualProduct.getStatusCode());
-        Mockito.verify(productRepository).findByName(product.getProductName());
-    }
-    @Test
-    void productNotFound(){
-
-        Mockito.when(productRepository.findByName(Mockito.anyString())).thenReturn(Optional.empty());
-
-        ResponseEntity<Product> response = productController.getProductByName("racket");
-
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-    }
+//    @Test
+//    void findProductByName(){
+//        Product product = sampleProducts.get(0).setProductName("bamBam");
+//        Mockito.when(productRepository.findByName("bamBam")).thenReturn(Optional.of(product));
+//        ResponseEntity<Product> actualProduct=productController.getProductByName("bamBam");
+//        assertEquals(product,actualProduct.getBody());
+//        assertEquals(HttpStatus.OK, actualProduct.getStatusCode());
+//        Mockito.verify(productRepository).findByName(product.getProductName());
+//    }
+//    @Test
+//    void productNotFound(){
+//
+//        Mockito.when(productRepository.findByName(Mockito.anyString())).thenReturn(Optional.empty());
+//
+//        ResponseEntity<Product> response = productController.getProductByName("racket");
+//
+//        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+//    }
     @Test
     void updateExistingProduct(){
         Product sampleProduct = sampleProducts.get(0);

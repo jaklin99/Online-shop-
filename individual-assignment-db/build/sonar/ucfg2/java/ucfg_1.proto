@@ -1,0 +1,41 @@
+
+gcom.example.accessingdatamysql.Services.UserService#findByEmail(Ljava/lang/String;)Ljava/util/Optional;“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (%"startingBlock*Ú
+startingBlock“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java% (3à
+Ý
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (
+%2"
+__annotate*
+java.lang.Override*
+
+emailjava.lang.StringÊ
+Ç
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java- (2
+emailjava.lang.String"__annotation*
+
+%2*
+1*¡
+1“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (¬
+©
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (>
+%08com.example.accessingdatamysql.Repository.UserRepository"__id*K*I5
+3com.example.accessingdatamysql.Services.UserService"
+userRepository¡ž
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (0
+%1java.util.Optional"lcom.example.accessingdatamysql.Repository.UserRepository#findByEmail(Ljava/lang/String;)Ljava/util/Optional;*@
+>
+%08com.example.accessingdatamysql.Repository.UserRepository*
+
+emailjava.lang.String2findByEmail(Ljava/lang/String;)"²
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (1
+
+%1java.util.Optional:
+emailjava.lang.StringB75
+3com.example.accessingdatamysql.Services.UserService

@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface IProductService {
     List<Product> findAll();
     Optional<Product> findByName(String name);
+    Optional<Product> findById(Long id);
     boolean existsByName(String name);
     void deleteByName(String name);
     void deleteAll();

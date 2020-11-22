@@ -12,6 +12,9 @@ public class Product {
     private String name;
     @Column(nullable = false, precision = 2)
     private double price;
+    @Column(nullable = false)
+    private String image;
+
 
     @ManyToOne(optional = false, targetEntity = Category.class)
     @JoinColumn(name = "category_id", referencedColumnName = "category_id")
@@ -33,6 +36,14 @@ public class Product {
     public Product setCategory(Category category) {
         this.category = category;
         return this;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getProductName() {

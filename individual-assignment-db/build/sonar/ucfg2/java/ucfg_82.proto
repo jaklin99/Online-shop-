@@ -1,0 +1,21 @@
+
+Wcom.example.accessingdatamysql.Controllers.UserController#getAllUsers()Ljava/util/List;™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java ("1*Û
+1™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java (±
+®
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java (:
+%04com.example.accessingdatamysql.Services.IUserService"__id*N*L;
+9com.example.accessingdatamysql.Controllers.UserController"
+userServiceÎË
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java ($
+%1java.util.List"Ncom.example.accessingdatamysql.Services.IUserService#findAll()Ljava/util/List;*<
+:
+%04com.example.accessingdatamysql.Services.IUserService2	findAll()"´
+™
+ŽC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/UserController.java (%
+
+%1java.util.ListB=;
+9com.example.accessingdatamysql.Controllers.UserController

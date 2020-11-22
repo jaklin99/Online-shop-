@@ -1,0 +1,57 @@
+
+¨com.example.accessingdatamysql.Controllers.ProductController#addNewProduct(Lcom/example/accessingdatamysql/modelsTemp/Product;)Lorg/springframework/http/ResponseEntity;œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java*# *(0"startingBlock*Ü
+startingBlockœ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java*0 *(N­
+ª
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java*1 *(=
+%5"
+__annotate*75
+3org.springframework.web.bind.annotation.RequestBody*>
+<
+product1com.example.accessingdatamysql.modelsTemp.Productö
+ó
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java*F *(M<
+product1com.example.accessingdatamysql.modelsTemp.Product"__annotation*
+
+%5*
+1*¯
+1œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java+ +(¼
+¹
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java+ +(<
+%06com.example.accessingdatamysql.Services.ProductService"__id*T*R>
+<com.example.accessingdatamysql.Controllers.ProductController"
+productService¼¹
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java+ +($7
+%11com.example.accessingdatamysql.modelsTemp.Product"£com.example.accessingdatamysql.Services.ProductService#save(Lcom/example/accessingdatamysql/modelsTemp/Product;)Lcom/example/accessingdatamysql/modelsTemp/Product;*>
+<
+%06com.example.accessingdatamysql.Services.ProductService*>
+<
+product1com.example.accessingdatamysql.modelsTemp.Product29save(Lcom/example/accessingdatamysql/modelsTemp/Product;)Û
+Ø
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java,+ ,(=)
+%2#org.springframework.http.HttpStatus"__id*
+""ú÷
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java, ,(*-
+%3'org.springframework.http.ResponseEntity"'org.springframework.http.ResponseEntityÞ
+Û
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java, ,(>
+%4"Vorg.springframework.http.ResponseEntity#<init>(Lorg/springframework/http/HttpStatus;)V*/
+-
+%3'org.springframework.http.ResponseEntity*+
+)
+%2#org.springframework.http.HttpStatus"Ð
+œ
+‘C:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Controllers/ProductController.java, ,(?/
+-
+%3'org.springframework.http.ResponseEntity:<
+product1com.example.accessingdatamysql.modelsTemp.ProductB@>
+<com.example.accessingdatamysql.Controllers.ProductController

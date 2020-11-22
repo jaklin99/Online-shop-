@@ -1,0 +1,27 @@
+
+Vcom.example.accessingdatamysql.Services.UserService#existsByEmail(Ljava/lang/String;)Z“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java ( "startingBlock*Ú
+startingBlock“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java  (.à
+Ý
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (
+%0"
+__annotate*
+java.lang.Override*
+
+emailjava.lang.StringÊ
+Ç
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java( (-
+emailjava.lang.String"__annotation*
+
+%0*
+1*º
+1“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java ("ž
+“
+ˆC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/Services/UserService.java (
+"":
+emailjava.lang.StringB75
+3com.example.accessingdatamysql.Services.UserService
