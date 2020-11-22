@@ -1,96 +1,99 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { Component } from "react";
+import UserService from "../services/UserService";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
 import CustomFooter from "../Footer";
-class Cart extends React.Component {
-    render() {
-        return (
-            <>
-                <div class="cart">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 ">
-                                <table >
-                                    <thead>
-                                        <tr>
-                                            <h4>Your cart</h4>
-                                            <th>Quantity</th>
-                                            <th class="text-center">Price</th>
-                                            <th class="text-center">Total</th>
-                                            <th> </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-sm-12">
-                                                <div class="media">
-                                                    <a class="thumbnail pull-left" href="#"> <img class="product-cart" src="./imgs/red-racket.jpg" /> </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                                        <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    </div>
-                                                </div></td>
-                                            <td class="col-sm-1 col-md-1">
-                                                <input type="text" class="form-control" id="quantity" />
-                                            </td>
-                                            <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                                            <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
-                                            <td class="col-sm-1 col-md-1">
-                                                <button type="button" class="btn btn-danger">
-                                                    <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-12">
-                                                <div class="media">
-                                                    <a class="thumbnail pull-left" href="#"> <img class="product-cart" src="./imgs/red-racket.jpg" /> </a>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><a href="#">Product name</a></h4>
-                                                        <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                                                    </div>
-                                                </div></td>
-                                            <td class="col-md-1">
-                                                <input type="text" class="form-control" id="quantity" />
-                                            </td>
-                                            <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                                            <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                                            <td class="col-md-1">
-                                                <button type="button" class="btn btn-danger">
-                                                    <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                                        </tr>
-                                        <center>
-                                        <tr>
-                                           
-                                            <td><h5>Subtotal</h5></td>
-                                            <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td><h5>Estimated shipping</h5></td>
-                                            <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td ><h3>Total</h3></td>
-                                            <td class="text-right"><h3><strong>$31.53</strong></h3></td>
-                                        </tr>
-                                        </center>
-                                        <button type="button" class="btn btn-watch">
-                                            Continue Shopping
-                        </button>
-                                        <button type="button" class="btn btn-comment">
-                                            Checkout
-                                        </button>
+import ProductService from "../services/ProductService";
+import {Col,Row,Button} from "react-bootstrap";
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div></div>
-                <CustomFooter />
-            </>
-        );
-    }
+class OnlineShop extends React.Component {
+    constructor(props) {
+        super(props);
+        this.retrieveProducts = this.retrieveProducts.bind(this);
+        this.refreshList = this.refreshList.bind(this);
+        this.setActiveProduct = this.setActiveProduct.bind(this);
+        this.clearCart = this.clearCart.bind(this);
+       
+        this.state = {
+          products: [],
+          productName: "",
+          price: 0,
+          currentProduct: null,
+          currentIndex: -1,
+        };
+      }
+    
+      componentDidMount() {
+        this.retrieveProducts();
+      }
+      handleShow(){
+        
+      }
+    
+      retrieveProducts() {
+        ProductService.getAll()
+          .then((response) => {
+            this.setState({
+              products: response.data,
+            });
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    
+      refreshList() {
+        this.retrieveProducts();
+        this.setState({
+          currentProduct: null,
+          currentIndex: -1,
+        });
+      }
+    
+      setActiveProduct(product, index) {
+        this.setState({
+          currentProduct: product,
+          currentIndex: index,
+        });
+      }
+    
+      clearCart() {
+        ProductService.deleteAll()
+          .then((response) => {
+            console.log(response.data);
+            this.refreshList();
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+  render() {
+    const {products} = this.state;
+    return (
+      <Row>
+        <Col>
+        <div style={{display:"flex", flexWrap:"wrap", marginLeft: "15%"}}>
+{products.map(product=>(
+  <Card key={product.id} style={{width:"40%", margin:"5px"}}>
+     <Card.Img variant="top" src={"/images/product/" + product.image}/> 
+    <Card.Body>
+      <Card.Title>{product.productName}
+      </Card.Title><Card.Text>
+        {product.description}<br/>
+        <strong> Category: </strong> {product.category.productName}<br/>
+        <strong> Price: </strong> {product.price} €
+      </Card.Text>
+      <Button variant="primary" onclick={()=> this.handleShow(product)}>More shopping</Button>
+      <Button variant="primary" onclick={()=> this.clearCart()}>Clear the cart</Button>
+    </Card.Body>
+  </Card>
+))}
+        </div>
+        </Col>
+      </Row>
+    );
+  }
 }
-export default Cart;
+export default OnlineShop;

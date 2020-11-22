@@ -17,9 +17,9 @@ class ProductService {
   }
 
   update(product, data) {
-    return this.get(product.name).then(result => {
-      if (product.name == result.data.name) {
-        return http.put(`/product/${product.name}/update`, data,  { headers: authHeader() });
+    return this.get(product.productName).then(result => {
+      if (product.productName == result.data.name) {
+        return http.put(`/product/${product.productName}/update`, data,  { headers: authHeader() });
       } else {
         throw new Error("Wrong information")
       }
@@ -37,10 +37,6 @@ class ProductService {
   }
   deleteAll() {
     return http.delete(`/product/deleteAll`);
-  }
-  //TO DO: finish the find product
-  findByName(name) {
-    return http.get(`/product?name=${name}`);
   }
 }
 

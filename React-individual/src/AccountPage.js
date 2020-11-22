@@ -1,18 +1,111 @@
 import React, { Component } from "react";
 import AuthService from "./auth-service/auth-service";
-
+import UserService from "./services/UserService";
 import "./App.css";
 import CustomFooter from "./Footer";
 
 export default class AccountPage extends Component  {
-    constructor(props) {
+      constructor(props) {
         super(props);
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.getUser = this.getUser.bind(this);
+        this.saveUpdate = this.saveUpdate.bind(this);
     
         this.state = {
-          currentUser: AuthService.getCurrentUser()
-        };
+            currentUser: AuthService.getCurrentUser()
+          };
       }
-      render() {
+    
+      componentDidMount() {
+        console.log(this.props);
+        this.getUser(this.props.match.params.email);
+      }
+    
+      onChangeName(e) {
+        const username = e.target.value;
+    
+        this.setState(function (prevState) {
+          return {
+            currentUser: {
+              ...prevState.currentUser,
+              username: username,
+            },
+          };
+        });
+      }
+    
+      onChangeEmail(e) {
+        const email = e.target.value;
+    
+        this.setState((prevState) => ({
+          currentUser: {
+            ...prevState.currentUser,
+            email: email,
+          },
+        }));
+      }
+      onChangePassword(e) {
+        const password = e.target.value;
+    
+        this.setState((prevState) => ({
+          currentUser: {
+            ...prevState.currentUser,
+            password: password,
+          },
+        }));
+      }
+      getUser(email) {
+        UserService.get(email)
+          .then(response => {
+            this.setState({
+              currentUser: response.data,
+            });
+            console.log(response.data);
+          })
+          .catch((e) => {
+            console.log(e + "fgh");
+          });
+      }
+      saveUpdate(status) {
+        var data = {
+          username: this.state.currentUser.username,
+          email: this.state.currentUser.email,
+          password: this.state.currentUser.password,
+          published: status
+        };
+    
+        UserService.update(this.state.currentUser.email, data)
+          .then(response => {
+            this.setState(prevState => ({
+              currentUser: {
+                ...prevState.currentUser,
+                published: status
+              }
+            }));
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
+      updateUser() {
+        UserService.update(
+          this.state.currentUser.email,
+          this.state.currentUser
+        )
+          .then(response => {
+            console.log(response.data);
+            this.setState({
+              message: "Your profile was updated successfully!"
+            });
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
+    render() {
         const { currentUser } = this.state;
     
     return (
@@ -50,7 +143,14 @@ export default class AccountPage extends Component  {
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
         </ul>
                                     <div class="mx-auto">
-                                        <button type="submit" class="btn btn-info">Update information</button></div>
+                                        <button type="submit" class="btn btn-info" onClick={() => this.saveUpdate(true)}>Save changes </button>
+                                        <button
+              type="submit"
+              className="badge badge-success"
+              onClick={this.updateUser}
+            >
+              Update
+            </button> <button type="submit" class="btn btn-info"><a href="mailto:jakitoo99@gmail.com">Deactivate</a></button></div>
                                 </form>
                             </div></div>
                     </div>

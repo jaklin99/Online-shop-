@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProductService from "../services/UserService";
+import ProductService from "../services/ProductService";
 
 export default class Product extends Component {
   constructor(props) {
@@ -74,9 +74,9 @@ export default class Product extends Component {
     }
     saveUpdate(status) {
       var data = {
-        name: this.state.currentUser.name,
-        price: this.state.currentUser.price,
-        category: this.state.currentUser.category,
+        name: this.state.currentProduct.name,
+        price: this.state.currentProduct.price,
+        category: this.state.currentProduct.category,
         published: status
       };
   
@@ -101,6 +101,7 @@ export default class Product extends Component {
         )
           .then(response => {
             console.log(response.data);
+            this.props.history.push("/product");
             this.setState({
               message: "The product was updated successfully!"
             });
@@ -109,19 +110,7 @@ export default class Product extends Component {
             console.log(e);
           });
       }
-    // UserService.update(this.state.currentUser)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     this.props.history.push("/users");
-    //     this.setState({
-    //       message: "The user was updated successfully!",
-    //     });
-    //   })
-    //   .catch(() => {
-    //     this.setState({
-    //       message: "Unsuccessful update."
-    //     })
-    //   });
+
 
   deleteProduct() {
     ProductService.delete(this.state.currentProduct)
@@ -153,7 +142,7 @@ export default class Product extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentProduct.name}
+                  value={currentProduct.productName}
                   onChange={this.onChangeName}
                 />
               </div>
@@ -173,7 +162,7 @@ export default class Product extends Component {
                   type="text"
                   className="form-control"
                   id="category"
-                  value={currentProduct.category}
+                  value={currentProduct.category.name}
                   onChange={this.onChangeCategory}
                 />
               </div>
@@ -218,7 +207,7 @@ export default class Product extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a User...</p>
+            <p>Please click on a product...</p>
             <p>{this.state.message}</p>
           </div>
         )}

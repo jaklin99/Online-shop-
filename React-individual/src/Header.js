@@ -17,7 +17,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import HomePage from "./HomePage";
-//import Form from "./Form";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
@@ -25,7 +24,10 @@ import posts from "./components/Posts";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
 import contact from "./Contact";
-import Comment from "./components/Comment";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import {FaShoppingCart} from "react-icons/fa"
+
 
 
 
@@ -67,22 +69,30 @@ class Header extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="posts">Posts</Nav.Link>
-                            <Nav.Link href="onlineShop">Online shop</Nav.Link>
-                            <Nav.Link href="contact">Contact</Nav.Link>
+                            <Nav.Link href="/posts">Posts</Nav.Link>
+                            <Nav.Link href="/onlineShop">Online shop</Nav.Link>
+                            <Nav.Link href="/checkout">Chekout</Nav.Link>
+                            <Nav.Link href="/contact">Contact</Nav.Link>
                             <NavDropdown title="Service" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="userList">Show users</NavDropdown.Item>
-                                <NavDropdown.Item href="addProduct">Add product</NavDropdown.Item>
-                                <NavDropdown.Item href="productList">Show produts</NavDropdown.Item>
+                                <NavDropdown.Item href="/userList">Show users</NavDropdown.Item>
+                                <NavDropdown.Item href="/addProduct">Add product</NavDropdown.Item>
+                                <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
                             </NavDropdown>   </Nav>
                         <Nav>
                             {currentUser ? (
+                                
                                 <div className="navbar-nav">
+                                     <li className="nav-item">
+                                    <a href="/cart" className="nav-link">
+                                            <FaShoppingCart/>
+                                        </a>
+                                    </li>
                                     <li className="nav-item">
                                         <Link to={"/account"} className="nav-link">
                                             {currentUser.username}
                                         </Link>
                                     </li>
+                                   
                                     <li className="nav-item ">
                                         <a href="/" className="nav-link" onClick={this.logOut}>
                                             LogOut
@@ -109,100 +119,6 @@ class Header extends Component {
                     </Navbar.Collapse>
                 </Navbar>
 
-
-
-
-                {/* <nav className="navbar navbar-expand" bg="light" expand="lg">
-                    <Link to={"/"} className="navbar-brand">
-                        Matchpoint
-          </Link>
-                    <div className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <Link to={"/home"} className="nav-link">
-                                Home
-              </Link>
-                        </li> */}
-                {/* 
-                        {showModeratorBoard && (
-                            <li className="nav-item">
-                                <Link to={"/mod"} className="nav-link">
-                                    Moderator Board
-                </Link>
-                            </li>
-                        )} */}
-
-                {/* {showAdminBoard && (
-                            <li className="nav-item">
-                                <Link to={"/admin"} className="nav-link">
-                                    Admin Board
-                </Link>
-                            </li>
-                        )}
-
-                        {currentUser && (
-                            <li className="nav-item">
-                                <Link to={"/user"} className="nav-link">
-                                    User
-                </Link>
-                            </li>
-                        )} */}
-                {/* <li className="nav-item">
-                            <Link to={"/onlineShop"} className="nav-link">
-                                Online shop
-                </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/posts"} className="nav-link">
-                                Posts
-                </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/contact"} className="nav-link">
-                                Contact
-                </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to={"/cart"} className="nav-link">
-                                Cart
-                </Link>
-                        </li>
-                        <NavDropdown className="loginItem" title="Account" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="account">My Account</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">My Orders</NavDropdown.Item></NavDropdown>
-                    </div> */}
-
-                {/* {currentUser ? (
-                        <div className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <Link to={"/profile"} className="nav-link">
-                                    {currentUser.username}
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/login" className="nav-link" onClick={this.logOut}>
-                                    LogOut
-                </a>
-                            </li>
-                        </div>
-                    ) : (
-                            <div className="navbar-nav ml-auto">
-                                <li className="nav-item">
-                                    <Link to={"/login"} className="nav-link">
-                                        Login
-                </Link>
-                                </li>
-
-                                <li className="nav-item">
-                                    <Link to={"/register"} className="nav-link">
-                                        Sign Up
-                </Link>
-                                </li>
-
-                            </div>
-                        )}
-                </nav> */}
-
-
                 <Switch>
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
@@ -212,16 +128,16 @@ class Header extends Component {
                     <Route path="/admin" component={BoardAdmin} />
                     <Route path="/userList" component={UserList} />
                     <Route exact path="/" component={HomePage} />
-                    <Route path="/posts" component={posts} />
+                    <Route exact path="/posts" component={posts} />
                     <Route path="/onlineShop" component={onlineShop} />
                     <Route path="/addProduct" component={AddProduct} />
                     <Route path="/user/:email" component={User} />
-                    <Route path="/product" component={Product} />
+                    <Route path="/product/:name" component={Product} />
                     <Route path="/productList" component={ProductList} />
                     <Route path="/contact" component={contact} />
                     <Route path="/account" component={Account} />
-                    <Route path="/comment" component={Comment} />
-                    {/* <Route path="/form" component={Form} /> */}
+                    <Route path="/checkout" component={Checkout} />
+                    <Route path="/cart" component={Cart} />
                 </Switch>
 
 
