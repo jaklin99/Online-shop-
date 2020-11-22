@@ -1,17 +1,0 @@
-
-`com.example.accessingdatamysql.security.services.UserDetailsImpl#getPassword()Ljava/lang/String;†
-ïC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.javaB B("1*Å
-1†
-ïC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.javaC C(ò
-ï
-†
-ïC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.javaC C(
-%0java.lang.String"__id*R*PB
-@com.example.accessingdatamysql.security.services.UserDetailsImpl"
-
-password"Ω
-†
-ïC:/Users/jakit/INDIVIDUAL/tennis-website/individual-assignment-db/src/main/java/com/example/accessingdatamysql/security/services/UserDetailsImpl.javaC C(
-
-%0java.lang.StringBDB
-@com.example.accessingdatamysql.security.services.UserDetailsImpl
