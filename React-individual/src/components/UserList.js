@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserService from "../services/UserService";
 import { Link } from "react-router-dom";
+import Table from "react-bootstrap/Table"
 
 export default class UserList extends Component {
   constructor(props) {
@@ -64,6 +65,40 @@ export default class UserList extends Component {
     const { users, currentUser, currentIndex } = this.state;
 
     return (
+
+//       <Table  style={{width:"60%", marginLeft:"20%", marginTop: "1cm"}} striped bordered hover variant="dark">
+//   <thead>
+//     <tr >
+//       <th style={{color: "whitesmoke"}}>#</th>
+//       <th style={{color: "whitesmoke"}}>First Name</th>
+//       <th style={{color: "whitesmoke"}}>Last Name</th>
+//       <th style={{color: "whitesmoke"}}>Username</th>
+//       <th><button
+//             className="btn btn-sm btn-danger"
+//             onClick={this.removeAllUsers}
+//           >
+//             Remove All
+//           </button></th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//   <ul className="list-group">
+//             {users &&
+//               users.map((user, index) => (
+//                 <li
+//                   className={
+//                     "list-group-item " +
+//                     (index === currentIndex ? "active" : "")
+//                   }
+//                   onClick={() => this.setActiveUser(user, index)}
+//                   key={index}
+//                 >
+//                   {user.username}
+//                 </li>
+//               ))}
+//           </ul>
+//   </tbody>
+// </Table>
       <div className="list row">
         <div className="col-md-6">
           <h4>Users List</h4>

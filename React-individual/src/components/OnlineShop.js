@@ -74,15 +74,15 @@ class OnlineShop extends React.Component {
     return (
       <Row>
         <Col>
-        <div style={{display:"flex", flexWrap:"wrap", marginLeft: "15%",marginRight: "15%"}}>
+        <div style={{display:"flex", flexWrap:"wrap", marginLeft: "10%"}}>
 {products.map(product=>(
-  <Card key={product.id} style={{width:"20%", margin:"15px"}}>
+  <Card key={product.id} style={{width:"30%", margin:"5px"}}>
      <Card.Img variant="top" src={"/imgs/" + product.image} style={{width:"50%"}}/> 
     <Card.Body>
       <Card.Title>{product.productName}
       </Card.Title><Card.Text>
         {product.description}<br/>
-        <strong> Category: </strong> {product.category.productName}<br/>
+        <strong> Category: </strong> {product.category.name}<br/>
         <strong> Price: </strong> {product.price} €
       </Card.Text>
       <Button variant="primary" onclick={()=> this.handleShow(product)}>Add to cart</Button>
