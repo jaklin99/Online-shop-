@@ -33,7 +33,7 @@ public class User {
     @Email
     private String email;
 
-    @JsonIgnore
+
     @NotBlank
     @Size(max = 120)
     private String password;
@@ -86,8 +86,11 @@ public class User {
     public String getPassword() {
         return password;
     }
+    public void setPassword(String password) {
+        this.password = password;
 
-    public User setPassword(String password) {
+    }
+    public User setPassworda(String password) {
         this.password = password;
         return this;
     }
@@ -98,5 +101,16 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

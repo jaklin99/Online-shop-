@@ -54,7 +54,8 @@ public class UserController {
             User user = userInfo.get();
             user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
-            user.setPassword(updatedUser.getPassword());
+            user.setPassworda(updatedUser.getPassword());
+            System.out.println(updatedUser);
             userService.save(user);
             return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);
         } else {

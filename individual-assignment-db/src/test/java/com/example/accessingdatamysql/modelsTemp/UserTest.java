@@ -16,7 +16,7 @@ class UserTest {
     @BeforeEach
     void setUp() {
         long id=0;
-        sampleUser= new User().setId(id).setEmail("lo6oJaki@gmail.com").setUsername("Lo6o Jaki").setPassword("13456789");
+        sampleUser= new User().setId(id).setEmail("lo6oJaki@gmail.com").setUsername("Lo6o Jaki").setPassworda("13456789");
 
     }
 
@@ -63,7 +63,7 @@ class UserTest {
 
     @Test
     void setPassword() {
-        sampleUser.setPassword("987654321");
+        sampleUser.setPassworda("987654321");
         assertEquals("987654321", sampleUser.getPassword());
     }
 
