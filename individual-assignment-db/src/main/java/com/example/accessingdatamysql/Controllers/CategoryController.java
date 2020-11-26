@@ -19,7 +19,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping(path = "/category")
 @CrossOrigin(origins = "http://localhost:3000")
-//@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN')")
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
@@ -43,19 +43,6 @@ public class CategoryController {
         return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
 
-//    @PutMapping("/{categoryId}/update")
-//    public ResponseEntity<Category> updateCategory(@PathVariable long categoryId, @RequestBody Category updatedCategory) {
-//        if (categoryRepository.existsById(categoryId)){
-//            categoryRepository.findById(categoryId).map(c -> {
-//                c.setName(c.getName());
-//                categoryRepository.save(c);
-//                return updatedCategory;
-//            });
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        else
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
 @PutMapping("/{categoryId}/update")
 public ResponseEntity<Category> updateCategory(@PathVariable long categoryId, @RequestBody Category updatedCategory) {
     Optional<Category> categoryInfo = categoryRepository.findById(categoryId);

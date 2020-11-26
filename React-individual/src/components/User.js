@@ -6,7 +6,7 @@ export default class User extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
+    //this.onChangePassword = this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -51,16 +51,16 @@ export default class User extends Component {
       },
     }));
   }
-  onChangePassword(e) {
-    const password = e.target.value;
+  // onChangePassword(e) {
+  //   const password = e.target.value;
 
-    this.setState((prevState) => ({
-      currentUser: {
-        ...prevState.currentUser,
-        password: password,
-      },
-    }));
-  }
+  //   this.setState((prevState) => ({
+  //     currentUser: {
+  //       ...prevState.currentUser,
+  //       password: password,
+  //     },
+  //   }));
+  // }
   getUser(email) {
     UserService.get(email)
       .then(response => {
@@ -77,7 +77,7 @@ export default class User extends Component {
     var data = {
       username: this.state.currentUser.username,
       email: this.state.currentUser.email,
-      password: this.state.currentUser.password,
+      //password: this.state.currentUser.password,
       published: status
     };
 
@@ -98,7 +98,8 @@ export default class User extends Component {
   updateUser() {
     UserService.update(
       this.state.currentUser.email,
-      this.state.currentUser
+      this.state.currentUser,
+      console.log(this.state.currentUser)
     )
       .then(response => {
         console.log(response.data);
@@ -155,7 +156,7 @@ export default class User extends Component {
                   onChange={this.onChangeEmail}
                 />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -164,7 +165,7 @@ export default class User extends Component {
                   value={currentUser.password}
                   onChange={this.onChangePassword}
                 />
-              </div>
+              </div> */}
               <div className="form-group">
                 <label>
                   <strong>Status:</strong>

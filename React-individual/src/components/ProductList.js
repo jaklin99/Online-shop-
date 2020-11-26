@@ -62,6 +62,7 @@ export default class ProductList extends Component {
         console.log(e);
       });
   }
+  
 
   render() {
     const {products, currentProduct, currentIndex } = this.state;

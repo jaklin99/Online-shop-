@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import UserService from "../services/UserService";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import CustomFooter from "../Footer";
+import ModalCheckout from "./ModalCheckout";
 import ProductService from "../services/ProductService";
 import {Col,Row,Button} from "react-bootstrap";
 
@@ -90,7 +88,7 @@ class OnlineShop extends React.Component {
     </Card.Body>
   </Card>
 ))}
-        </div>
+        </div> <Button><ModalCheckout/></Button>
         </Col>
       </Row>
     );

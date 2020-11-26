@@ -144,10 +144,7 @@ input {
   background-color: #1794b062;
 }
 
-.register {
-  background-color:#343a4073;
-  margin-top: -1.1%;
-}
+.addProductForm.card{margin-top: 0px;}
 .col {
   margin-top: 2%;
 }
@@ -242,13 +239,9 @@ label {
 .col-sm.s {
   margin-top: 1.3%;
 }
-.addProductForm{
-  margin-bottom: 2%;
-  width: 40%;
-  margin-left: 31%;
-}
+
 .checkout{
-  margin-top: 2%;
+  background-color: #6061634b;
 }
 /*bootstrap css*/
 .container{
@@ -267,9 +260,7 @@ label {
   border-radius: 1px;
 }
 
-.panel-info {
-  border-color: #999;
-}
+
 
 .panel-heading {
   border-top-left-radius: 1px;
@@ -279,11 +270,9 @@ label {
   border-radius: 1px;
 }
 .panel-info > .panel-heading {
-  color: #eee;
-  border-color: #999;
-}
-.panel-info > .panel-heading {
-  background-image: linear-gradient(to bottom, #555 0px, #888 100%);
+  color:#343a40 ;
+ 
+  
 }
 
 hr {

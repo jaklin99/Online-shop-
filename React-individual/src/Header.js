@@ -17,18 +17,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import HomePage from "./HomePage";
-import AddProduct from "./components/AddProduct";
+import ModalProduct from "./components/ModalProduct";
+import ModalCategory from "./components/ModalCategory";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
 import posts from "./components/Posts";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
-import contact from "./Contact";
+import contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import {FaShoppingCart} from "react-icons/fa"
-
-
 
 
 class Header extends Component {
@@ -71,11 +70,11 @@ class Header extends Component {
                         <Nav className="mr-auto">
                             <Nav.Link href="/posts">Posts</Nav.Link>
                             <Nav.Link href="/onlineShop">Online shop</Nav.Link>
-                            <Nav.Link href="/checkout">Chekout</Nav.Link>
                             <Nav.Link href="/contact">Contact</Nav.Link>
                             <NavDropdown title="Service" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/userList">Show users</NavDropdown.Item>
-                                <NavDropdown.Item href="/addProduct">Add product</NavDropdown.Item>
+                                <NavDropdown.Item><ModalCategory/></NavDropdown.Item>
+                                <NavDropdown.Item><ModalProduct/></NavDropdown.Item>
                                 <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
                             </NavDropdown>   </Nav>
                         <Nav>
@@ -95,7 +94,7 @@ class Header extends Component {
                                    
                                     <li className="nav-item ">
                                         <a href="/" className="nav-link" onClick={this.logOut}>
-                                            LogOut
+                                            Log out
                                         </a>
                                     </li>
                                 </div>
@@ -130,13 +129,11 @@ class Header extends Component {
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/posts" component={posts} />
                     <Route path="/onlineShop" component={onlineShop} />
-                    <Route path="/addProduct" component={AddProduct} />
                     <Route path="/user/:email" component={User} />
                     <Route path="/product/:name" component={Product} />
                     <Route path="/productList" component={ProductList} />
                     <Route path="/contact" component={contact} />
                     <Route path="/account" component={Account} />
-                    <Route path="/checkout" component={Checkout} />
                     <Route path="/cart" component={Cart} />
                 </Switch>
 

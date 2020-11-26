@@ -7,8 +7,7 @@ import { Form, Button } from "react-bootstrap"
 export default class Checkout extends Component {
     render() {
         return (
-            <center className="checkout"> 
-        <form className="col-lg-6">       
+        <form className="col-lg-4">       
              <div class="panel panel-info">
                  <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
                  <div class="panel-body">
@@ -90,7 +89,6 @@ export default class Checkout extends Component {
                  </div>
              </div>
           </form>
-          </center>
-     );
+         );
   }
 }

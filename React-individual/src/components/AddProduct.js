@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import CustomFooter from "../Footer";
 import Axios from "axios";
-import { Form, Button } from "react-bootstrap"
+import { Col, Row, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import AddCategory from "./AddCategory";
+
 export default class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +15,8 @@ export default class AddProduct extends Component {
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.saveProduct = this.saveProduct.bind(this);
     this.newProduct = this.newProduct.bind(this);
+    this.saveCategory = this.saveCategory.bind(this);
+    this.newCategory = this.newCategory.bind(this);
 
     this.state = {
       id: null,
@@ -24,6 +29,7 @@ export default class AddProduct extends Component {
       categories: []
     };
   }
+ 
 
   componentDidMount() {
     Axios.get('http://localhost:8080/category/all')
@@ -91,12 +97,41 @@ export default class AddProduct extends Component {
       submitted: false,
     });
   }
+  saveCategory() {
+    var data = {
+     name: this.state.name,
+      
+    };
+
+    ProductService.create(data)
+      .then((response) => {
+        this.setState({
+          id: response.data.id,
+          productName: response.data.productName,
+          price: response.data.price,
+          category: response.data.category,
+          submitted: true
+        });
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+  newCategory() {
+    this.setState({
+      id: null,
+      name: "",
+      submitted: false,
+    });
+  }
   render() {
     return (
       
-      <div className="register">
-      <Form className="addProductForm">
+      <Row><Col>
+      <Card className="addProductForm" style={{ display: "flex", flexWrap: "wrap"}}>
           <Form.Group controlId="name">
+          <Form.Label>Product</Form.Label>
             <Form.Label>Name*</Form.Label>
             <Form.Control name="name" onChange={this.onChangeName} type="name" placeholder="" value={this.state.productName} />
           </Form.Group>
@@ -117,10 +152,12 @@ export default class AddProduct extends Component {
             <Form.File name="image" accept="image/png,image/jpeg" label="Upload product image" />
           </Form.Group>
             <Button  className="btn btn-info"variant="primary" onClick={this.saveProduct}>Submit</Button>
-            <Button className="btn btn-info" href="/" variant="primary">Cancel</Button>
-        </Form>
-        <CustomFooter />
-       </div>
+            {/* <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button> */}
+        </Card>
+        </Col></Row>
+     
     );
   }
 }
