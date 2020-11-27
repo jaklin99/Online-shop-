@@ -21,8 +21,8 @@ function Add() {
         Add product
         </Dropdown.Item>
   
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
+        <Modal class="modal-dialog modal-lg" show={show} onHide={handleClose}>
+          <Modal.Header closeButton >
             <Modal.Title>Add product</Modal.Title>
           </Modal.Header>
           <Modal.Body><AddProduct/></Modal.Body>

@@ -239,7 +239,10 @@ label {
 .col-sm.s {
   margin-top: 1.3%;
 }
-
+.modal-content{
+  width: 130%;
+  margin-left: -10%;
+}
 .checkout{
   background-color: #6061634b;
 }
