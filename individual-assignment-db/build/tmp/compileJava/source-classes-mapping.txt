@@ -18,8 +18,8 @@ com/example/accessingdatamysql/payload/request/LoginRequest.java
  com.example.accessingdatamysql.payload.request.LoginRequest
 com/example/accessingdatamysql/modelsTemp/ERole.java
  com.example.accessingdatamysql.modelsTemp.ERole
-com/example/accessingdatamysql/Controllers/ProductController.java
- com.example.accessingdatamysql.Controllers.ProductController
+com/example/accessingdatamysql/Controllers/AuthController.java
+ com.example.accessingdatamysql.Controllers.AuthController
 com/example/accessingdatamysql/payload/request/SignupRequest.java
  com.example.accessingdatamysql.payload.request.SignupRequest
 com/example/accessingdatamysql/security/WebSecurityConfig.java
@@ -38,8 +38,8 @@ com/example/accessingdatamysql/payload/response/MessageResponse.java
  com.example.accessingdatamysql.payload.response.MessageResponse
 com/example/accessingdatamysql/Services/ProductService.java
  com.example.accessingdatamysql.Services.ProductService
-com/example/accessingdatamysql/Controllers/CategoryController.java
- com.example.accessingdatamysql.Controllers.CategoryController
+com/example/accessingdatamysql/security/services/UserDetailsServiceImpl.java
+ com.example.accessingdatamysql.security.services.UserDetailsServiceImpl
 com/example/accessingdatamysql/security/jwt/AuthEntryPointJwt.java
  com.example.accessingdatamysql.security.jwt.AuthEntryPointJwt
 com/example/accessingdatamysql/Services/IProductService.java
@@ -56,7 +56,19 @@ com/example/accessingdatamysql/modelsTemp/User.java
  com.example.accessingdatamysql.modelsTemp.User
 com/example/accessingdatamysql/Services/IUserService.java
  com.example.accessingdatamysql.Services.IUserService
-com/example/accessingdatamysql/Controllers/AuthController.java
- com.example.accessingdatamysql.Controllers.AuthController
-com/example/accessingdatamysql/security/services/UserDetailsServiceImpl.java
- com.example.accessingdatamysql.security.services.UserDetailsServiceImpl
+com/example/accessingdatamysql/Services/FileStorageService.java
+ com.example.accessingdatamysql.Services.FileStorageService
+com/example/accessingdatamysql/Controllers/CategoryController.java
+ com.example.accessingdatamysql.Controllers.CategoryController
+com/example/accessingdatamysql/Controllers/FileController.java
+ com.example.accessingdatamysql.Controllers.FileController
+com/example/accessingdatamysql/message/ResponseFile.java
+ com.example.accessingdatamysql.message.ResponseFile
+com/example/accessingdatamysql/message/ResponseMessage.java
+ com.example.accessingdatamysql.message.ResponseMessage
+com/example/accessingdatamysql/modelsTemp/FileDB.java
+ com.example.accessingdatamysql.modelsTemp.FileDB
+com/example/accessingdatamysql/Controllers/ProductController.java
+ com.example.accessingdatamysql.Controllers.ProductController
+com/example/accessingdatamysql/Repository/FileDBRepository.java
+ com.example.accessingdatamysql.Repository.FileDBRepository
