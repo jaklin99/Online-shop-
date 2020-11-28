@@ -72,13 +72,13 @@ class OnlineShop extends React.Component {
     return (
       <Row>
         <Col>
-        <div style={{display:"flex", flexWrap:"wrap", marginLeft: "15%"}}>
+        <Card style={{width:"80%", marginLeft:"3.5cm"}}>
 {products.map(product=>(
-  <Card key={product.id} style={{width:"40%", margin:"5px"}}>
+  <div key={product.id} style={{width:"100%"}}>
+    <Card.Header>{product.productName}</Card.Header>
      <Card.Img variant="top" src={"/images/product/" + product.image}/> 
     <Card.Body>
-      <Card.Title>{product.productName}
-      </Card.Title><Card.Text>
+     <Card.Text>
         {product.description}<br/>
         <strong> Category: </strong> {product.category.productName}<br/>
         <strong> Price: </strong> {product.price} €
@@ -86,19 +86,9 @@ class OnlineShop extends React.Component {
       <Button variant="primary" onclick={()=> this.handleShow(product)}>More shopping</Button>
       <Button variant="primary" onclick={()=> this.clearCart()}>Clear the cart</Button>
     </Card.Body>
-  </Card>
-))}
-<Card>
-  <Card.Header>Featured</Card.Header>
-  <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
-    <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-        </div> <Button><ModalCheckout/></Button>
+  </div>
+))}</Card>
+         <Button><ModalCheckout/></Button>
         </Col>
       </Row>
     );
