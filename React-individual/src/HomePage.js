@@ -9,7 +9,7 @@ function HomePage(props) {
       <Carousel>
         <Carousel.Item>
           <img class="img"
-            src="/imgs/tennis-login.jpg"
+            src="/imgs/wallpaper.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -17,9 +17,9 @@ function HomePage(props) {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <img 
             class="img"
-            src="/imgs/sharapova-azarenka.jpg"
+            src="/imgs/novak.jpg"
             alt="Second slide"
           />
 

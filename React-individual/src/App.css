@@ -12,7 +12,7 @@ div {
 }
 .img {
   width: 100%;
-  height: 700px;
+  height: 800px;
 }
 
 .login-img {
@@ -140,9 +140,7 @@ input {
   width: 100%;
   position: relative;
 }
-.contact {
-  background-color: #1794b062;
-}
+
 
 .addProductForm.card{margin-top: 0px;}
 .col {
@@ -246,93 +244,69 @@ label {
 .checkout{
   background-color: #6061634b;
 }
-/*bootstrap css*/
-.container{
-  border: none;
-}
-.panel-footer{
-  background:#fff;
-}
-.btn{
-  border-radius: 1px;
-}
-.btn-sm, .btn-group-sm > .btn{
-  border-radius: 1px;
-}
-.input-sm, .form-horizontal .form-group-sm .form-control{
-  border-radius: 1px;
-}
+/* login-css */
 
-
-
-.panel-heading {
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-}
-.panel {
-  border-radius: 1px;
-}
-.panel-info > .panel-heading {
-  color:#343a40 ;
- 
-  
-}
-
-hr {
-  border-color: #999 -moz-use-text-color -moz-use-text-color;
-}
-
-.panel-footer {
-  border-bottom-left-radius: 1px;
-  border-bottom-right-radius: 1px;
-  border-top: 1px solid #999;
-}
-
-.btn-link {
-  color: #888;
-}
-
-hr{
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-/** MEDIA QUERIES **/
-@media only screen and (max-width: 989px){
-  .span1{
-      margin-bottom: 15px;
-      clear:both;
+@media (min-width: 768px) {
+  .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+      margin-left: 25%;
   }
 }
 
-@media only screen and (max-width: 764px){
-  .inverse-1{
-      float:right;
-  }
+.omb_login .omb_authTitle {
+  text-align: center;
+line-height: 300%;
 }
 
-@media only screen and (max-width: 586px){
-  .cart-titles{
-      display:none;
-  }
-  .panel {
-      margin-bottom: 1px;
-  }
+.omb_login .omb_socialButtons a {
+color: white; 
+opacity:0.9;
+}
+.omb_login .omb_socialButtons a:hover {
+  color: white;
+opacity:1;    	
+}
+.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
+.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
+.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
+
+
+.omb_login .omb_loginOr {
+position: relative;
+font-size: 1.5em;
+color: #aaa;
+margin-top: 1em;
+margin-bottom: 1em;
+padding-top: 0.5em;
+padding-bottom: 0.5em;
+}
+.omb_login .omb_loginOr .omb_hrOr {
+background-color: #cdcdcd;
+height: 1px;
+margin-top: 0px !important;
+margin-bottom: 0px !important;
+}
+.omb_login .omb_loginOr .omb_spanOr {
+display: block;
+position: absolute;
+left: 50%;
+top: -0.6em;
+margin-left: -1.5em;
+background-color: white;
+width: 3em;
+text-align: center;
+}			
+
+.omb_login .omb_loginForm .input-group.i {
+width: 2em;
+}
+.omb_login .omb_loginForm  .help-block {
+  color: red;
 }
 
-.form-control {
-  border-radius: 1px;
-}
 
-@media only screen and (max-width: 486px){
-  .col-xss-12{
-      width:100%;
-  }
-  .cart-img-show{
-      display: none;
-  }
-  .btn-submit-fix{
-      width:100%;
-  }
-  
+@media (min-width: 768px) {
+  .omb_login .omb_forgotPwd {
+      text-align: right;
+  margin-top:10px;
+ }		
 }

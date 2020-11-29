@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
+import Card from "react-bootstrap/Card";
 import AuthService from "../auth-service/auth-service";
 
 const required = value => {
@@ -81,14 +81,25 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div class="contact">
-        <div className="col-md-12">
-          <div className="card card-container">
-            <img
-              src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-              alt="profile-img"
-              className="profile-img-card"
-            />
+      <>
+        <Card style={{width:"50%", marginLeft:"8cm", marginTop:"2%"}}>
+<div class="container">
+    <div class="omb_login">
+          <h3 class="omb_authTitle">Login or <a href="/register">Sign up</a></h3>
+          <div class="row omb_row-sm-offset-3 omb_socialButtons">
+    	    <div class="col-xs-4 col-sm-4">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+			        <i class="fa fa-facebook visible-xs"></i>
+			        <span class="hidden-xs">Facebook</span>
+		        </a>
+	        </div>	
+        	<div class="col-xs-4 col-sm-4">
+		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+			        <i class="fa fa-google-plus visible-xs"></i>
+			        <span class="hidden-xs">Google+</span>
+		        </a>
+	        </div>	
+		</div>
 
             <Form
               onSubmit={this.handleLogin}
@@ -97,7 +108,7 @@ export default class Login extends Component {
               }}
             >
               <div className="form-group">
-                <label htmlFor="username">Username</label>
+              <span class="input-group-addon"><i class="fa fa-user">Username</i></span>
                 <Input
                   type="text"
                   className="form-control"
@@ -109,8 +120,8 @@ export default class Login extends Component {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Input
+              <span class="input-group-addon"><i class="fa fa-lock">Password</i></span>
+                 <Input
                   type="password"
                   className="form-control"
                   name="password"
@@ -145,10 +156,9 @@ export default class Login extends Component {
                   this.checkBtn = c;
                 }}
               />
-            </Form>
-          </div>
-        </div>
-      </div>
+            </Form></div></div>
+          </Card> 
+      </>
     );
   }
 }
