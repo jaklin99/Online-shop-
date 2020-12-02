@@ -23,10 +23,11 @@ export default class AddProduct extends Component {
       productName: "",
       price: 0,
       category: {
-        categoryId: 0
+        categoryName: ""
       },
       submitted: false,
-      categories: []
+      categories: [],
+      base64TextString: ""
     };
   }
  
@@ -62,12 +63,63 @@ export default class AddProduct extends Component {
     });
     console.log(this.state);
   }
-
+  _handleReaderLoaded = (readerEvt) => {
+    let binaryString = readerEvt.target.result
+    this.setState({
+        base64TextString: btoa(binaryString)
+    })
+}
+handleChange = (e) => {
+  const { name, value } = e.target
+  if (name === "productName") {
+      this.setState(state => ({
+          product: {
+              ...this.state.product,
+              [name]: value
+          }
+      }))
+  }
+ if (name === "image") {
+      const file = e.target.files[0]
+      if (file && ((file.type === "image/jpeg") || (file.type === "image/png")) && file.size <= 1048576) {
+          const reader = new FileReader()
+          reader.onload = this._handleReaderLoaded.bind(this)
+          reader.readAsBinaryString(file)
+          this.setState({
+              fileError: null
+          })
+      }
+      else {
+          if (file.type !== ("image/jpeg" || "image/png")) {
+              this.setState({
+                  fileError: "Unsupported file type."
+              })
+          }
+          else if (file.size > 1048576) {
+              this.setState({
+                  fileError: "File too large!"
+              })
+          }
+          else {
+              this.setState({
+                  fileError: "File error!"
+              })
+          }
+      }
+  }
+  else {
+      this.setState({
+          ...this.state,
+          [name]: value
+      })
+  }
+}
   saveProduct() {
     var data = {
       productName: this.state.productName,
       price: this.state.price,
-      category: this.state.category
+      category: this.state.category,
+      image: this.state.base64TextString
     };
 
     ProductService.create(data)
@@ -144,12 +196,12 @@ export default class AddProduct extends Component {
             <Form.Control as="select" name="categoryId" onChange={this.onChangeCategory}>
               <option>Select category</option>
               {this.state.categories.map(category => (
-                <option key={category.categoryId} value={category.categoryId}>{category.name}</option>
+                <option key={category.name} value={category.categoryId}>{category.name}</option>
               ))}
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="image">
-            <Form.File name="image" accept="image/png,image/jpeg" label="Upload product image" />
+            <Form.File name="image" accept="image/png,image/jpeg" label="Upload product image" onChange={this.handleChange}></Form.File>
           </Form.Group>
             <Button  className="btn btn-info"variant="primary" onClick={this.saveProduct}>Submit</Button>
             {/* <Button variant="secondary" onClick={handleClose}>

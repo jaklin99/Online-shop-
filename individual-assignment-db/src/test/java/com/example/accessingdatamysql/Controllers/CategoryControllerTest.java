@@ -57,16 +57,6 @@ class CategoryControllerTest {
         List<Category> actual = categoryController.getAllCategories();
         assertEquals(sampleCategories, actual);
     }
-    @Test
-    void getCategoryById() {
-        long id=9;
-        Category c = sampleCategories.get(0).setCategoryId(9);
-        Mockito.when(categoryRepository.findById(id)).thenReturn(Optional.of(c));
-        ResponseEntity<Category> actualC=categoryController.getCategoryById(id);
-        assertEquals(c,actualC.getBody());
-        assertEquals(HttpStatus.OK, actualC.getStatusCode());
-        Mockito.verify(categoryRepository).findById(c.getCategoryId());
-    }
 
 //    @Test
 //    void addNewCategory() {

@@ -8,20 +8,20 @@ function CustomFooter() {
 <div className="footer-class">
 <div class="container">
   <div class="row">
-    <div class="col"><h5>Get in touch on social media:</h5></div><div class="col"></div>
+    <div class="col"><h5>Get in touch with us on social media:</h5></div><div class="col"></div>
     <div class="col"><h3><FaFacebook/> <FaInstagram/> <FaTwitter/> <FaSnapchat/></h3> </div></div></div> <hr></hr>
   <div class="footer-content">
   <div class="container">
   <div class="row">
     <div class="col">
     <h5> Quick view:</h5>
-    <a href="/posts">Posts</a><br></br>
-    <a href="/onlineShop">Online shop</a><br></br>
-    <a href="/checkout">Check out</a><br></br>
+    <a className="links" href="/posts">Posts</a><br></br>
+    <a className="links" href="/onlineShop">Online shop</a><br></br>
+    <a className="links" href="/checkout">Check out</a><br></br>
     </div>
     <div class="col">
     <h5>Contact us:</h5>
-    <a href="/contact">Contact us</a><br></br>
+    <a className="links" href="/contact">Contact us</a><br></br>
     </div>
     <div class="col">
     <h5>Address:</h5>

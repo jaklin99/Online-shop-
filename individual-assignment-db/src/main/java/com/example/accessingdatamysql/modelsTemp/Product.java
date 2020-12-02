@@ -13,7 +13,8 @@ public class Product {
     @Column(nullable = false, precision = 2)
     private double price;
     @Column(nullable = false)
-    private String image= "default.png";
+    @Lob
+    private String image;
 
 
     @ManyToOne(optional = false, targetEntity = Category.class)

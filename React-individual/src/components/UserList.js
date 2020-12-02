@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import UserService from "../services/UserService";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table"
+import {TableBody, TableCell } from "semantic-ui-react";
+import CustomFooter from "../Footer";
 
 export default class UserList extends Component {
   constructor(props) {
@@ -60,104 +62,115 @@ export default class UserList extends Component {
         console.log(e);
       });
   }
+  render(){
+  const {users, currentUser, currentIndex } = this.state;
 
-  render() {
-    const { users, currentUser, currentIndex } = this.state;
+  return (<>
+    <Table  style={{width:"60%", marginLeft:"20%", marginTop: "1cm"}} striped bordered hover variant="dark">
+       <thead>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th><button
+          className="btn btn-sm btn-danger"
+          onClick={this.removeAllusers}
+        >
+          Remove All
+        </button></th>
+  </tr>
+</thead>
+{users.map(user=>(
+<TableBody>
+<tr key={user.id} >
+    <TableCell>{user.username}
+    </TableCell><TableCell>
+      <td> Email: {user.email}</td> 
+      </TableCell>
+          {/* <Button className="btn btn-sm btn-danger"> */}
+          <TableCell>
+      <Link
+              // to={"/user/" + currentuser.userName}
+              className="btn btn-sm btn-warning" role="button"
+            >
+              Edit
+            </Link>
+            </TableCell>
+            {/* </Button> */}
+            <TableCell>
+             <Link
+              // to={"/user/" + currentuser.userName}
+              className="btn btn-sm btn-danger" role="button"
+            >
+              Delete
+            </Link></TableCell>
+    </tr>
+  </TableBody>
 
-    return (
+))}
+    </Table><CustomFooter /></>
+  // render() {
+  //   const { users, currentUser, currentIndex } = this.state;
 
-//       <Table  style={{width:"60%", marginLeft:"20%", marginTop: "1cm"}} striped bordered hover variant="dark">
-//   <thead>
-//     <tr >
-//       <th style={{color: "whitesmoke"}}>#</th>
-//       <th style={{color: "whitesmoke"}}>First Name</th>
-//       <th style={{color: "whitesmoke"}}>Last Name</th>
-//       <th style={{color: "whitesmoke"}}>Username</th>
-//       <th><button
-//             className="btn btn-sm btn-danger"
-//             onClick={this.removeAllUsers}
-//           >
-//             Remove All
-//           </button></th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//   <ul className="list-group">
-//             {users &&
-//               users.map((user, index) => (
-//                 <li
-//                   className={
-//                     "list-group-item " +
-//                     (index === currentIndex ? "active" : "")
-//                   }
-//                   onClick={() => this.setActiveUser(user, index)}
-//                   key={index}
-//                 >
-//                   {user.username}
-//                 </li>
-//               ))}
-//           </ul>
-//   </tbody>
-// </Table>
-      <div className="list row">
-        <div className="col-md-6">
-          <h4>Users List</h4>
+  //   return (
+  //     <div className="list row">
+  //       <div className="col-md-6">
+  //         <h4>Users List</h4>
 
-          <ul className="list-group">
-            {users &&
-              users.map((user, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveUser(user, index)}
-                  key={index}
-                >
-                  {user.username}
-                </li>
-              ))}
-          </ul>
+  //         <ul className="list-group">
+  //           {users &&
+  //             users.map((user, index) => (
+  //               <li
+  //                 className={
+  //                   "list-group-item " +
+  //                   (index === currentIndex ? "active" : "")
+  //                 }
+  //                 onClick={() => this.setActiveUser(user, index)}
+  //                 key={index}
+  //               >
+  //                 {user.username}
+  //               </li>
+  //             ))}
+  //         </ul>
 
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllUsers}
-          >
-            Remove All
-          </button>
-        </div>
-        <div className="col-md-6">
-          {currentUser ? (
-            <div>
-              <h4>User</h4>
-              <div>
-                <label>
-                  <strong>Name:</strong>
-                </label>{" "}
-                {currentUser.username}
-              </div>
-              <div>
-                <label>
-                  <strong>Email:</strong>
-                </label>{" "}
-                {currentUser.email}
-              </div>
+  //         <button
+  //           className="m-3 btn btn-sm btn-danger"
+  //           onClick={this.removeAllUsers}
+  //         >
+  //           Remove All
+  //         </button>
+  //       </div>
+  //       <div className="col-md-6">
+  //         {currentUser ? (
+  //           <div>
+  //             <h4>User</h4>
+  //             <div>
+  //               <label>
+  //                 <strong>Name:</strong>
+  //               </label>{" "}
+  //               {currentUser.username}
+  //             </div>
+  //             <div>
+  //               <label>
+  //                 <strong>Email:</strong>
+  //               </label>{" "}
+  //               {currentUser.email}
+  //             </div>
 
-              <Link
-                to={"/user/" + currentUser.email}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
-            </div>
-          ) : (
-              <div>
-                <br />
-                <p>Please click on a user...</p>
-              </div>
-            )}
-        </div>
-      </div>
+  //             <Link
+  //               to={"/user/" + currentUser.email}
+  //               className="badge badge-warning"
+  //             >
+  //               Edit
+  //             </Link>
+  //           </div>
+  //         ) : (
+  //             <div>
+  //               <br />
+  //               <p>Please click on a user...</p>
+  //             </div>
+  //           )}
+  //       </div>
+  //     </div>
     );
   }
 }

@@ -21,7 +21,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping(path = "/product")
 @CrossOrigin(origins = "http://localhost:3000")
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class ProductController {
     @Autowired
     private ProductService productService;

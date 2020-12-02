@@ -5,7 +5,9 @@
 div {
   margin: 0;
 }
-
+.navbar-dark .navbar-nav .nav-link{
+  color: whitesmoke;
+}
 .body {
   height: 100%;
   overflow-y: hidden;
@@ -36,29 +38,14 @@ input {
   background-color: rgba(64, 224, 208, 0.493)!important;
 }
 
-/* .btn.btn-info {
-  color: black;
-  background-color: rgb(255, 255, 255);
-  font-size: 25px;
-  padding: 0px 10px;
-  margin-top: 5%;
-} */
 .total {
   align-items: center;
   background-color: turquoise;
 }
-.btn.btn-home {
-  color: black;
-  background-color: rgb(255, 255, 255);
-  font-size: 28px;
-  padding: 0px 10px;
-  border: 1px solid black;
-}
-.btn.btn-home:hover {
-  background-color: rgba(0, 0, 0, 0.329);
+
+.links{
   color: whitesmoke;
 }
-
 .footer-class {
   right: 0;
   bottom: 0;
@@ -71,15 +58,7 @@ input {
   width: 100%;
   position: relative;
 }
-.btn.btn-register {
-  color: black;
-  background-color: rgba(207, 240, 88, 0.801);
-  font-size: 20px;
-}
-.btn.btn-register:hover {
-  background-color: black;
-  color: rgba(207, 240, 88, 0.801);
-}
+
 .btn.btn-pay {
   color: black;
   background-color: rgb(255, 255, 255);
@@ -141,7 +120,9 @@ input {
   position: relative;
 }
 
-
+.color-nav{
+  background-color: rgba(172, 255, 47, 0.548);
+} 
 .addProductForm.card{margin-top: 0px;}
 .col {
   margin-top: 2%;

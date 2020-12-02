@@ -6,6 +6,7 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import CustomFooter from "../Footer";
 import ProductService from "../services/ProductService";
 import { Col, Row, Button, Modal } from "react-bootstrap";
+import {Form, FormControl} from "react-bootstrap";
 
 class OnlineShop extends React.Component {
   constructor(props) {
@@ -21,15 +22,15 @@ class OnlineShop extends React.Component {
       price: 0,
       currentProduct: null,
       currentIndex: -1,
-      show : false,
-      setShow : false
+      show: false,
+      setShow: false
     };
   }
 
   componentDidMount() {
     this.retrieveProducts();
   }
-// not to call the function all the time
+  // not to call the function all the time
   // handleClose = () => {
   //   this.setState({
   //     setShow: false
@@ -40,17 +41,17 @@ class OnlineShop extends React.Component {
   //     setShow: true
   //   })
   // };
-   handleClose = () => {
-     this.setState({
-       setShow:false
-      })
-    };
-    handleShow = () => {
-      this.setState({
-        setShow:true
-       })
-     };
-   
+  handleClose = () => {
+    this.setState({
+      setShow: false
+    })
+  };
+  handleShow = () => {
+    this.setState({
+      setShow: true
+    })
+  };
+
 
   retrieveProducts() {
     ProductService.getAll()
@@ -97,10 +98,14 @@ class OnlineShop extends React.Component {
       <>
         <Row>
           <Col>
+            <Form inline>
+              <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+              <Button type="submit">Search</Button>
+            </Form>
             <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "10%" }}>
               {products.map(product => (
                 <Card key={product.id} style={{ width: "30%", margin: "5px" }}>
-                  <Card.Img variant="top" src={"/imgs/" + product.image} style={{ width: "50%" }} />
+                  <Card.Img src={product.image ? (`data:image/png;base64,${product.image}`) : ("./imgs/default.png")} />
                   <Card.Body>
                     <Card.Title>{product.productName}
                     </Card.Title><Card.Text>
@@ -108,29 +113,29 @@ class OnlineShop extends React.Component {
                       <strong> Category: </strong> {product.category.name}<br />
                       <strong> Price: </strong> {product.price} €
       </Card.Text>
-                    <Button variant="primary" onClick={()=>this.handleShow} >Add to cart</Button>
+                    <Button variant="primary" onClick={() => this.handleShow} >Add to cart</Button>
                   </Card.Body>
                 </Card>
               ))}
             </div>
           </Col>
         </Row>
-        <CustomFooter/>
-          <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
-            Close
+        <CustomFooter />
+        <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
           </Button>
-          <Button variant="primary">
-            Save Changes
+            <Button variant="primary">
+              Save Changes
           </Button>
-        </Modal.Footer>
-      </Modal>
-       </>
+          </Modal.Footer>
+        </Modal>
+      </>
       //         <div class="online">
 
       //         <div class="row card-deck">

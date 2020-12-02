@@ -24,11 +24,10 @@ import ProductList from "./components/ProductList";
 import posts from "./components/Posts";
 import Account from "./AccountPage";
 import onlineShop from "./components/OnlineShop";
-import contact from "./components/Contact";
 import Cart from "./components/Cart";
-import Checkout from "./components/Checkout";
-import {FaShoppingCart} from "react-icons/fa"
-
+import { FaShoppingCart } from "react-icons/fa"
+import CategoryList from "./components/CategoryList";
+import Category from "./components/Category";
 
 class Header extends Component {
     constructor(props) {
@@ -63,27 +62,31 @@ class Header extends Component {
 
         return (
             <Router>
-                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="/">Matchpoint</Navbar.Brand>
+                <Navbar bg="dark" variant="dark">
+                    <Navbar.Brand href="/"><img data-pin-nopin="true"
+                        src="imgs/matchpoint.png" width="140" height="50"></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/posts">Posts</Nav.Link>
                             <Nav.Link href="/onlineShop">Online shop</Nav.Link>
-                            <Nav.Link href="/contact">Contact</Nav.Link>
-                            <NavDropdown title="Service" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/userList">Show users</NavDropdown.Item>
-                                <NavDropdown.Item><ModalCategory/></NavDropdown.Item>
-                                <NavDropdown.Item><ModalProduct/></NavDropdown.Item>
-                                <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
-                            </NavDropdown>   </Nav>
+                            <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
+                           
+                        </Nav>
                         <Nav>
                             {currentUser ? (
-                                
+
                                 <div className="navbar-nav">
-                                     <li className="nav-item">
-                                    <a href="/cart" className="nav-link">
-                                            <FaShoppingCart/>
+                                    <NavDropdown title="Service" id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="/userList">Show users</NavDropdown.Item>
+                                        <ModalCategory />
+                                        <NavDropdown.Item href="/categoryList">Show categories</NavDropdown.Item>
+                                        <ModalProduct />
+                                        <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
+                                    </NavDropdown>
+                                    <li className="nav-item">
+                                        <a href="/cart" className="nav-link">
+                                            <FaShoppingCart />
                                         </a>
                                     </li>
                                     <li className="nav-item">
@@ -91,7 +94,7 @@ class Header extends Component {
                                             {currentUser.username}
                                         </Link>
                                     </li>
-                                   
+
                                     <li className="nav-item ">
                                         <a href="/" className="nav-link" onClick={this.logOut}>
                                             Log out
@@ -131,8 +134,9 @@ class Header extends Component {
                     <Route path="/onlineShop" component={onlineShop} />
                     <Route path="/user/:email" component={User} />
                     <Route path="/product/:name" component={Product} />
+                    <Route path="/category/:name" component={Category} />
                     <Route path="/productList" component={ProductList} />
-                    <Route path="/contact" component={contact} />
+                    <Route path="/categoryList" component={CategoryList} />
                     <Route path="/account" component={Account} />
                     <Route path="/cart" component={Cart} />
                 </Switch>

@@ -19,7 +19,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping(path = "/category")
 @CrossOrigin(origins = "http://localhost:3000")
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
@@ -32,9 +32,9 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/{categoryId}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable("categoryId") long id) {
-        Optional<Category> categoryInfo = categoryRepository.findById(id);
+    @GetMapping("/{name}")
+    public ResponseEntity<Category> getCategoryById(@PathVariable("name") String name) {
+        Optional<Category> categoryInfo = categoryRepository.findByName(name);
         return categoryInfo.map(c -> new ResponseEntity<>(c, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @PostMapping("/add")
@@ -43,9 +43,9 @@ public class CategoryController {
         return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
 
-@PutMapping("/{categoryId}/update")
-public ResponseEntity<Category> updateCategory(@PathVariable long categoryId, @RequestBody Category updatedCategory) {
-    Optional<Category> categoryInfo = categoryRepository.findById(categoryId);
+@PutMapping("/{name}/update")
+public ResponseEntity<Category> updateCategory(@PathVariable String name, @RequestBody Category updatedCategory) {
+    Optional<Category> categoryInfo = categoryRepository.findByName(name);
     if (categoryInfo.isPresent()) {
         Category category = categoryInfo.get();
         category.setName(updatedCategory.getName());
@@ -55,10 +55,10 @@ public ResponseEntity<Category> updateCategory(@PathVariable long categoryId, @R
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-    @DeleteMapping("/{id}/delete")
-    public ResponseEntity<Category> deleteCategory(@PathVariable long id){
-        if (categoryRepository.existsById(id)) {
-            categoryRepository.deleteById(id);
+    @DeleteMapping("/{name}/delete")
+    public ResponseEntity<Category> deleteCategory(@PathVariable String name){
+        if (categoryRepository.existsByName(name)) {
+            categoryRepository.deleteByName(name);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

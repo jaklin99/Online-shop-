@@ -5,28 +5,28 @@ class CategoryService {
   getAll() {
     return http.get("/category/all",  { headers: authHeader() });
   }
-  get(id) {
-    return http.get(`/category/${id}`,  { headers: authHeader() });
+  get(name) {
+    return http.get(`/category/${name}`,  { headers: authHeader() });
   }
   create(data) {
     console.log(data);
     return http.post("/category/add", data,  { headers: authHeader() });
   }
 
-  update(product, data) {
-    return this.get(product.productName).then(result => {
-      if (product.productName == result.data.name) {
-        return http.put(`/category/${product.productName}/update`, data,  { headers: authHeader() });
+  update(category, data) {
+    return this.get(category.categoryName).then(result => {
+      if (category.categoryName == result.data.name) {
+        return http.put(`/category/${category.categoryName}/update`, data,  { headers: authHeader() });
       } else {
         throw new Error("Wrong information")
       }
     });
   }
 
-  delete(product) {
-    return this.get(product.name).then(result => {
-      if (product.name == result.data.name && product.price == result.data.price && product.category == result.data.category) {
-        return http.delete(`/product/${product.name}/delete`, { headers: authHeader() });
+  delete(category) {
+    return this.get(category.name).then(result => {
+      if (category.name == result.data.name && category.price == result.data.price && category.category == result.data.category) {
+        return http.delete(`/category/${category.name}/delete`, { headers: authHeader() });
       } else {
         throw new Error("Wrong information")
       }

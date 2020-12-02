@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import { Link } from "react-router-dom";
 import {Col,Row,Button} from "react-bootstrap";
-import { Table,TableBody, TableCell } from "semantic-ui-react";
+import Table from "react-bootstrap/Table"
+import {TableBody, TableCell } from "semantic-ui-react";
+import CustomFooter from "../Footer";
 
 export default class ProductList extends Component {
   constructor(props) {
@@ -67,7 +69,7 @@ export default class ProductList extends Component {
   render() {
     const {products, currentProduct, currentIndex } = this.state;
 
-    return (
+    return (<>
       <Table  style={{width:"60%", marginLeft:"20%", marginTop: "1cm"}} striped bordered hover variant="dark">
          <thead>
     <tr>
@@ -103,7 +105,7 @@ export default class ProductList extends Component {
     </TableBody>
   
 ))}
-      </Table>
+      </Table><CustomFooter /></>
       // <div className="list row">
       //   <div className="col-md-6">
       //     <h4>Products List</h4>
