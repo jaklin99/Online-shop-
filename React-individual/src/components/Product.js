@@ -95,37 +95,36 @@ export default class Product extends Component {
         });
     }
     updateProduct() {
-        ProductService.update(
-          this.state.currentProduct.name,
-          this.state.currentProduct
-        )
-          .then(response => {
-            console.log(response.data);
-            this.props.history.push("/product");
-            this.setState({
-              message: "The product was updated successfully!"
-            });
-          })
-          .catch(e => {
-            console.log(e);
+      ProductService.update(
+        this.state.currentProduct.productName,
+        this.state.currentProduct,
+        console.log(this.state.currentProduct)
+      )
+        .then(response => {
+          console.log(response.data);
+          this.setState({
+            message: "The product was updated successfully!"
           });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+
+    deleteProduct() {
+      ProductService.delete(this.state.currentProduct)
+        .then(() => {
+          this.props.history.push("/productList"); //redirect 
+          this.setState({
+            message: "The user was deleted successfully."
+          });
+        })
+        .catch((e) => {
+          this.setState({
+            message: "Something went wrong." + e
+          });
+        });
       }
-
-
-  deleteProduct() {
-    ProductService.delete(this.state.currentProduct)
-      .then(() => {
-        this.props.history.push("/products"); //redirect 
-        this.setState({
-          message: "The product was deleted successfully."
-        });
-      })
-      .catch((e) => {
-        this.setState({
-          message: "Something went wrong." + e
-        });
-      });
-  }
 
   render() {
     const { currentProduct } = this.state;
@@ -142,7 +141,7 @@ export default class Product extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentProduct.productName}
+                  placeholder={currentProduct.productName}
                   onChange={this.onChangeName}
                 />
               </div>

@@ -98,7 +98,7 @@ export default class UserList extends Component {
             {/* </Button> */}
             <TableCell>
              <Link
-              // to={"/user/" + currentuser.userName}
+             to={"/user/" + user.email}
               className="btn btn-sm btn-danger" role="button"
             >
               Delete

@@ -5,28 +5,22 @@ class CategoryService {
   getAll() {
     return http.get("/category/all",  { headers: authHeader() });
   }
-  get(name) {
-    return http.get(`/category/${name}`,  { headers: authHeader() });
+  get(id) {
+    return http.get(`/category/${id}`,  { headers: authHeader() });
   }
   create(data) {
     console.log(data);
     return http.post("/category/add", data,  { headers: authHeader() });
   }
 
-  update(category, data) {
-    return this.get(category.categoryName).then(result => {
-      if (category.categoryName == result.data.name) {
-        return http.put(`/category/${category.categoryName}/update`, data,  { headers: authHeader() });
-      } else {
-        throw new Error("Wrong information")
-      }
-    });
+  update(id, data) {
+    return http.put(`/category/${id}/update`, data, { headers: authHeader() });
   }
 
   delete(category) {
-    return this.get(category.name).then(result => {
-      if (category.name == result.data.name && category.price == result.data.price && category.category == result.data.category) {
-        return http.delete(`/category/${category.name}/delete`, { headers: authHeader() });
+    return this.get(category.categoryId).then(result => {
+      if (category.categoryId == result.data.categoryId){
+      return http.delete(`/category/${category.categoryId}/delete`, { headers: authHeader() });
       } else {
         throw new Error("Wrong information")
       }

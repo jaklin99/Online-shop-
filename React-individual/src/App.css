@@ -328,3 +328,6 @@ h2{
   position: relative;
   opacity: 0.9;
 }
+.table-dark td, .table-dark th, .table-dark thead th{
+  color: whitesmoke;
+}

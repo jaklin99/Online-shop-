@@ -126,7 +126,7 @@ export default class Register extends Component {
         <Card style={{width:"50%", marginLeft:"8cm", marginTop:"2%"}}>
 <div class="container">
     <div class="omb_login">
-          <h3 class="omb_authTitle">Sign up</h3>
+          <h3 class="omb_authTitle">Sign up or <a className="signUp"href="/login">Login</a></h3>
 		</div>
 
           <Form

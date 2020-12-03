@@ -12,7 +12,7 @@ export default class CategoryList extends Component {
     this.retrieveCategory = this.retrieveCategory.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveCategory = this.setActiveCategory.bind(this);
-    this.removeAll = this.removeAll.bind(this);
+   
 
     this.state = {
       categories: [],
@@ -54,17 +54,6 @@ export default class CategoryList extends Component {
     });
   }
 
-  removeAll() {
-    CategoryService.deleteAll()
-      .then((response) => {
-        console.log(response.data);
-        this.refreshList();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-  
 
   render() {
     const {categories, currentCategory, currentIndex } = this.state;
@@ -74,12 +63,7 @@ export default class CategoryList extends Component {
          <thead>
     <tr>
       <th>Category</th>
-      <th><button
-            className="btn btn-sm btn-danger"
-            onClick={this.removeAll}
-          >
-            Remove All
-          </button></th>
+      
     </tr>
   </thead>
 {categories.map(category=>(
@@ -90,7 +74,7 @@ export default class CategoryList extends Component {
        
       {/* <Button className="btn btn-sm btn-danger"> */}
         <Link
-                to={"/category"}
+                to={"/category/"+ category.categoryId}
                 className="badge badge-warning" role="button"
               >
                 Edit

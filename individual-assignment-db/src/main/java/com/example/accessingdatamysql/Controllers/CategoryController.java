@@ -2,6 +2,7 @@ package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.CategoryRepository;
 import com.example.accessingdatamysql.modelsTemp.Category;
+import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,9 +33,9 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable("name") String name) {
-        Optional<Category> categoryInfo = categoryRepository.findByName(name);
+    @GetMapping("/{id}")
+    public ResponseEntity<Category> getCategoryById(@PathVariable("id") Long id) {
+        Optional<Category> categoryInfo = categoryRepository.findById(id);
         return categoryInfo.map(c -> new ResponseEntity<>(c, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @PostMapping("/add")
@@ -43,9 +44,9 @@ public class CategoryController {
         return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
 
-@PutMapping("/{name}/update")
-public ResponseEntity<Category> updateCategory(@PathVariable String name, @RequestBody Category updatedCategory) {
-    Optional<Category> categoryInfo = categoryRepository.findByName(name);
+@PutMapping("/{id}/update")
+public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category updatedCategory) {
+    Optional<Category> categoryInfo = categoryRepository.findById(id);
     if (categoryInfo.isPresent()) {
         Category category = categoryInfo.get();
         category.setName(updatedCategory.getName());
@@ -55,13 +56,17 @@ public ResponseEntity<Category> updateCategory(@PathVariable String name, @Reque
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-    @DeleteMapping("/{name}/delete")
-    public ResponseEntity<Category> deleteCategory(@PathVariable String name){
-        if (categoryRepository.existsByName(name)) {
-            categoryRepository.deleteByName(name);
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Category> deleteCategory(@PathVariable Long id){
+        if (categoryRepository.existsById(id)) {
+            categoryRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<User> deleteAllUsers() {
+        categoryRepository.deleteAll();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

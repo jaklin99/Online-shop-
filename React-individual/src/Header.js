@@ -64,13 +64,13 @@ class Header extends Component {
             <Router>
                 <Navbar bg="white" variant="light">
                     <Navbar.Brand href="/"><img data-pin-nopin="true"
-                        src="imgs/matchpoint.png" width="140" height="50"></img></Navbar.Brand>
+                        src="/imgs/matchpoint.png" width="140" height="50"></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-<div class="md-form mt-0">
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
-</div>
+                            <div class="md-form mt-0">
+                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" />
+                            </div>
                         </Nav>
                         <Nav>
                             {currentUser ? (
@@ -89,7 +89,7 @@ class Header extends Component {
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to={"/account"} className="nav-link">
+                                        <Link to={"/account/" + currentUser.email} className="nav-link">
                                             {currentUser.username}
                                         </Link>
                                     </li>
@@ -126,9 +126,9 @@ class Header extends Component {
                             <Nav.Link href="/posts">Posts</Nav.Link>
                             <Nav.Link href="/onlineShop">Online shop</Nav.Link>
                             <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
-                           
+
                         </Nav>
-                        </Navbar.Collapse></Navbar>
+                    </Navbar.Collapse></Navbar>
                 <Switch>
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
@@ -142,10 +142,10 @@ class Header extends Component {
                     <Route path="/onlineShop" component={onlineShop} />
                     <Route path="/user/:email" component={User} />
                     <Route path="/product/:name" component={Product} />
-                    <Route path="/category/:name" component={Category} />
+                    <Route path="/category/:id" component={Category} />
                     <Route path="/productList" component={ProductList} />
                     <Route path="/categoryList" component={CategoryList} />
-                    <Route path="/account" component={Account} />
+                    <Route path="/account/:email" component={Account} />
                     <Route path="/cart" component={Cart} />
                 </Switch>
 

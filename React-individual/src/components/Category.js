@@ -36,8 +36,8 @@ export default class Category extends Component {
     });
   }
 
-  getCategory(name) {
-    CategoryService.get(name)
+  getCategory(id) {
+    CategoryService.get(id)
       .then((response) => {
         this.setState({
           currentCategory: response.data,
@@ -54,7 +54,7 @@ export default class Category extends Component {
         published: status
       };
   
-      CategoryService.update(this.state.currentCategory.id, data)
+      CategoryService.update(this.state.currentCategory.categoryId, data)
         .then(response => {
           this.setState(prevState => ({
             currentCategory: {
@@ -69,21 +69,22 @@ export default class Category extends Component {
         });
     }
     updateCategory() {
-        CategoryService.update(
-          this.state.currentCategory.id,
-          this.state.currentCategory
-        )
-          .then(response => {
-            console.log(response.data);
-            this.props.history.push("/category");
-            this.setState({
-              message: "The category was updated successfully!"
-            });
-          })
-          .catch(e => {
-            console.log(e);
+      CategoryService.update(
+        this.state.currentCategory.categoryId,
+        this.state.currentCategory,
+        console.log(this.state.currentCategory)
+      )
+        .then(response => {
+          console.log(response.data);
+          this.setState({
+            message: "The category was updated successfully!"
           });
-      }
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  
 
 
   deleteCategory() {
@@ -91,7 +92,7 @@ export default class Category extends Component {
       .then(() => {
         this.props.history.push("/category"); //redirect 
         this.setState({
-          message: "The product was deleted successfully."
+          message: "The category was deleted successfully."
         });
       })
       .catch((e) => {
@@ -108,7 +109,7 @@ export default class Category extends Component {
       <div>
         {currentCategory ? (
           <div className="edit-form">
-            <h4>Product</h4>
+            <h4>Category</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -116,28 +117,8 @@ export default class Category extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentCategory.productName}
-                  onChange={this.onChangeName}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="price"
-                  value={currentCategory.price}
-                  onChange={this.onChangePrice}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="category">Category</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="category"
                   value={currentCategory.name}
-                  onChange={this.onChangeCategory}
+                  onChange={this.onChangeName}
                 />
               </div>
             <div className="form-group">
@@ -162,12 +143,6 @@ export default class Category extends Component {
               >
                 Save
               </button> )}
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteCategory}
-            >
-              Delete
-            </button>
             
             <button
               type="submit"
