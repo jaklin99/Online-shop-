@@ -95,7 +95,7 @@ export default class ProductList extends Component {
       </TableCell>
       {/* <Button className="btn btn-sm btn-danger"> */}
         <Link
-                // to={"/product/" + currentProduct.productName}
+                to={"/product/" + product.productName}
                 className="badge badge-warning" role="button"
               >
                 Edit

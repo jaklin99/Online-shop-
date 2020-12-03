@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserService from "../services/UserService";
 import Card from "react-bootstrap/Card";
+import AuthService from "../auth-service/auth-service";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import CustomFooter from "../Footer";
@@ -15,6 +16,8 @@ class OnlineShop extends React.Component {
     this.refreshList = this.refreshList.bind(this);
     this.setActiveProduct = this.setActiveProduct.bind(this);
     this.removeAllProducts = this.removeAllProducts.bind(this);
+    this.onChangeSearchName = this.onChangeSearchName.bind(this);
+    this.searchName = this.searchName.bind(this);
 
     this.state = {
       products: [],
@@ -22,6 +25,7 @@ class OnlineShop extends React.Component {
       price: 0,
       currentProduct: null,
       currentIndex: -1,
+      searchName: "",
       show: false,
       setShow: false
     };
@@ -30,22 +34,19 @@ class OnlineShop extends React.Component {
   componentDidMount() {
     this.retrieveProducts();
   }
-  // not to call the function all the time
-  // handleClose = () => {
-  //   this.setState({
-  //     setShow: false
-  //   })
-  // };
-  // handleShow = () => {
-  //   this.setState({
-  //     setShow: true
-  //   })
-  // };
+  
   handleClose = () => {
     this.setState({
       setShow: false
     })
   };
+  onChangeSearchName(e) {
+    const searchName = e.target.value;
+
+    this.setState({
+      searchName: searchName
+    });
+  }
   handleShow = () => {
     this.setState({
       setShow: true
@@ -80,7 +81,31 @@ class OnlineShop extends React.Component {
       currentIndex: index,
     });
   }
+  getByName(productName) {
+    ProductService.get(productName)
+      .then(response => {
+        this.setState({
+          currentTutorial: response.data
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 
+  searchName() {
+   this.getByName(this.state.searchName)
+      .then(response => {
+        this.setState({
+          products: response.data
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
   removeAllProducts() {
     ProductService.deleteAll()
       .then((response) => {
@@ -93,15 +118,29 @@ class OnlineShop extends React.Component {
   }
 
   render() {
-    const { products } = this.state;
+    const { products, searchName } = this.state;
     return (
       <>
         <Row>
           <Col>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
-              <Button type="submit">Search</Button>
-            </Form>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search by name"
+              value={searchName}
+              onChange={this.onChangeSearchName}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={this.searchName}
+              >
+                Search
+              </button>
+            </div>
+          </div>
             <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "10%" }}>
               {products.map(product => (
                 <Card key={product.id} style={{ width: "30%", margin: "5px" }}>

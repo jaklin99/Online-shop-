@@ -16,20 +16,15 @@ class ProductService {
     return http.post("/product/add", data,  { headers: authHeader() });
   }
 
-  update(product, data) {
-    return this.get(product.productName).then(result => {
-      if (product.productName == result.data.name) {
-        return http.put(`/product/${product.productName}/update`, data,  { headers: authHeader() });
-      } else {
-        throw new Error("Wrong information")
-      }
-    });
+  update(productName, data) {
+    return http.put(`/product/${productName}/update`, data, { headers: authHeader() });
   }
 
+
   delete(product) {
-    return this.get(product.name).then(result => {
-      if (product.name == result.data.name && product.price == result.data.price && product.category == result.data.category) {
-        return http.delete(`/product/${product.name}/delete`, { headers: authHeader() });
+    return this.get(product.productName).then(result => {
+      if (product.productName == result.data.name && product.price == result.data.price && product.category == result.data.category) {
+        return http.delete(`/product/${product.productName}/delete`, { headers: authHeader() });
       } else {
         throw new Error("Wrong information")
       }
@@ -38,6 +33,7 @@ class ProductService {
   deleteAll() {
     return http.delete(`/product/deleteAll`);
   }
+ 
 }
 
 export default new ProductService();

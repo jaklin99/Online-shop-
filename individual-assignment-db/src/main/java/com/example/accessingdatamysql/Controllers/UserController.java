@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,9 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @GetMapping(path = "/all")
     public @ResponseBody
@@ -55,7 +59,7 @@ public class UserController {
             User user = userInfo.get();
             user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
-            user.setPassworda(updatedUser.getPassword());
+            user.setPassworda(encoder.encode(updatedUser.getPassword()));
             System.out.println(updatedUser);
             userService.save(user);
             return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);

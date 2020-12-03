@@ -62,16 +62,15 @@ class Header extends Component {
 
         return (
             <Router>
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="white" variant="light">
                     <Navbar.Brand href="/"><img data-pin-nopin="true"
                         src="imgs/matchpoint.png" width="140" height="50"></img></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/posts">Posts</Nav.Link>
-                            <Nav.Link href="/onlineShop">Online shop</Nav.Link>
-                            <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
-                           
+<div class="md-form mt-0">
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
+</div>
                         </Nav>
                         <Nav>
                             {currentUser ? (
@@ -120,7 +119,16 @@ class Header extends Component {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-
+                <Navbar bg="light" variant="light">
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/posts">Posts</Nav.Link>
+                            <Nav.Link href="/onlineShop">Online shop</Nav.Link>
+                            <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
+                           
+                        </Nav>
+                        </Navbar.Collapse></Navbar>
                 <Switch>
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />

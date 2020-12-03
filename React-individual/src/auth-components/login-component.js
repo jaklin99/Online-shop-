@@ -85,20 +85,7 @@ export default class Login extends Component {
         <Card style={{width:"50%", marginLeft:"8cm", marginTop:"2%"}}>
 <div class="container">
     <div class="omb_login">
-          <h3 class="omb_authTitle">Login or <a href="/register">Sign up</a></h3>
-          <div class="row omb_row-sm-offset-3 omb_socialButtons">
-    	    <div class="col-xs-4 col-sm-4">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-			        <i class="fa fa-facebook visible-xs"></i>
-			        <span class="hidden-xs">Facebook</span>
-		        </a>
-	        </div>	
-        	<div class="col-xs-4 col-sm-4">
-		        <a href="#" class="btn btn-lg btn-block omb_btn-google">
-			        <i class="fa fa-google-plus visible-xs"></i>
-			        <span class="hidden-xs">Google+</span>
-		        </a>
-	        </div>	
+          <h3 class="omb_authTitle">Login or <a className="signUp"href="/register">Sign up</a></h3>	
 		</div>
 
             <Form
@@ -156,7 +143,7 @@ export default class Login extends Component {
                   this.checkBtn = c;
                 }}
               />
-            </Form></div></div>
+            </Form></div>
           </Card> 
       </>
     );

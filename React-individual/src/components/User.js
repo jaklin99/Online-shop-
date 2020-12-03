@@ -6,7 +6,7 @@ export default class User extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    //this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -51,16 +51,16 @@ export default class User extends Component {
       },
     }));
   }
-  // onChangePassword(e) {
-  //   const password = e.target.value;
+  onChangePassword(e) {
+    const password = e.target.value;
 
-  //   this.setState((prevState) => ({
-  //     currentUser: {
-  //       ...prevState.currentUser,
-  //       password: password,
-  //     },
-  //   }));
-  // }
+    this.setState((prevState) => ({
+      currentUser: {
+        ...prevState.currentUser,
+        password: password,
+      },
+    }));
+  }
   getUser(email) {
     UserService.get(email)
       .then(response => {
@@ -154,6 +154,16 @@ export default class User extends Component {
                   id="email"
                   value={currentUser.email}
                   onChange={this.onChangeEmail}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="password"
+                  value={currentUser.password}
+                  onChange={this.onChangePassword}
                 />
               </div>
               {/* <div className="form-group">
