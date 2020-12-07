@@ -1,0 +1,39 @@
+import http from "../http-common";
+import authHeader from "../auth-service/auth-header"
+
+class ProductService {
+  getAll() {
+    return http.get("/order/all",  { headers: authHeader() });
+  }
+  get(id) {
+    return http.get(`/order/${id}`,  { headers: authHeader() });
+  }
+  getAllProducts() {
+    return http.get(`/product/all`,  { headers: authHeader() });
+  }
+  create(data) {
+    console.log(data);
+    return http.post("/order/add", data,  { headers: authHeader() });
+  }
+
+  update(id, data) {
+    return http.put(`/order/${id}/update`, data, { headers: authHeader() });
+  }
+
+
+  delete(order) {
+    return this.get(order.id).then(result => {
+      if (order.id == result.data.id) {
+        return http.delete(`/order/${order.id}/delete`, { headers: authHeader() });
+      } else {
+        throw new Error("Wrong information")
+      }
+    });
+  }
+  deleteAll() {
+    return http.delete(`/order/deleteAll`);
+  }
+ 
+}
+
+export default new ProductService();

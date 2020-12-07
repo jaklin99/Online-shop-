@@ -1,5 +1,6 @@
 {
-    "baseUrl": "https://localhost:3000/",
+    "baseUrl": "http://localhost:3000/",
     "video": false,
-    "taskTimeout": 300000
+    "taskTimeout": 300000,
+    "chromeWebSecurity": false
 }

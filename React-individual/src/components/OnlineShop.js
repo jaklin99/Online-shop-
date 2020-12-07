@@ -95,7 +95,7 @@ class OnlineShop extends React.Component {
   }
 
   searchName() {
-   this.getByName(this.state.searchName)
+   ProductService.findByName(this.state.searchName)
       .then(response => {
         this.setState({
           products: response.data
@@ -116,6 +116,43 @@ class OnlineShop extends React.Component {
         console.log(e);
       });
   }
+  
+  saveProduct() {
+    var data = {
+      productName: this.state.productName,
+      price: this.state.price,
+      category: this.state.category,
+      image: this.state.base64TextString
+    };
+
+    ProductService.create(data)
+      .then((response) => {
+        this.setState({
+          id: response.data.id,
+          productName: response.data.productName,
+          price: response.data.price,
+          category: response.data.category,
+          submitted: true
+        });
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  newProduct() {
+    this.setState({
+      id: null,
+      productName: "",
+      price: 0,
+      category: {
+        category_id: 0
+      },
+      submitted: false,
+    });
+  }
+ 
 
   render() {
     const { products, searchName } = this.state;
@@ -123,11 +160,12 @@ class OnlineShop extends React.Component {
       <>
         <Row>
           <Col>
+          <div className="col-md-8">
           <div className="input-group mb-3">
             <input
               type="text"
               className="form-control"
-              placeholder="Search by name"
+              placeholder="Search by title"
               value={searchName}
               onChange={this.onChangeSearchName}
             />
@@ -141,6 +179,7 @@ class OnlineShop extends React.Component {
               </button>
             </div>
           </div>
+        </div>
             <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "10%" }}>
               {products.map(product => (
                 <Card key={product.id} style={{ width: "30%", margin: "5px" }}>

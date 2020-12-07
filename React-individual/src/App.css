@@ -331,3 +331,9 @@ h2{
 .table-dark td, .table-dark th, .table-dark thead th{
   color: whitesmoke;
 }
+.home-pics:hover {
+transition: transform .2s;
+}
+.home-pics:hover {
+  transform: scale(1.1); 
+}

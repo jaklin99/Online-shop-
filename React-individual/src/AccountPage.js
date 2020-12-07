@@ -9,6 +9,9 @@ export default class AccountPage extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeAddress = this.onChangeAddress.bind(this);
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.getUser = this.getUser.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
@@ -24,6 +27,18 @@ export default class AccountPage extends Component {
   }
 
   onChangeName(e) {
+    const name = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentUser: {
+          ...prevState.currentUser,
+          name: name,
+        },
+      };
+    });
+  }
+  onChangeUsername(e) {
     const username = e.target.value;
 
     this.setState(function (prevState) {
@@ -34,8 +49,31 @@ export default class AccountPage extends Component {
         },
       };
     });
-  }
+  } 
+  onChangePhone(e) {
+    const phone = e.target.value;
 
+    this.setState(function (prevState) {
+      return {
+        currentUser: {
+          ...prevState.currentUser,
+          phone: phone,
+        },
+      };
+    });
+  }
+ onChangeAddress(e) {
+    const address = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentUser: {
+          ...prevState.currentUser,
+          address: address,
+        },
+      };
+    });
+  }
   onChangeEmail(e) {
     const email = e.target.value;
 
@@ -71,6 +109,9 @@ export default class AccountPage extends Component {
   saveUpdate(status) {
     var data = {
       username: this.state.currentUser.username,
+      name: this.state.currentUser.name,
+      phone: this.state.currentUser.phone,
+      address: this.state.currentUser.address,
       email: this.state.currentUser.email,
       password: this.state.currentUser.password,
       published: status
@@ -106,15 +147,42 @@ export default class AccountPage extends Component {
                   <form>
                     {/* DONE: make the credentials appear for each logged-in user */}
                     <div className="form-group">
-                      <label htmlFor="name">Name</label>
+                      <label htmlFor="username">Username</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        value={currentUser.username}
+                        onChange={this.onChangeUsername}
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Name</label>
                       <input
                         type="text"
                         className="form-control"
                         id="name"
-                        value={currentUser.username}
+                        value={currentUser.name}
                         onChange={this.onChangeName}
-                      />
-                    </div>
+                      /></div>
+                       <div class="form-group">
+                      <label for="name">Phone</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="phone"
+                        value={currentUser.phone}
+                        onChange={this.onChangePhone}
+                      /></div>
+                       <div class="form-group">
+                      <label for="address">Address</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="address"
+                        value={currentUser.address}
+                        onChange={this.onChangeAddress}
+                      /></div>
                     <div className="form-group">
                       <label htmlFor="email">Email</label>
                       <input

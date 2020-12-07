@@ -15,7 +15,6 @@ export default class AddProduct extends Component {
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.saveProduct = this.saveProduct.bind(this);
     this.newProduct = this.newProduct.bind(this);
-    this.saveCategory = this.saveCategory.bind(this);
     this.newCategory = this.newCategory.bind(this);
 
     this.state = {
@@ -149,34 +148,7 @@ handleChange = (e) => {
       submitted: false,
     });
   }
-  saveCategory() {
-    var data = {
-     name: this.state.name,
-      
-    };
-
-    ProductService.create(data)
-      .then((response) => {
-        this.setState({
-          id: response.data.id,
-          productName: response.data.productName,
-          price: response.data.price,
-          category: response.data.category,
-          submitted: true
-        });
-        console.log(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-  newCategory() {
-    this.setState({
-      id: null,
-      name: "",
-      submitted: false,
-    });
-  }
+ 
   render() {
     return (
       

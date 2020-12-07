@@ -19,7 +19,7 @@ function HomePage(props) {
       <ResponsiveEmbed aspectRatio="21by9">
         <div style={{ display: "flex", flexWrap: "wrap"}}>
            <Card style={{ width: "40%" }}>
-            <Image style={{ width: "100%" }} src="/imgs/novak.jpg"
+            <img class="home-pics"style={{ width: "100%" }} src="/imgs/novak.jpg"
             />
             <Card.Body>
               <Card.Title>
@@ -29,7 +29,7 @@ function HomePage(props) {
             </Card.Body>
           </Card>
           <Card style={{ width: "40%" }}>
-            <Image style={{ width: "100%" }} src="/imgs/tennis.png" />
+            <img class="home-pics" style={{ width: "100%" }} src="/imgs/tennis.png" />
             <Card.Body>
               <Card.Title>
               </Card.Title><Card.Text>

@@ -25,7 +25,15 @@ const email = value => {
     );
   }
 };
-
+const vname = value => {
+  if (value.length < 3 || value.length > 20) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The name must be between 3 and 20 characters.
+      </div>
+    );
+  }
+};
 const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
@@ -35,7 +43,24 @@ const vusername = value => {
     );
   }
 };
-
+const vaddress = value => {
+  if (value.length < 3 || value.length > 40) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The address must be between 3 and 40 characters.
+      </div>
+    );
+  }
+};
+const vphone = value => {
+  if (value.length < 3 || value.length > 10) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The phone must be between 3 and 20 characters.
+      </div>
+    );
+  }
+};
 const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
@@ -51,18 +76,28 @@ export default class Register extends Component {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeName = this.onChangeName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeAddress = this.onChangeAddress.bind(this);
+    this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
 
     this.state = {
       username: "",
+      name:"",
       email: "",
+      address: "",
+      phone: "",
       password: "",
       successful: false,
       message: ""
     };
   }
-
+  onChangeName(e) {
+    this.setState({
+      name: e.target.value
+    });
+  }
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -75,12 +110,21 @@ export default class Register extends Component {
     });
   }
 
+  onChangeAddress(e) {
+    this.setState({
+      address: e.target.value
+    });
+  }
+  onChangePhoneNumber(e) {
+    this.setState({
+      phone: e.target.value
+    });
+  } 
   onChangePassword(e) {
     this.setState({
       password: e.target.value
     });
   }
-
   handleRegister(e) {
     e.preventDefault();
 
@@ -94,6 +138,9 @@ export default class Register extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
         this.state.username,
+        this.state.name,
+        this.state.address,
+        this.state.phone,       
         this.state.email,
         this.state.password
       ).then(
@@ -137,6 +184,17 @@ export default class Register extends Component {
           >
             {!this.state.successful && (
               <div>
+                 <div className="form-group">
+                <span class="input-group-addon"><i class="fa fa-user">Name</i></span>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.onChangeName}
+                    validations={[required, vname]}
+                  />
+                </div>
                 <div className="form-group">
                 <span class="input-group-addon"><i class="fa fa-user">Username</i></span>
                   <Input
@@ -158,6 +216,30 @@ export default class Register extends Component {
                     value={this.state.email}
                     onChange={this.onChangeEmail}
                     validations={[required, email]}
+                  />
+                </div>
+
+                <div className="form-group">
+                <span class="input-group-addon"><i class="fa fa-home">Address</i></span>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.onChangeAddress}
+                    validations={[required, vaddress]}
+                  />
+                </div>
+
+                <div className="form-group">
+                <span class="input-group-addon"><i class="fa fa-phone">Phone number</i></span>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="phone number"
+                    value={this.state.phone}
+                    onChange={this.onChangePhoneNumber}
+                    validations={[required, vphone]}
                   />
                 </div>
 
