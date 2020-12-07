@@ -46,17 +46,17 @@ class CategoryControllerTest {
     void tearDown() {
     }
 
-    @Test
-    void getAllCategoriesWhenThereAreNone() {
-            List<Category> actual = categoryController.getAllCategories();
-            assertEquals(new ArrayList<Category>(), actual);
-    }
-    @Test
-    void getAllCategoriesWhenThereAreSome() {
-        Mockito.when(categoryRepository.findAll()).thenReturn(sampleCategories);
-        List<Category> actual = categoryController.getAllCategories();
-        assertEquals(sampleCategories, actual);
-    }
+//    @Test
+//    void getAllCategoriesWhenThereAreNone() {
+//            List<Category> actual = categoryController.getAllCategories();
+//            assertEquals(new ArrayList<Category>(), actual);
+//    }
+//    @Test
+//    void getAllCategoriesWhenThereAreSome() {
+//        Mockito.when(categoryRepository.findAll()).thenReturn(sampleCategories);
+//        List<Category> actual = categoryController.getAllCategories();
+//        assertEquals(sampleCategories, actual);
+//    }
 
 //    @Test
 //    void addNewCategory() {
