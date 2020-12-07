@@ -1,6 +1,9 @@
 package com.example.accessingdatamysql.modelsTemp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity (name = "PRODUCT")
 public class Product {
@@ -20,6 +23,10 @@ public class Product {
     @ManyToOne(optional = false, targetEntity = Category.class)
     @JoinColumn(name = "category_id", referencedColumnName = "category_id")
     private Category category;
+//
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "product")
+//    private List<OrderDetails> orderDetails;
 
     public long getProductId() {
         return productId;

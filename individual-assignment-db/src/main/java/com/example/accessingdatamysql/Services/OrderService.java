@@ -13,24 +13,42 @@
 //public class OrderService implements  IOrderService {
 //    @Autowired
 //    private OrderRepository orderRepository;
+//    @Override
+//    public Order getUserShoppingCart(Long id) {
+//        return orderRepository.getUserShoppingCart(id);
+//    }
+//    @Override
+//    public List<Order> getAllSubmittedOrdersByUserId(Long id) {
+//        return orderRepository.getAllSubmittedOrdersByUserId(id);
+//    }
+//    @Override
+//    public List<Order> getAllPendingOrders() {
+//        return orderRepository.getAllPendingOrders();
+//    }
 //
+//    @Override
+//    public List<Order> getAllCollectedOrders() {
+//        return orderRepository.getAllCollectedOrders();
+//    }
+//    @Override
+//    public Boolean existsById(long id) {
+//        return orderRepository.existsById(id);
+//    }
+//    @Override
+//    public Optional<Order> findById(long id) {
+//        return orderRepository.findById(id);
+//    }
+//    @Override
+//    public Order save(Order order) {
+//        return orderRepository.save(order);
+//    }
 //    @Override
 //    public List<Order> findAll() {
-//        return this.orderRepository.findAll();
-//    }
-//
-//    @Override
-//    public Optional<Order> findById(Long id) {
-//        return this.orderRepository.findById(id);
+//        return orderRepository.findAll();
 //    }
 //    @Override
-//    public Order save(Order order){
-//        orderRepository.save(order);
-//        return order;
-//    }
-//    @Override
-//    public void deleteByName(String name){
-//        orderRepository.deleteByName(name);
+//    public Order getOne(long id) {
+//        return orderRepository.getOne(id);
 //    }
 //
 //}

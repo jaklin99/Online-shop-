@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/product")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 //@PreAuthorize("hasRole('ADMIN')")
 public class ProductController {
     @Autowired
@@ -37,7 +37,17 @@ public class ProductController {
         Optional<Product> productInfo = productService.findByName(name);
         return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @GetMapping("/{name}")
+    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {
+        Optional<Product> productInfo = productService.findByName(name);
+        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
+//    @GetMapping("/category/{id}")
+//    public @ResponseBody
+//    List<Product> getAllProductsBy_CategoryId(@PathVariable long id) {
+//        return productService.getAllProductsByCategoryId(id);
+//    }
     @PostMapping("/add")
     public ResponseEntity<Product> addNewProduct(@RequestBody Product product) {
         productService.save(product);
@@ -45,21 +55,6 @@ public class ProductController {
     }
 
 
-//    @PutMapping("/{productId}/update")
-//    public ResponseEntity<Product> updateProduct(@PathVariable long productId, @RequestBody Product updatedProduct) {
-//        if (productRepository.existsById(productId)){
-//            productRepository.findById(productId).map(p -> {
-//                p.setProductName(p.getProductName());
-//                p.setPrice(p.getPrice());
-//                productRepository.save(p);
-//                return updatedProduct;
-//            });
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        }
-//        else
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//	}
 @PutMapping("/{productName}/update")
 public ResponseEntity<Product> updateProduct(@PathVariable String productName, @RequestBody Product updatedProduct) {
     Optional<Product> productInfo = productService.findByName(productName);

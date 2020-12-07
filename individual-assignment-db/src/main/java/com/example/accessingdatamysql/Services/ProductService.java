@@ -48,4 +48,9 @@ public class ProductService implements IProductService {
         productRepository.save(product);
         return product;
     }
+
+//    @Override
+//    public List<Product> getAllProductsByCategoryId(Long id) {
+//        return productRepository.getAllProductsByCategoryId(id);
+//    }
 }

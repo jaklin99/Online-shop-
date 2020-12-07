@@ -1,43 +1,53 @@
 //package com.example.accessingdatamysql.modelsTemp;
 //
-//import javax.persistence.*;
+//import java.io.Serializable;
 //import java.time.LocalDateTime;
+//import java.util.Date;
+//import java.util.List;
 //
-//@Entity(name = "ORDERS")
-//public class Order {
+//import javax.persistence.*;
+//
+//@Entity
+//@Table(name = "Orders", //
+//        uniqueConstraints = { @UniqueConstraint(columnNames = "order_nr") })
+//public class Order implements Serializable {
+//
 //    @Id
-//    @Column(name = "order_id", nullable = false)
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private long orderId;
-//    @Column(name = "order_date", nullable = false)
-//    private LocalDateTime orderDate;
+//    @Column(name = "order_id", length = 50)
+//    private Long id;
 //
 //    @Column(name = "order_date", nullable = false)
+//    private LocalDateTime orderDate = LocalDateTime.now();
+//
+//    @Column(name = "delivered_date", nullable = false)
+//    private LocalDateTime deliverredDate = LocalDateTime.now();
+//
+//    @Column(name = "status_order", nullable = false)
+//    private OrderStatus statusOrder = OrderStatus.EMPTY_SHOPPING_CART;
+//
+//    @Column(name = "order_nr", nullable = false)
 //    private int orderNum;
 //
-//    @Column(name = "amount", nullable = false)
-//    private double amount;
+//    @Column(name = "total_price", nullable = false)
+//    private double totalPrice;
 //
-//    @Column(name = "customer_name", length = 255, nullable = false)
-//    private String customerName;
+//    private String deliverryAddress;
+//    private String paymentMethod;
 //
-//    @Column(name = "customer_email", length = 128, nullable = false)
-//    private String customerEmail;
 //
-//    @ManyToOne(optional = false, targetEntity = Product.class)
-//    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-//    private Product product;
+// @ManyToOne(optional = false, targetEntity = User.class)
+// @JoinColumn(name = "id", referencedColumnName = "id")
+// private User user;
 //
-//    @ManyToOne(optional = false, targetEntity = User.class)
-//    @JoinColumn(name = "id", referencedColumnName = "id")
-//    private User user;
+//    @OneToMany(mappedBy = "order")
+//    private List<OrderDetails> orderDetails;
 //
-//    public long getOrderId() {
-//        return orderId;
+//    public Long getId() {
+//        return id;
 //    }
 //
-//    public void setOrderId(long orderId) {
-//        this.orderId = orderId;
+//    public void setId(Long id) {
+//        this.id = id;
 //    }
 //
 //    public LocalDateTime getOrderDate() {
@@ -48,6 +58,22 @@
 //        this.orderDate = orderDate;
 //    }
 //
+//    public LocalDateTime getDeliverredDate() {
+//        return deliverredDate;
+//    }
+//
+//    public void setDeliverredDate(LocalDateTime deliverredDate) {
+//        this.deliverredDate = deliverredDate;
+//    }
+//
+//    public OrderStatus getStatusOrder() {
+//        return statusOrder;
+//    }
+//
+//    public void setStatusOrder(OrderStatus statusOrder) {
+//        this.statusOrder = statusOrder;
+//    }
+//
 //    public int getOrderNum() {
 //        return orderNum;
 //    }
@@ -56,36 +82,28 @@
 //        this.orderNum = orderNum;
 //    }
 //
-//    public double getAmount() {
-//        return amount;
+//    public double getTotalPrice() {
+//        return totalPrice;
 //    }
 //
-//    public void setAmount(double amount) {
-//        this.amount = amount;
+//    public void setTotalPrice(double totalPrice) {
+//        this.totalPrice = totalPrice;
 //    }
 //
-//    public String getCustomerName() {
-//        return customerName;
+//    public String getDeliverryAddress() {
+//        return deliverryAddress;
 //    }
 //
-//    public void setCustomerName(String customerName) {
-//        this.customerName = customerName;
+//    public void setDeliverryAddress(String deliverryAddress) {
+//        this.deliverryAddress = deliverryAddress;
 //    }
 //
-//    public String getCustomerEmail() {
-//        return customerEmail;
+//    public String getPaymentMethod() {
+//        return paymentMethod;
 //    }
 //
-//    public void setCustomerEmail(String customerEmail) {
-//        this.customerEmail = customerEmail;
-//    }
-//
-//    public Product getProduct() {
-//        return product;
-//    }
-//
-//    public void setProduct(Product product) {
-//        this.product = product;
+//    public void setPaymentMethod(String paymentMethod) {
+//        this.paymentMethod = paymentMethod;
 //    }
 //
 //    public User getUser() {
@@ -94,5 +112,13 @@
 //
 //    public void setUser(User user) {
 //        this.user = user;
+//    }
+//
+//    public List<OrderDetails> getOrderDetails() {
+//        return orderDetails;
+//    }
+//
+//    public void setOrderDetails(List<OrderDetails> orderDetails) {
+//        this.orderDetails = orderDetails;
 //    }
 //}

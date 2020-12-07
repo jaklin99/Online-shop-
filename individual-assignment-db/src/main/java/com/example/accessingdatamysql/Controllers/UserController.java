@@ -1,14 +1,19 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Services.IUserService;
+import com.example.accessingdatamysql.modelsTemp.Greeting;
+import com.example.accessingdatamysql.modelsTemp.HelloMessage;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.HtmlUtils;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -16,7 +21,7 @@ import java.util.Optional;
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path = "/user")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
@@ -25,6 +30,13 @@ public class UserController {
 
     @Autowired
     PasswordEncoder encoder;
+
+    @MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public Greeting greeting(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    }
 
     @GetMapping(path = "/all")
     public @ResponseBody
@@ -57,6 +69,9 @@ public class UserController {
         Optional<User> userInfo = userService.findByEmail(email);
         if (userInfo.isPresent()) {
             User user = userInfo.get();
+            user.setName(updatedUser.getName());
+            user.setAddress(updatedUser.getAddress());
+            user.setPhone(updatedUser.getPhone());
             user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
             user.setPassworda(encoder.encode(updatedUser.getPassword()));

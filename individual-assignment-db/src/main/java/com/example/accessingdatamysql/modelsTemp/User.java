@@ -23,17 +23,32 @@ public class User {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
+    @Size(max = 40)
+    private String name;
 
+    @Column(nullable = false)
     @NotBlank
     @Size(max = 20)
     private String username;
 
+    @Column(nullable = false)
+    @NotBlank
+    @Size(max = 40)
+    private String address;
+
+    @Column(nullable = false)
+    @NotBlank
+    @Size(max = 40)
+    private String phone;
+
+    @Column(nullable = false)
     @NotBlank
     @Size(max = 50)
     @Email
     private String email;
 
-
+    @Column(nullable = false)
     @NotBlank
     @Size(max = 120)
     private String password;
@@ -43,16 +58,18 @@ public class User {
             joinColumns = @JoinColumn(name = "user_auth_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
-
+//
 //    @OneToMany(mappedBy = "user")
-//    private List<Order> order;
+//    private List<Order> orders;
 
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String name, String address, String phone, String email, String password) {
         this.username = username;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
         this.email = email;
         this.password = password;
     }
@@ -64,6 +81,30 @@ public class User {
     public User setId(Long id) {
         this.id = id;
         return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getUsername() {

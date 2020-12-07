@@ -5,6 +5,7 @@ import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -12,4 +13,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findByName(String name);
     boolean existsByName(String name);
     void deleteByName(String name);
+    //List<Product> getAllProductsByCategoryId(Long id);
 }

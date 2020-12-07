@@ -13,4 +13,5 @@ public interface IProductService {
     void deleteByName(String name);
     void deleteAll();
     Product save(Product product);
+    //List<Product>getAllProductsByCategoryId(Long id);
 }
