@@ -153,7 +153,41 @@ class OnlineShop extends React.Component {
     });
   }
  
+  saveOrder() {
+    var data = {
+      order_Nr: this.state.order_Nr,
+      price: this.state.price,
+      product: this.state.product
+    };
 
+    ProductService.create(data)
+      .then((response) => {
+        this.setState({
+          id: response.data.id,
+          order_Nr: response.data.order_Nr,
+          price: response.data.price,
+          category: response.data.category,
+          submitted: true
+        });
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  newOrder() {
+    this.setState({
+      id: null,
+      order_Nr: "",
+      price: 0,
+      product: {
+        productName: 0
+      },
+      submitted: false,
+    });
+  }
+ 
   render() {
     const { products, searchName } = this.state;
     return (

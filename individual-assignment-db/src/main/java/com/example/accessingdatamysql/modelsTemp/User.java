@@ -53,6 +53,11 @@ public class User {
     @Size(max = 120)
     private String password;
 
+    @Column(nullable = false)
+    @NotBlank
+    @Size(max = 120)
+    private Double totalCosts;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_auth_id"),
@@ -134,6 +139,14 @@ public class User {
     public User setPassworda(String password) {
         this.password = password;
         return this;
+    }
+
+    public Double getTotalCosts() {
+        return totalCosts;
+    }
+
+    public void setTotalCosts(Double totalCosts) {
+        this.totalCosts = totalCosts;
     }
 
     public Set<Role> getRoles() {

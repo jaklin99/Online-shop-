@@ -19,9 +19,9 @@ function Add() {
   
     return (
       <>
-        <Dropdown.Item onClick={handleShow}>
+        <Button onClick={handleShow}>
        Checkout
-        </Dropdown.Item>
+        </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

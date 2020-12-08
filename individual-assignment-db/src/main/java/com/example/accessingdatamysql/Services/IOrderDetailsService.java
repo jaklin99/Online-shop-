@@ -1,14 +1,17 @@
-//package com.example.accessingdatamysql.Services;
-//
-//import com.example.accessingdatamysql.modelsTemp.OrderDetails;
-//
-//import java.util.List;
-//
-//public interface IOrderDetailsService {
-//    List<OrderDetails> getAllByOrder_OrderId(Long id);
-//    void deleteAllByOrder_OrderId(Long id);
-//    void deleteById(long id);
-//    Boolean existsById(long id);
-//    OrderDetails save(OrderDetails orderDetails);
-//    OrderDetails getOne(long id);
-//}
+package com.example.accessingdatamysql.Services;
+
+import com.example.accessingdatamysql.modelsTemp.Order;
+import com.example.accessingdatamysql.modelsTemp.OrderDetails;
+import com.example.accessingdatamysql.modelsTemp.OrderStatus;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface IOrderDetailsService {
+    List<OrderDetails> getAllByOrder_Id(long id);
+   void deleteAllByOrder_Id(long id);
+    void deleteById(long id);
+    Boolean existsById(long id);
+    OrderDetails save(OrderDetails orderDetails);
+    OrderDetails getOne(long id);
+}

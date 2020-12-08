@@ -148,6 +148,12 @@ handleChange = (e) => {
       submitted: false,
     });
   }
+  newCategory() {
+    this.setState({
+        category_id: 0,
+      submitted: false,
+    });
+  }
  
   render() {
     return (

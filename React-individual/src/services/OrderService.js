@@ -5,8 +5,8 @@ class ProductService {
   getAll() {
     return http.get("/order/all",  { headers: authHeader() });
   }
-  get(id) {
-    return http.get(`/order/${id}`,  { headers: authHeader() });
+  get(orderNr) {
+    return http.get(`/order/${orderNr}`,  { headers: authHeader() });
   }
   getAllProducts() {
     return http.get(`/product/all`,  { headers: authHeader() });
