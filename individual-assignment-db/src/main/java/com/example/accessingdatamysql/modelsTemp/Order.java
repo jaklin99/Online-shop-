@@ -36,7 +36,7 @@ public class Order implements Serializable {
 
 
  @ManyToOne(optional = false, targetEntity = User.class)
- @JoinColumn(name = "id", referencedColumnName = "id")
+ @JoinColumn(name = "user_id", referencedColumnName = "id")
  private User user;
 
     @OneToMany(mappedBy = "order")

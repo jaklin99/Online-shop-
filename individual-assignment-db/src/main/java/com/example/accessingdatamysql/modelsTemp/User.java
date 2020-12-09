@@ -63,9 +63,9 @@ public class User {
             joinColumns = @JoinColumn(name = "user_auth_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Order> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
     public User() {
     }

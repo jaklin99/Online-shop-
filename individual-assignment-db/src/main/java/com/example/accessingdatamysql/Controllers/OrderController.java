@@ -1,5 +1,6 @@
 package com.example.accessingdatamysql.Controllers;
 
+import com.example.accessingdatamysql.Repository.OrderRepository;
 import com.example.accessingdatamysql.Services.OrderService;
 import com.example.accessingdatamysql.Services.ProductService;
 import com.example.accessingdatamysql.Services.UserService;
@@ -24,26 +25,26 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
     @Autowired
+    private OrderRepository orderRepository;
+    @Autowired
     private ProductService productService;
     @Autowired
     private UserService userService;
 
-    @GetMapping(path = "/{status}")
+    @GetMapping(path = "/pending")
     public @ResponseBody
-    List<Order> getAllPendingOrders(@PathVariable("status") OrderStatus status) {
+    List<Order> getAllPendingOrders() {
         return orderService.findAllByStatus(OrderStatus.PENDING);
     }
-    @GetMapping(path = "/{status}")
+    @GetMapping(path = "/delivered")
     public @ResponseBody
-    List<Order> getAllDeliveredOrders(@PathVariable("status") OrderStatus status) {
-        status=OrderStatus.DELIVERED;
-        return orderService.findAllByStatus(status);
+    List<Order> getAllDeliveredOrders() {
+        return orderService.findAllByStatus(OrderStatus.DELIVERED);
     }
-    @GetMapping(path = "/{status}")
+    @GetMapping(path = "/cancelled")
     public @ResponseBody
-    List<Order> getAllCancelledOrders(@PathVariable("status") OrderStatus status) {
-        status=OrderStatus.CANCELLED;
-        return orderService.findAllByStatus(status);
+    List<Order> getAllCancelledOrders() {
+        return orderService.findAllByStatus(OrderStatus.CANCELLED);
     }
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable("id") Long id) {
@@ -61,19 +62,18 @@ public class OrderController {
         if (orderService.existsByOrderNr(order.getOrderNr())) {
             order.setOrderDate(LocalDateTime.now());
             order.setStatusOrder(OrderStatus.PENDING);
-            User user = userService.getOne();
+            User user = order.getUser();
             user.setTotalCosts(user.getTotalCosts() + order.getTotalPrice());
-            //userService.save(user);
+            userService.save(user);
             orderService.save(order);
             return new ResponseEntity<>(HttpStatus.OK);
           } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        //return new ResponseEntity<Order>(HttpStatus.CREATED);
     }
     @PutMapping("/{id}/update")
     public ResponseEntity<Order> updateOrder(@PathVariable long id, @RequestBody Order updatedOrder) {
-        Optional<Order> orderInfo = orderService.findById(id);
-        if (orderInfo.isPresent()) {
-            Order order = orderInfo.get();
+        //Optional<Order> orderInfo = orderService.findById(id);
+        if (orderService.existsById(id)) {
+            Order order = orderRepository.getOne(id);
             order.setStatusOrder(updatedOrder.getStatusOrder());
             order.setOrderDetails(updatedOrder.getOrderDetails());
             order.setDeliverryAddress(updatedOrder.getDeliverryAddress());
@@ -85,10 +85,10 @@ public class OrderController {
         }
     }
     @Transactional
-    @DeleteMapping("/{orderNr}/delete")
-    public ResponseEntity<Product> cancelOrder(@PathVariable String orderNr){
-        if (orderService.existsByOrderNr(orderNr)) {
-            orderService.deleteByOrderNr(orderNr);
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Product> cancelOrder(@PathVariable Long id){
+        if (orderService.existsById(id)) {
+            orderService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

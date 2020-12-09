@@ -36,7 +36,7 @@ public class OrderDetails implements Serializable {
     @JoinColumn(name = "product_id", referencedColumnName ="PRODUCT_ID")
     private Product product;
 
-    private String buyerId;
+    private Long buyerId;
 
 
     public Long getId() {
@@ -87,11 +87,11 @@ public class OrderDetails implements Serializable {
         this.product = product;
     }
 
-    public String getBuyerEmail() {
+    public Long getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(String buyerId) {
+    public void setBuyerId(Long buyerId) {
         this.buyerId = buyerId;
     }
 }

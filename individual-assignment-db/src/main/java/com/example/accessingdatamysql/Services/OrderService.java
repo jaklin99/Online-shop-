@@ -20,13 +20,13 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    public List<Order> findAllByStatus(OrderStatus status) {
-        return orderRepository.findAllByStatusOrder(status);
+    public Order getUserShoppingCart(Long id) {
+        return orderRepository.findOrderByUser_Id(id);
     }
 
     @Override
-    public Optional<Order> findByOrderNr(String orderNr) {
-        return orderRepository.findByOrderNr(orderNr);
+    public List<Order> findAllByStatus(OrderStatus status) {
+        return orderRepository.findAllByStatusOrder(status);
     }
 
     @Override
@@ -35,13 +35,18 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    public boolean existsByOrderNr(String name) {
+    public boolean existsByOrderNr(String orderNr) {
         return false;
     }
 
     @Override
-    public void deleteByOrderNr(String orderNr) {
-        orderRepository.deleteByName(orderNr);
+    public boolean existsById(Long id) {
+        return orderRepository.existsById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        orderRepository.deleteById(id);
     }
 
     @Override

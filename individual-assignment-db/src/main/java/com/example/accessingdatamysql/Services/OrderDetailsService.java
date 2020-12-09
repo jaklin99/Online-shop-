@@ -12,8 +12,8 @@ public class OrderDetailsService implements IOrderDetailsService{
     @Autowired
     private OrderDetailsRepository orderDetailsRepository;
     @Override
-    public List<OrderDetails> getAllByOrder_Id(long id) {
-        return orderDetailsRepository.getAllByOrder_Id(id);
+    public List<OrderDetails>  getAllByOrderOrderNr(String nr) {
+        return orderDetailsRepository. getAllByOrderOrderNr(nr);
     }
 
     @Override

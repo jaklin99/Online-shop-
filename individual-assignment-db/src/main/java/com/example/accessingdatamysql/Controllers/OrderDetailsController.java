@@ -27,18 +27,18 @@ public class OrderDetailsController {
     private UserService userService;
 
     @GetMapping("/{orderNr}/details")
-    public ResponseEntity<OrderDetails> getDetailsOfOrderById(@PathVariable String orderNr) {
+    public ResponseEntity<OrderDetails> getDetailsOfOrderByNr(@PathVariable String orderNr) {
         if (orderService.existsByOrderNr(orderNr)) {
-            if (orderDetailsService.getAllByOrder_Id(id).size() != 0)
-                return new ResponseEntity(orderDetailsService.getAllByOrder_Id(id), HttpStatus.OK);
+            if (orderDetailsService.getAllByOrderOrderNr(orderNr).size() != 0)
+                return new ResponseEntity(orderDetailsService.getAllByOrderOrderNr(orderNr), HttpStatus.OK);
             else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
      }
     @PostMapping("/addProductToCart")
     public ResponseEntity<OrderDetails> addProductToCart(@RequestBody OrderDetails orderDetails) {
-        if (userService.existsByEmail(orderDetails.getBuyerEmail())) {
-            User buyer = userService.getOne(orderDetails.getBuyerEmail());
-            Order cart = orderService.getUserShoppingCart(orderDetails.getBuyerEmail());
+        if (userService.existsById(orderDetails.getBuyerId())) {
+            User buyer = userService.getOne(orderDetails.getBuyerId());
+            Order cart = orderService.getUserShoppingCart(orderDetails.getBuyerId());
             if (cart == null) {
                 cart = new Order();
                 cart.setUser(buyer);

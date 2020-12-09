@@ -9,11 +9,12 @@ import java.util.Optional;
 
 public interface IOrderService {
     List<Order> findAll();
+    Order getUserShoppingCart(Long id);
     List<Order> findAllByStatus(OrderStatus status);
-    Optional<Order> findByOrderNr(String orderNr);
     Optional<Order> findById(Long id);
     boolean existsByOrderNr(String orderNr);
-    void deleteByOrderNr(String orderNr);
+    boolean existsById(Long id);
+    void deleteById(Long id);
     void deleteAll();
     Order save(Order order);
 }

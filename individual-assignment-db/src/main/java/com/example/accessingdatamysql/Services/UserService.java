@@ -23,6 +23,10 @@ public class UserService implements IUserService {
         return true;
     }
     @Override
+    public boolean existsById(Long id){
+        return userRepository.existsById(id);
+    }
+    @Override
     public void deleteByEmail(String email){
         userRepository.deleteByEmail(email);
     }
@@ -38,5 +42,10 @@ public class UserService implements IUserService {
     public User save(User user){
         userRepository.save(user);
         return user;
+    }
+
+    @Override
+    public User getOne(Long id) {
+        return userRepository.getOne(id);
     }
 }
