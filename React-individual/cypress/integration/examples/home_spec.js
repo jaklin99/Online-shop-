@@ -59,3 +59,36 @@ describe('My First Test', () => {
 //     cy.get('.btn').click()
 //   })
 // })
+describe('test login button', () => {
+  it('Visits the sign in page via "LOGIN" button on navbar', () => {
+      cy.visit('http://localhost:3000/')
+
+      cy.get('#btnLogin').click()
+
+      cy.url().should('include', '/login')
+  })
+})
+
+describe('test login function', () => {
+  it('Tries to login with no credentials', () => {
+      cy.visit('http://localhost:3000/login')
+
+      cy.get('.btn').click()
+  })
+})
+
+describe('test login function', () => {
+  it('Tries to login with correct credentials', () => {
+      cy.visit('http://localhost:3000/login')
+
+      cy.get('#usernameInput')
+          .type('Specialized')
+          .should('have.value', 'JaklinY')
+      
+      cy.get('#passwordInput')
+          .type('jakito')
+          .should('have.value', 'jakito')
+
+      cy.get('#loginBtn').click()
+})
+})

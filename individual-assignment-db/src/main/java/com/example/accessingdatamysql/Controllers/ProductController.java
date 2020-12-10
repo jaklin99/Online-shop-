@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/product")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 //@PreAuthorize("hasRole('ADMIN')")
 public class ProductController {
     @Autowired
@@ -33,15 +34,15 @@ public class ProductController {
     }
 
     @GetMapping("/{productName}")
-    public ResponseEntity<Product> getProductByName(@PathVariable("productName") String name) {
+    public ResponseEntity<Product[]> getProductByName(@PathVariable("productName") String name) {
         Optional<Product> productInfo = productService.findByName(name);
-        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return productInfo.map(product -> new ResponseEntity<>(new Product[]{product}, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-    @GetMapping("/{name}")
-    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {
-        Optional<Product> productInfo = productService.findByName(name);
-        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+//    @GetMapping("/{name}")
+//    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {
+//        Optional<Product> productInfo = productService.findByName(name);
+//        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    }
 
 //    @GetMapping("/category/{id}")
 //    public @ResponseBody

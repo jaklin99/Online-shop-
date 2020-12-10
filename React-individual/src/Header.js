@@ -69,10 +69,9 @@ class Header extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <div class="md-form mt-0">
-                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" />
                             </div>
                         </Nav>
-                        <Nav>
+                        <Nav >
                             {currentUser ? (
 
                                 <div className="navbar-nav">

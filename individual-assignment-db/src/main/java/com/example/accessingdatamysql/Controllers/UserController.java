@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path = "/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 

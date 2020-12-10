@@ -8,6 +8,7 @@ import CustomFooter from "../Footer";
 import ProductService from "../services/ProductService";
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import {Form, FormControl} from "react-bootstrap";
+import OrderDetailsService from "../services/OrderDetailsService";
 
 class OnlineShop extends React.Component {
   constructor(props) {
@@ -15,10 +16,10 @@ class OnlineShop extends React.Component {
     this.retrieveProducts = this.retrieveProducts.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveProduct = this.setActiveProduct.bind(this);
-    this.removeAllProducts = this.removeAllProducts.bind(this);
     this.onChangeSearchName = this.onChangeSearchName.bind(this);
     this.searchName = this.searchName.bind(this);
-
+    this.onChangeQuantity=this.onChangeQuantity.bind(this);
+    
     this.state = {
       products: [],
       productName: "",
@@ -26,6 +27,7 @@ class OnlineShop extends React.Component {
       currentProduct: null,
       currentIndex: -1,
       searchName: "",
+      quantity:1,
       show: false,
       setShow: false
     };
@@ -45,6 +47,13 @@ class OnlineShop extends React.Component {
 
     this.setState({
       searchName: searchName
+    });
+  }
+  onChangeQuantity(e) {
+    const quantity = e.target.value;
+
+    this.setState({
+      quantity: quantity
     });
   }
   handleShow = () => {
@@ -95,7 +104,7 @@ class OnlineShop extends React.Component {
   }
 
   searchName() {
-   ProductService.findByName(this.state.searchName)
+   ProductService.get(this.state.searchName)
       .then(response => {
         this.setState({
           products: response.data
@@ -106,32 +115,23 @@ class OnlineShop extends React.Component {
         console.log(e);
       });
   }
-  removeAllProducts() {
-    ProductService.deleteAll()
-      .then((response) => {
-        console.log(response.data);
-        this.refreshList();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+ 
   
   saveProduct() {
     var data = {
       productName: this.state.productName,
       price: this.state.price,
       category: this.state.category,
-      image: this.state.base64TextString
+      quantity: this.state.quantity
     };
 
-    ProductService.create(data)
+    OrderDetailsService.addToCart(data)
       .then((response) => {
         this.setState({
           id: response.data.id,
           productName: response.data.productName,
           price: response.data.price,
-          category: response.data.category,
+          quantity: response.data.quantity,
           submitted: true
         });
         console.log(response.data);
@@ -148,41 +148,6 @@ class OnlineShop extends React.Component {
       price: 0,
       category: {
         category_id: 0
-      },
-      submitted: false,
-    });
-  }
- 
-  saveOrder() {
-    var data = {
-      order_Nr: this.state.order_Nr,
-      price: this.state.price,
-      product: this.state.product
-    };
-
-    ProductService.create(data)
-      .then((response) => {
-        this.setState({
-          id: response.data.id,
-          order_Nr: response.data.order_Nr,
-          price: response.data.price,
-          category: response.data.category,
-          submitted: true
-        });
-        console.log(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  newOrder() {
-    this.setState({
-      id: null,
-      order_Nr: "",
-      price: 0,
-      product: {
-        productName: 0
       },
       submitted: false,
     });
@@ -221,11 +186,11 @@ class OnlineShop extends React.Component {
                   <Card.Body>
                     <Card.Title>{product.productName}
                     </Card.Title><Card.Text>
-                      {product.description}<br />
                       <strong> Category: </strong> {product.category.name}<br />
-                      <strong> Price: </strong> {product.price} €
-      </Card.Text>
-                    <Button variant="primary" onClick={() => this.handleShow} >Add to cart</Button>
+                      <strong> Price: </strong> {product.price} €<br />
+                      
+                      </Card.Text>
+                    <Button variant="primary" onClick={() => this.saveProduct}>Add to cart</Button>
                   </Card.Body>
                 </Card>
               ))}
@@ -233,20 +198,6 @@ class OnlineShop extends React.Component {
           </Col>
         </Row>
         <CustomFooter />
-        <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-          </Button>
-            <Button variant="primary">
-              Save Changes
-          </Button>
-          </Modal.Footer>
-        </Modal>
       </>
       //         <div class="online">
 

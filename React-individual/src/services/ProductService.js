@@ -20,9 +20,9 @@ class ProductService {
     return http.put(`/product/${productName}/update`, data, { headers: authHeader() });
   }
 
-  findByName(name){
-    return http.get(`/product/${name}`,  { headers: authHeader() });
-  }
+  // findByName(name){
+  //   return http.get(`/product/${name}`,  { headers: authHeader() });
+  // }
   delete(product) {
     return this.get(product.productName).then(result => {
       if (product.productName == result.data.productName && product.price == result.data.price && product.category == result.data.category) {
