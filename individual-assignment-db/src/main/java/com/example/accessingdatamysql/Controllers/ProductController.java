@@ -36,7 +36,11 @@ public class ProductController {
     @GetMapping("/{productName}")
     public ResponseEntity<Product[]> getProductByName(@PathVariable("productName") String name) {
         Optional<Product> productInfo = productService.findByName(name);
+        if (productInfo.toString().toLowerCase().length()!=0){
         return productInfo.map(product -> new ResponseEntity<>(new Product[]{product}, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }else {
+          return null;
+        }
     }
 //    @GetMapping("/{name}")
 //    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {

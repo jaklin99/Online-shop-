@@ -1,8 +1,9 @@
 import React, { Component, useState } from "react";
 import Tabs from 'react-bootstrap/Tabs'
 import {Tab} from 'react'
-import Order from "./Order";
+import Order from "./ShoppingCart";
 import Orders from "./Orders";
+import ShoppingCart from "./ShoppingCart";
 
 function ControlledTabs() {
  
@@ -12,10 +13,10 @@ function ControlledTabs() {
         id="controlled-tab-example"      
       >
         <Tab eventKey="pendingOrder" title="Pending order"> 
-         <Order/> 
+         <ShoppingCart/> 
         </Tab>
         <Tab eventKey="orders" title="Orders"> 
-        <Orders/>      
+        {/* <Orders/>       */}
         </Tab>
       </Tabs>
     );

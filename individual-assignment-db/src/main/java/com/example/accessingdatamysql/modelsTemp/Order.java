@@ -8,8 +8,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Orders", //
-        uniqueConstraints = { @UniqueConstraint(columnNames = "order_nr") })
+@Table(name = "Orders")
 public class Order implements Serializable {
 
     @Id
@@ -20,18 +19,18 @@ public class Order implements Serializable {
     private LocalDateTime orderDate = LocalDateTime.now();
 
     @Column(name = "delivered_date", nullable = false)
-    private LocalDateTime deliverredDate = LocalDateTime.now();
+    private LocalDateTime deliveredDate = LocalDateTime.now();
 
     @Column(name = "status_order", nullable = false)
     private OrderStatus statusOrder = OrderStatus.EMPTY_SHOPPING_CART;
 
-    @Column(name = "order_nr", nullable = false)
-    private String orderNr;
+//    @Column(name = "order_nr", nullable = false)
+//    private String orderNr;
 
     @Column(name = "total_price", nullable = false)
     private double totalPrice;
 
-    private String deliverryAddress;
+    private String deliveryAddress;
     private String paymentMethod;
 
 
@@ -58,12 +57,12 @@ public class Order implements Serializable {
         this.orderDate = orderDate;
     }
 
-    public LocalDateTime getDeliverredDate() {
-        return deliverredDate;
+    public LocalDateTime getDeliveredDate() {
+        return deliveredDate;
     }
 
-    public void setDeliverredDate(LocalDateTime deliverredDate) {
-        this.deliverredDate = deliverredDate;
+    public void setDeliveredDate(LocalDateTime deliveredDate) {
+        this.deliveredDate = deliveredDate;
     }
 
     public OrderStatus getStatusOrder() {
@@ -74,13 +73,13 @@ public class Order implements Serializable {
         this.statusOrder = statusOrder;
     }
 
-    public String getOrderNr() {
-        return orderNr;
-    }
-
-    public void setOrderNum(String orderNr) {
-        this.orderNr = orderNr;
-    }
+//    public String getOrderNr() {
+//        return orderNr;
+//    }
+//
+//    public void setOrderNum(String orderNr) {
+//        this.orderNr = orderNr;
+//    }
 
     public double getTotalPrice() {
         return totalPrice;
@@ -90,12 +89,12 @@ public class Order implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public String getDeliverryAddress() {
-        return deliverryAddress;
+    public String getDeliveryAddress() {
+        return deliveryAddress;
     }
 
-    public void setDeliverryAddress(String deliverryAddress) {
-        this.deliverryAddress = deliverryAddress;
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 
     public String getPaymentMethod() {

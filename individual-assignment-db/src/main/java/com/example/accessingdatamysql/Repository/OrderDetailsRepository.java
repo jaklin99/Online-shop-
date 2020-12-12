@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface OrderDetailsRepository extends JpaRepository<OrderDetails, Long> {
 
-    List<OrderDetails> getAllByOrderOrderNr(String nr);
+    List<OrderDetails> getAllByOrder_Id(Long id);
     void deleteAllByOrder_Id(long id);
 
 }

@@ -3,8 +3,31 @@ import ProductService from "../services/ProductService";
 import CustomFooter from "../Footer";
 import Axios from "axios";
 import { Form, Button } from "react-bootstrap"
+import OrderService from "../services/OrderService";
+import authService from "../auth-service/auth-service";
 
 export default class Checkout extends Component {
+
+    constructor(props) {
+        super(props);
+        this.pay=this.pay.bind(this);
+        this.onChangeCard=this.onChangeCard.bind(this);   
+        this.state={
+            currentCard:""
+        }     
+      
+     }
+    onChangeCard(e){
+        const currentCard=e.target.value
+        this.setState({
+            currentCard: currentCard,
+          });
+          console.log(this.state)
+     }
+    pay(){
+            OrderService.submitOrder(localStorage.getItem("cart"),  authService.getCurrentUser().id, this.state.currentCard)
+            localStorage.removeItem("cart");
+        }
     render() {
         return (
         <form className="col-lg-12">       
@@ -14,11 +37,11 @@ export default class Checkout extends Component {
                      <div class="form-group">
                          <div class="col-md-12"><strong>Card Type:</strong></div>
                          <div class="col-md-12">
-                             <select id="CreditCardType" name="CreditCardType" class="form-control">
+                             <select onChange={this.onChangeCard}id="CreditCardType" name="CreditCardType" class="form-control">
                                  <option value="5">Visa</option>
                                  <option value="6">MasterCard</option>
                                  <option value="7">American Express</option>
-                                 <option value="8">Discover</option>
+                                 <option value="8">iDeal</option>
                              </select>
                          </div>
                      </div>
@@ -83,7 +106,7 @@ export default class Checkout extends Component {
                      </div>
                      <div class="form-group">
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <button type="submit" class="btn btn-primary btn-submit-fix">Place Order</button>
+                             <button type="submit" class="btn btn-primary btn-submit-fix" onClick={this.pay()}>Place Order</button>
                          </div>
                      </div>
                  </div>

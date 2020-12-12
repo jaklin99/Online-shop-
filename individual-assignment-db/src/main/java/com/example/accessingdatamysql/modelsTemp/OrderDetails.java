@@ -4,12 +4,7 @@ import org.aspectj.weaver.ast.Or;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Order_Details")
@@ -19,11 +14,8 @@ public class OrderDetails implements Serializable {
     @Column(name = "ID", length = 50, nullable = false)
     private Long id;
 
-    @Column(nullable = false, precision = 2)
-    private double amount;
-
-    @Column(nullable = false, precision = 2)
-    private double price;
+    //@Column(nullable = false, precision = 2)
+    //private double price;
 
     @Column(nullable = false)
     private int quantity;
@@ -32,13 +24,15 @@ public class OrderDetails implements Serializable {
     @JoinColumn(name = "order_id", referencedColumnName ="order_id")
     private Order order;
 
-    @ManyToOne(optional = false,targetEntity = Product.class)
+    @OneToOne(optional = false,targetEntity = Product.class)
     @JoinColumn(name = "product_id", referencedColumnName ="PRODUCT_ID")
     private Product product;
 
     private Long buyerId;
 
-
+    public double getTotalPrice(){
+   return this.quantity*this.product.getPrice();
+ }
     public Long getId() {
         return id;
     }
@@ -47,21 +41,14 @@ public class OrderDetails implements Serializable {
         this.id = id;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+//
+//    public double getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
 
     public int getQuantity() {
         return quantity;

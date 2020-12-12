@@ -2,20 +2,29 @@ import http from "../http-common";
 import authHeader from "../auth-service/auth-header"
 
 class ProductService {
-  getAll() {
-    return http.get("/order/all",  { headers: authHeader() });
+  getAllPending() {
+    return http.get("/order/pending",  { headers: authHeader() });
   }
-  get(orderNr) {
-    return http.get(`/order/${orderNr}`,  { headers: authHeader() });
+  getAllDelivered() {
+    return http.get(`/order/delivered`,  { headers: authHeader() });
+  }
+  getAllCancelled() {
+    return http.get(`/order/cancelled`,  { headers: authHeader() });
+  }
+  getById(id) {
+    return http.get(`/order/${id}`,  { headers: authHeader() });
   }
   getAllProducts() {
     return http.get(`/product/all`,  { headers: authHeader() });
   }
-  create(data) {
+  addNewOrder(data) {
     console.log(data);
     return http.post("/order/add", data,  { headers: authHeader() });
   }
-
+  submitOrder(data, userId,  payment) {
+    console.log(data, userId, payment);
+    return http.post("/order/submitOrder", {data, userId, payment},  { headers: authHeader() });
+  }
   update(id, data) {
     return http.put(`/order/${id}/update`, data, { headers: authHeader() });
   }
@@ -30,10 +39,6 @@ class ProductService {
       }
     });
   }
-  deleteAll() {
-    return http.delete(`/order/deleteAll`);
-  }
- 
 }
 
 export default new ProductService();

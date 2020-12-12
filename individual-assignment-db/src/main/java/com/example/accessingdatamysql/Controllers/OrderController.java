@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path = "/order")
 @CrossOrigin(origins = "http://localhost:3000")
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -58,17 +59,30 @@ public class OrderController {
         return new ResponseEntity<Order>(HttpStatus.CREATED);
     }
     @PostMapping("/submitOrder")
-    public ResponseEntity<Order> submitOrder(@RequestBody Order order) {
-        if (orderService.existsByOrderNr(order.getOrderNr())) {
+    public ResponseEntity<OrderDetails[]> submitOrder(@RequestBody OrderDetails[] orderDetails, Long userId, String paymentMethod) {
+            Order order= new Order();
             order.setOrderDate(LocalDateTime.now());
             order.setStatusOrder(OrderStatus.PENDING);
-            User user = order.getUser();
-            user.setTotalCosts(user.getTotalCosts() + order.getTotalPrice());
-            userService.save(user);
-            orderService.save(order);
-            return new ResponseEntity<>(HttpStatus.OK);
-          } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+            User user =userService.getOne(userId);
+            if (user!=null){
+                order.setUser(user);
+                order.setDeliveryAddress(user.getAddress());
+                order.setPaymentMethod(paymentMethod);
+                double totalPrice= 0;
+                for (OrderDetails orders : orderDetails
+                     ) {
+                    totalPrice+= orders.getTotalPrice();
+                }
+                order.setTotalPrice(totalPrice);
+                order.setOrderDetails(Arrays.asList(orderDetails));
+                user.setTotalCosts(user.getTotalCosts() + order.getTotalPrice());
+                userService.save(user);
+                orderService.save(order);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+          }
     @PutMapping("/{id}/update")
     public ResponseEntity<Order> updateOrder(@PathVariable long id, @RequestBody Order updatedOrder) {
         //Optional<Order> orderInfo = orderService.findById(id);
@@ -76,7 +90,7 @@ public class OrderController {
             Order order = orderRepository.getOne(id);
             order.setStatusOrder(updatedOrder.getStatusOrder());
             order.setOrderDetails(updatedOrder.getOrderDetails());
-            order.setDeliverryAddress(updatedOrder.getDeliverryAddress());
+            order.setDeliveryAddress(updatedOrder.getDeliveryAddress());
             order.setTotalPrice(updatedOrder.getTotalPrice());
             orderService.save(order);
             return new ResponseEntity<>(order, HttpStatus.NO_CONTENT);

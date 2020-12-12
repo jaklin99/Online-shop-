@@ -6,7 +6,6 @@ describe('The Home Page', () => {
 describe('My First Test', () => {
     it('clicks the link "button"', () => {
       cy.visit('http://localhost:3000/login')
-  
       cy.get('.btn').click()
     })
 })
@@ -14,9 +13,7 @@ describe('My First Test', () => {
 describe('My First Test', () => {
   it('clicking "button" navigates to a new url', () => {
     cy.visit('http://localhost:3000/login')
-
     cy.get('.btn').click()
-
     // Should be on a new URL which includes '/commands/actions'
     cy.url().should('include', '/')
   })
@@ -82,8 +79,8 @@ describe('test login function', () => {
       cy.visit('http://localhost:3000/login')
 
       cy.get('#usernameInput')
-          .type('Specialized')
-          .should('have.value', 'JaklinY')
+          .type('Jaklin')
+          .should('have.value', 'Jaklin')
       
       cy.get('#passwordInput')
           .type('jakito')

@@ -15,6 +15,7 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> findAll() {
+        //System.out.println(productRepository.findAll().get(0).getProductId());
         return productRepository.findAll();
     }
 

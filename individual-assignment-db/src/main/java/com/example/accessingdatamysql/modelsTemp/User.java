@@ -53,7 +53,7 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    @Column(nullable = false)
+    @Column
     @NotBlank
     @Size(max = 120)
     private Double totalCosts;

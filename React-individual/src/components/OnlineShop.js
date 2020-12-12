@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import UserService from "../services/UserService";
 import Card from "react-bootstrap/Card";
-import AuthService from "../auth-service/auth-service";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
 import CustomFooter from "../Footer";
 import ProductService from "../services/ProductService";
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import {Form, FormControl} from "react-bootstrap";
-import OrderDetailsService from "../services/OrderDetailsService";
 
 class OnlineShop extends React.Component {
   constructor(props) {
@@ -18,16 +13,11 @@ class OnlineShop extends React.Component {
     this.setActiveProduct = this.setActiveProduct.bind(this);
     this.onChangeSearchName = this.onChangeSearchName.bind(this);
     this.searchName = this.searchName.bind(this);
-    this.onChangeQuantity=this.onChangeQuantity.bind(this);
     
     this.state = {
-      products: [],
-      productName: "",
-      price: 0,
-      currentProduct: null,
+      products:[],      
       currentIndex: -1,
       searchName: "",
-      quantity:1,
       show: false,
       setShow: false
     };
@@ -49,20 +39,13 @@ class OnlineShop extends React.Component {
       searchName: searchName
     });
   }
-  onChangeQuantity(e) {
-    const quantity = e.target.value;
-
-    this.setState({
-      quantity: quantity
-    });
-  }
+ 
+ 
   handleShow = () => {
     this.setState({
       setShow: true
     })
   };
-
-
   retrieveProducts() {
     ProductService.getAll()
       .then((response) => {
@@ -90,18 +73,6 @@ class OnlineShop extends React.Component {
       currentIndex: index,
     });
   }
-  getByName(productName) {
-    ProductService.get(productName)
-      .then(response => {
-        this.setState({
-          currentTutorial: response.data
-        });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
 
   searchName() {
    ProductService.get(this.state.searchName)
@@ -117,44 +88,38 @@ class OnlineShop extends React.Component {
   }
  
   
-  saveProduct() {
-    var data = {
-      productName: this.state.productName,
-      price: this.state.price,
-      category: this.state.category,
-      quantity: this.state.quantity
-    };
-
-    OrderDetailsService.addToCart(data)
-      .then((response) => {
-        this.setState({
-          id: response.data.id,
-          productName: response.data.productName,
-          price: response.data.price,
-          quantity: response.data.quantity,
-          submitted: true
-        });
-        console.log(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  newProduct() {
-    this.setState({
-      id: null,
-      productName: "",
-      price: 0,
-      category: {
-        category_id: 0
-      },
-      submitted: false,
-    });
+  addProduct(orderDetails) {
+    // localStorage.removeItem("cart");
+    if(orderDetails[1]>0){
+    if(localStorage.getItem("cart")!== null){
+     let cartItems=JSON.parse(localStorage.getItem("cart"));
+     let existing=false;
+     for(var i=0; i<cartItems.length;i++){
+       if(cartItems[i][2]==orderDetails[2]){
+         cartItems[i][1]+=orderDetails[1];
+         existing=true;
+       }
+      }
+      if(!existing){
+        cartItems.push(orderDetails);
+      }
+     localStorage.setItem('cart',  JSON.stringify(cartItems));
+     console.log("existing: " + localStorage.getItem("cart"));
+       
+    }else{
+      let cartItems=[];
+      cartItems.push(orderDetails);
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      console.log(localStorage.getItem("cart"));
+    }
+  }else{
+      alert("Quantity must be more than 0.");
+    }
   }
  
   render() {
     const { products, searchName } = this.state;
+    let quantity;
     return (
       <>
         <Row>
@@ -170,7 +135,7 @@ class OnlineShop extends React.Component {
             />
             <div className="input-group-append">
               <button
-                className="btn btn-outline-secondary"
+                className="btn"
                 type="button"
                 onClick={this.searchName}
               >
@@ -178,19 +143,20 @@ class OnlineShop extends React.Component {
               </button>
             </div>
           </div>
-        </div>
+         </div>
             <div style={{ display: "flex", flexWrap: "wrap", marginLeft: "10%" }}>
               {products.map(product => (
-                <Card key={product.id} style={{ width: "30%", margin: "5px" }}>
+                <Card key={product.productName} style={{ width: "30%", margin: "5px" }}>
                   <Card.Img src={product.image ? (`data:image/png;base64,${product.image}`) : ("./imgs/default.png")} />
                   <Card.Body>
                     <Card.Title>{product.productName}
                     </Card.Title><Card.Text>
                       <strong> Category: </strong> {product.category.name}<br />
                       <strong> Price: </strong> {product.price} €<br />
-                      
+                      <strong> Quantity: </strong> <br />
+                      <Form.Control name="quantity" min="0"onChange={(e)=>{quantity=e.target.value;console.log(quantity)}} type="number" placeholder="0" value={quantity} />
                       </Card.Text>
-                    <Button variant="primary" onClick={() => this.saveProduct}>Add to cart</Button>
+                    <Button className="btn" onClick={() =>{this.addProduct([product.price,parseInt(quantity),product.productName])}}>Add to cart</Button>
                   </Card.Body>
                 </Card>
               ))}
