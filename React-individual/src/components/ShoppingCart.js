@@ -30,6 +30,20 @@ export default class ShoppingCart extends React.Component {
       });
     }
   }
+  addQuantity(products){
+    console.log(products)
+    for(var i=0; i<products.length;i++){
+      if(products[i][2]==products[2]){
+        products[i][1]+=products[1];
+      }
+     }
+  }
+  removeQuantity(){
+
+  }
+  removeProduct(){
+
+  }
   clearCart(){
     if(window.confirm("Are you sure you want to clear the cart?")){
       localStorage.removeItem("cart");
@@ -50,7 +64,7 @@ export default class ShoppingCart extends React.Component {
                            ):(
                             <Card.Text>
                             {this.state.products.map(product => (
-                              <div key={product[2]}><button ><i className="fa fa-plus"></i></button><button ><i className="fa fa-minus"></i></button><button ><i className="fa fa-times"></i></button>{product[1]+" x "+product[2]}</div>
+                              <div key={product[2]}><button onClick={this.addQuantity(product[1])}><i className="fa fa-plus"></i></button><button onClick={this.removeQuantity()}><i className="fa fa-minus"></i></button><button onClick={this.removeProduct()}><i className="fa fa-times"></i></button>{product[1]+" x "+product[2]}</div>
                               ))}
                             </Card.Text>
                               )

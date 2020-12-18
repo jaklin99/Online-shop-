@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 
@@ -16,8 +17,10 @@ export default class Product extends Component {
       currentProduct: {
         id: null,
         name: "",
-        price: "",
-        category: "",
+        price: "", 
+        category: {
+          categoryName: ""
+        },
       },
       message: "",
     };
@@ -26,6 +29,7 @@ export default class Product extends Component {
   componentDidMount() {
     this.getProduct(this.props.match.params.name);
   }
+
 
   onChangeName(e) {
     const name = e.target.value;
@@ -116,7 +120,7 @@ export default class Product extends Component {
         .then(() => {
           this.props.history.push("/productList"); //redirect 
           this.setState({
-            message: "The user was deleted successfully."
+            message: "The product was deleted successfully."
           });
         })
         .catch((e) => {
@@ -141,7 +145,7 @@ export default class Product extends Component {
                   type="text"
                   className="form-control"
                   id="name"
-                  placeholder={currentProduct.productName}
+                  value={currentProduct.name}
                   onChange={this.onChangeName}
                 />
               </div>
@@ -161,7 +165,7 @@ export default class Product extends Component {
                   type="text"
                   className="form-control"
                   id="category"
-                  value={currentProduct.category.name}
+                  value={currentProduct.category}
                   onChange={this.onChangeCategory}
                 />
               </div>

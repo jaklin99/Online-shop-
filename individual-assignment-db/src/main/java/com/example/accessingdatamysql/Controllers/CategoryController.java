@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping(path = "/category")
 @CrossOrigin(origins = "http://localhost:3000")
-@PreAuthorize("hasRole('ADMIN')")
+//@PreAuthorize("hasRole('ADMIN')")
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
