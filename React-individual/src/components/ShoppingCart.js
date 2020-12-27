@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export default class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
+    this.getTotalCosts=this.getTotalCosts.bind(this);
 
    this.state = {
        products:[],
@@ -15,35 +16,74 @@ export default class ShoppingCart extends React.Component {
        message: ""
    };
  }
- componentDidMount() {
-    //this.getOrder(this.props.match.params.orderNr);
-    const products=JSON.parse(localStorage.getItem("cart"));
-    if(products!==null){
-      var totalCosts=0;
-      for(var i=0; i<products.length; i++){
-        totalCosts+=products[i][0]*products[i][1];
-      }
-      this.setState({
-        products:products,
-        totalCost:totalCosts,
-        empty:false
-      });
+
+ getTotalCosts(products){
+  if(products!==null && products.length!==0){
+    console.log(products); 
+    var totalCosts=0;
+    for(var i=0; i<products.length; i++){
+      totalCosts+=products[i][0]*products[i][1];
     }
+    this.setState({
+      products:products,
+      totalCost:totalCosts,
+      empty:false
+    });
   }
-  addQuantity(products){
-    console.log(products)
+ }
+ componentDidMount() {
+  //localStorage.removeItem("cart");
+    //this.getOrder(this.props.match.params.orderNr);
+   const products=JSON.parse(localStorage.getItem("cart"));
+   this.getTotalCosts(products);
+
+  }
+  addQuantity(product){
+    console.log(product)
+    let products=JSON.parse(localStorage.getItem("cart"));
     for(var i=0; i<products.length;i++){
-      if(products[i][2]==products[2]){
-        products[i][1]+=products[1];
+      if(products[i][2]==product){
+        products[i][1]++;
       }
-     }
+    }
+    localStorage.setItem('cart',  JSON.stringify(products));
+    console.log("existing: " + localStorage.getItem("cart"));
+    window.location.reload(); //refresh the page
   }
-  removeQuantity(){
-
+  removeQuantity(product){
+    console.log(product)
+    let products=JSON.parse(localStorage.getItem("cart"));
+    for(var i=0; i<products.length;i++){
+      if(products[i][2]==product){
+        if(products[i][1]==1){
+          products.splice(i, 1);
+        
+        }else{
+          products[i][1]--;
+        }
+      }
+    }
+    localStorage.setItem('cart',  JSON.stringify(products));
+    console.log("existing: " + localStorage.getItem("cart"));
+    window.location.reload(); //refresh the page
   }
-  removeProduct(){
-
-  }
+  removeProduct(product){
+    let products=JSON.parse(localStorage.getItem("cart"));
+    for(var i=0; i<products.length;i++){
+      if(products[i][2]==product){
+          products.splice(i, 1);
+        }
+    // let products=JSON.parse(localStorage.getItem("cart"));
+    // if(products[i][1]==1){
+    //   products.splice(i, 1);
+    
+    // }else{
+    //   console.log("ghjk")
+    // }
+  } localStorage.setItem('cart',  JSON.stringify(products));
+  console.log("existing: " + localStorage.getItem("cart"));
+  window.location.reload(); //refresh the page
+}
   clearCart(){
     if(window.confirm("Are you sure you want to clear the cart?")){
       localStorage.removeItem("cart");
@@ -64,7 +104,7 @@ export default class ShoppingCart extends React.Component {
                            ):(
                             <Card.Text>
                             {this.state.products.map(product => (
-                              <div key={product[2]}><button onClick={this.addQuantity(product[1])}><i className="fa fa-plus"></i></button><button onClick={this.removeQuantity()}><i className="fa fa-minus"></i></button><button onClick={this.removeProduct()}><i className="fa fa-times"></i></button>{product[1]+" x "+product[2]}</div>
+                              <div key={product[2]}><button onClick={()=>this.addQuantity(product[2])}><i className="fa fa-plus"></i></button><button onClick={()=>this.removeQuantity(product[2])}><i className="fa fa-minus"></i></button><button onClick={()=>this.removeProduct(product[2])}><i className="fa fa-times"></i></button>{product[1]+" x "+product[2]}</div>
                               ))}
                             </Card.Text>
                               )

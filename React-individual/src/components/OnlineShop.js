@@ -89,6 +89,7 @@ class OnlineShop extends React.Component {
  
   
   addProduct(orderDetails) {
+    console.log(localStorage.getItem("cart"));
     // localStorage.removeItem("cart");
     if(orderDetails[1]>0){
     if(localStorage.getItem("cart")!== null){
