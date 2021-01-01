@@ -19,6 +19,7 @@ export default class Checkout extends Component {
      }
     onChangeCard(e){
         const currentCard=e.target.value
+        console.log(e.target.value)
         this.setState({
             currentCard: currentCard,
           });
@@ -38,20 +39,20 @@ export default class Checkout extends Component {
                          <div class="col-md-12"><strong>Card Type:</strong></div>
                          <div class="col-md-12">
                              <select onChange={this.onChangeCard}id="CreditCardType" name="CreditCardType" class="form-control">
-                                 <option value="5">Visa</option>
-                                 <option value="6">MasterCard</option>
-                                 <option value="7">American Express</option>
-                                 <option value="8">iDeal</option>
+                                 <option value="Visa">Visa</option>
+                                 <option value="MasterCard">MasterCard</option>
+                                 <option value="AmericanExpress">American Express</option>
+                                 <option value="iDeal">iDeal</option>
                              </select>
                          </div>
                      </div>
                      <div class="form-group">
                          <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                         <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
+                         <div class="col-md-12"><input type="text" class="form-control" name="car_number"  /></div>
                      </div>
                      <div class="form-group">
                          <div class="col-md-12"><strong>Card CVV:</strong></div>
-                         <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
+                         <div class="col-md-12"><input type="text" class="form-control" name="car_code"  /></div>
                      </div>
                      <div class="form-group">
                          <div class="col-md-12">
@@ -106,7 +107,7 @@ export default class Checkout extends Component {
                      </div>
                      <div class="form-group">
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <button type="submit" class="btn btn-primary btn-submit-fix" onClick={this.pay()}>Place Order</button>
+                             <button type="submit" class="btn btn-primary btn-submit-fix" onClick={()=>this.pay()}>Place Order</button>
                          </div>
                      </div>
                  </div>

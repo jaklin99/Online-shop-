@@ -24,8 +24,8 @@ com/example/accessingdatamysql/modelsTemp/ERole.java
  com.example.accessingdatamysql.modelsTemp.ERole
 com/example/accessingdatamysql/Services/IOrderService.java
  com.example.accessingdatamysql.Services.IOrderService
-com/example/accessingdatamysql/payload/response/MessageResponse.java
- com.example.accessingdatamysql.payload.response.MessageResponse
+com/example/accessingdatamysql/Controllers/UserController.java
+ com.example.accessingdatamysql.Controllers.UserController
 com/example/accessingdatamysql/modelsTemp/Greeting.java
  com.example.accessingdatamysql.modelsTemp.Greeting
 com/example/accessingdatamysql/Services/IProductService.java
@@ -50,8 +50,8 @@ com/example/accessingdatamysql/security/services/UserDetailsImpl.java
  com.example.accessingdatamysql.security.services.UserDetailsImpl
 com/example/accessingdatamysql/modelsTemp/Order.java
  com.example.accessingdatamysql.modelsTemp.Order
-com/example/accessingdatamysql/Controllers/UserController.java
- com.example.accessingdatamysql.Controllers.UserController
+com/example/accessingdatamysql/Controllers/CategoryController.java
+ com.example.accessingdatamysql.Controllers.CategoryController
 com/example/accessingdatamysql/Repository/OrderDetailsRepository.java
  com.example.accessingdatamysql.Repository.OrderDetailsRepository
 com/example/accessingdatamysql/security/jwt/AuthEntryPointJwt.java
@@ -88,5 +88,5 @@ com/example/accessingdatamysql/Controllers/AuthController.java
  com.example.accessingdatamysql.Controllers.AuthController
 com/example/accessingdatamysql/Repository/OrderRepository.java
  com.example.accessingdatamysql.Repository.OrderRepository
-com/example/accessingdatamysql/Controllers/CategoryController.java
- com.example.accessingdatamysql.Controllers.CategoryController
+com/example/accessingdatamysql/payload/response/MessageResponse.java
+ com.example.accessingdatamysql.payload.response.MessageResponse
