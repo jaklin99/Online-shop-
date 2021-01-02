@@ -16,7 +16,7 @@ function ControlledTabs() {
          <ShoppingCart/> 
         </Tab>
         <Tab eventKey="orders" title="Orders"> 
-        {/* <Orders/>       */}
+         <Orders/>       
         </Tab>
       </Tabs>
     );
