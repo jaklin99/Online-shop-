@@ -106,7 +106,7 @@ class OnlineShop extends React.Component {
       }
      localStorage.setItem('cart',  JSON.stringify(cartItems));
      console.log("existing: " + localStorage.getItem("cart"));
-       
+     //window.module("The product was added to your cart.");
     }else{
       let cartItems=[];
       cartItems.push(orderDetails);

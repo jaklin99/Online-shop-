@@ -2,38 +2,29 @@ import React, { Component } from "react";
 
 class ChildComponent extends Component {
 
-    sendMessage=()=>{
-        const {websocket} = this.props // websocket instance passed as props to the child component.
-
-        try {
-            websocket.send(data) //send data to the server
-        } catch (error) {
-            console.log(error) // catch error
-        }
-    }
     render() {
         return (
             <div>
                 <div id="main-content" class="container">
     <div class="row">
         <div class="col-md-6">
-            <form class="form-inline">
+            <div class="form-inline">
                 <div class="form-group">
                     <label for="connect">WebSocket connection:</label>
                     <button id="connect" class="btn btn-default" type="submit">Connect</button>
                     <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="col-md-6">
-            <form class="form-inline">
+            <div class="form-inline">
                 <div class="form-group">
                     <label for="name">What is your name?</label>
                     <input type="text" id="name" class="form-control" placeholder="Your name here..."/>
                 </div>
                 <button id="send" class="btn btn-default" type="submit">Send</button>
-            </form>
+            </div>
         </div>
     </div>
     <div class="row">

@@ -28,6 +28,7 @@ import Cart from "./components/Cart";
 import { FaShoppingCart } from "react-icons/fa"
 import CategoryList from "./components/CategoryList";
 import Category from "./components/Category";
+import WebSocket from "./websocket/webSocket";
 
 class Header extends Component {
     constructor(props) {
@@ -124,6 +125,7 @@ class Header extends Component {
                         <Nav className="mr-auto">
                             <Nav.Link href="/posts">Posts</Nav.Link>
                             <Nav.Link href="/onlineShop">Online shop</Nav.Link>
+                            <Nav.Link href="/webS">Web socket</Nav.Link>
                             <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
 
                         </Nav>
@@ -146,6 +148,7 @@ class Header extends Component {
                     <Route path="/categoryList" component={CategoryList} />
                     <Route path="/account/:email" component={Account} />
                     <Route path="/cart" component={Cart} />
+                    <Route path="/webS" component={WebSocket} />
                 </Switch>
 
 
