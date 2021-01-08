@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Orders")
-public class Order implements Serializable {
+public class Order  {
 
     @Id
     @Column(name = "order_id", length = 50)
@@ -30,7 +30,9 @@ public class Order implements Serializable {
     @Column(name = "total_price", nullable = false)
     private double totalPrice;
 
+    @Column(name="delivery_address")
     private String deliveryAddress;
+    @Column(name="payment_method")
     private String paymentMethod;
 
 
@@ -119,5 +121,20 @@ public class Order implements Serializable {
 
     public void setOrderDetails(List<OrderDetails> orderDetails) {
         this.orderDetails = orderDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", deliveredDate=" + deliveredDate +
+                ", statusOrder=" + statusOrder +
+                ", totalPrice=" + totalPrice +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", user=" + user +
+                ", orderDetails=" + orderDetails +
+                '}';
     }
 }

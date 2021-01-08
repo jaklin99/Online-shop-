@@ -5,6 +5,8 @@ import Axios from "axios";
 import { Form, Button } from "react-bootstrap"
 import OrderService from "../services/OrderService";
 import authService from "../auth-service/auth-service";
+import PurchaseService from "../services/PurchaseService";
+
 
 export default class Checkout extends Component {
 
@@ -13,25 +15,69 @@ export default class Checkout extends Component {
         this.pay=this.pay.bind(this);
         this.onChangeCard=this.onChangeCard.bind(this);   
         this.state={
-            currentCard:""
+            order:{
+            paymentMethod:"",
+            user:{
+                id:null,
+            },
+            purchaseDetails:"",
+            totalPrice:0          
+        },     
         }     
       
      }
+
     onChangeCard(e){
         const currentCard=e.target.value
         console.log(e.target.value)
-        this.setState({
-            currentCard: currentCard,
+        this.setState(function (prevState) {
+            return {
+              order: {
+                ...prevState.order,
+                paymentMethod: currentCard,
+              },
+            };
           });
           console.log(this.state)
      }
     pay(){
-            OrderService.submitOrder(localStorage.getItem("cart"),  authService.getCurrentUser().id, this.state.currentCard)
-            localStorage.removeItem("cart");
+        let carts=JSON.parse(localStorage.getItem("cart"))
+     
+        //const userData={id:authService.getCurrentUser().id, username:authService.getCurrentUser().username, email:authService.getCurrentUser().email, password:authService.getCurrentUser().password,roles:authService.getCurrentUser().roles}
+        let totalPrice=0;
+        
+        let data1={paymentMethod:this.state.order.paymentMethod, user:{id: authService.getCurrentUser().id, }, }
+        for(var i=0; i<carts.length;i++)
+        {   
+            totalPrice+= carts[i][0]*carts[i][1];
+            this.state.order.purchaseDetails+= carts[i][1]+ " x "+ carts[i][2] +"; ";
+            console.log(totalPrice)
         }
+          let data={
+            paymentMethod: this.state.order.paymentMethod,
+            user:{
+                id: authService.getCurrentUser().id,
+            },
+            purchaseDetails: this.state.order.purchaseDetails,
+            totalPrice: totalPrice
+            
+        }
+        //alert(this.state.order.length);
+        //alert(authService.getCurrentUser().id);
+        console.log(data)
+            PurchaseService.addToCart(data).then(response=>{
+               
+              alert(response.data); 
+           })
+             .catch(e=>{alert(e)});
+            localStorage.removeItem("cart");
+         }
     render() {
-        return (
-        <form className="col-lg-12">       
+        return (<>
+            <button onClick={()=>this.pay()}>
+                Jk
+            </button>
+        <form onSubmit={(event)=>{event.preventDefault()}} className="col-lg-12">       
              <div class="panel panel-info">
                  <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
                  <div class="panel-body">
@@ -48,11 +94,11 @@ export default class Checkout extends Component {
                      </div>
                      <div class="form-group">
                          <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                         <div class="col-md-12"><input type="text" class="form-control" name="car_number"  /></div>
+                         <div class="col-md-12"><input type="text" class="form-control" name="card_number"  /></div>
                      </div>
                      <div class="form-group">
                          <div class="col-md-12"><strong>Card CVV:</strong></div>
-                         <div class="col-md-12"><input type="text" class="form-control" name="car_code"  /></div>
+                         <div class="col-md-12"><input type="text" class="form-control" name="card_code"  /></div>
                      </div>
                      <div class="form-group">
                          <div class="col-md-12">
@@ -112,7 +158,7 @@ export default class Checkout extends Component {
                      </div>
                  </div>
              </div>
-          </form>
+          </form></>
          );
   }
 }

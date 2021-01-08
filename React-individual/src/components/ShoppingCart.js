@@ -4,7 +4,7 @@ import ModalCheckout from "./ModalCheckout";
 import { Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default class ShoppingCart extends React.Component {
+export default class ShoppingCart extends Component {
   constructor(props) {
     super(props);
     this.getTotalCosts=this.getTotalCosts.bind(this);

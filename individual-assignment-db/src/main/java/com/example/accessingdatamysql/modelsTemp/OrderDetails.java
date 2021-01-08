@@ -1,14 +1,13 @@
 package com.example.accessingdatamysql.modelsTemp;
 
-import org.aspectj.weaver.ast.Or;
 
-import java.io.Serializable;
+import org.springframework.security.core.parameters.P;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Order_Details")
-public class OrderDetails implements Serializable {
+public class OrderDetails  {
 
     @Id
     @Column(name = "ID", length = 50, nullable = false)
@@ -25,11 +24,12 @@ public class OrderDetails implements Serializable {
     private Order order;
 
     @OneToOne(optional = false,targetEntity = Product.class)
-    @JoinColumn(name = "product_id", referencedColumnName ="PRODUCT_ID")
+    @JoinColumn(name = "product_name", referencedColumnName ="NAME")
     private Product product;
 
     private Long buyerId;
-
+    private double amount;
+    private String paymentMethod;
     public double getTotalPrice(){
    return this.quantity*this.product.getPrice();
  }
@@ -41,6 +41,21 @@ public class OrderDetails implements Serializable {
         this.id = id;
     }
 
+    public Long getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(Long buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 //
 //    public double getPrice() {
 //        return price;
@@ -58,14 +73,6 @@ public class OrderDetails implements Serializable {
         this.quantity = quantity;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
     public Product getProduct() {
         return product;
     }
@@ -74,11 +81,4 @@ public class OrderDetails implements Serializable {
         this.product = product;
     }
 
-    public Long getBuyerId() {
-        return buyerId;
-    }
-
-    public void setBuyerId(Long buyerId) {
-        this.buyerId = buyerId;
-    }
 }

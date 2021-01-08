@@ -1,7 +1,7 @@
 import http from "../http-common";
 import authHeader from "../auth-service/auth-header"
 
-class ProductService {
+class OrderService {
   getAllPending() {
     return http.get("/order/pending",  { headers: authHeader() });
   }
@@ -21,9 +21,10 @@ class ProductService {
     console.log(data);
     return http.post("/order/add", data,  { headers: authHeader() });
   }
-  submitOrder(data, userId,  payment) {
-    console.log(data, userId, payment);
-    return http.post("/order/submitOrder", {data, userId, payment},  { headers: authHeader() });
+  submitOrder(data) {
+    //alert( user.id+user.username+user.email+user.password+user.roles);
+    //const userR=JSON.stringify(user.id+user.username+user.email+user.password+user.roles);
+    return http.post("/order/submitOrder", { data},  { headers: authHeader() });
   }
   update(id, data) {
     return http.put(`/order/${id}/update`, data, { headers: authHeader() });
@@ -41,4 +42,4 @@ class ProductService {
   }
 }
 
-export default new ProductService();
+export default new OrderService();
