@@ -28,6 +28,10 @@ public class Purchase {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "status_order", nullable = false)
+    private OrderStatus statusOrder = OrderStatus.EMPTY_SHOPPING_CART;
+
+
     public Purchase() {
     }
 
@@ -77,6 +81,14 @@ public class Purchase {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public OrderStatus getStatusOrder() {
+        return statusOrder;
+    }
+
+    public void setStatusOrder(OrderStatus statusOrder) {
+        this.statusOrder = statusOrder;
     }
 
     @Override

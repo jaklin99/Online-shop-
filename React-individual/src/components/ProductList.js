@@ -106,65 +106,6 @@ export default class ProductList extends Component {
   
 ))}
       </Table><CustomFooter /></>
-      // <div className="list row">
-      //   <div className="col-md-6">
-      //     <h4>Products List</h4>
-
-      //     <ul className="list-group">
-      //       {products &&
-      //         products.map((product, index) => (
-      //           <li
-      //             className={
-      //               "list-group-item " +
-      //               (index === currentIndex ? "active" : "")
-      //             }
-      //             onClick={() => this.setActiveProduct(product, index)}
-      //             key={index}
-      //           >
-      //             {product.productName}
-      //           </li>
-      //         ))}
-      //     </ul>
-
-          // <button
-          //   className="m-3 btn btn-sm btn-danger"
-          //   onClick={this.removeAllProducts}
-          // >
-          //   Remove All
-          // </button>
-      //   </div>
-      //   <div className="col-md-6">
-      //     {currentProduct ? (
-      //       <div>
-      //         <h4>Product</h4>
-      //         <div>
-      //           <label>
-      //             <strong>Name:</strong>
-      //           </label>{" "}
-      //           {currentProduct.productName}
-      //         </div>
-      //         <div>
-      //           <label>
-      //             <strong>Price:</strong>
-      //           </label>{" "}
-      //           {currentProduct.price}
-      //         </div>
-
-              // <Link
-              //   to={"/product/" + currentProduct.productName}
-              //   className="badge badge-warning"
-              // >
-              //   Edit
-              // </Link>
-      //       </div>
-      //     ) : (
-      //         <div>
-      //           <br />
-      //           <p>Please click on a product...</p>
-      //         </div>
-      //       )}
-      //   </div>
-      // </div>
     );
   }
 }
