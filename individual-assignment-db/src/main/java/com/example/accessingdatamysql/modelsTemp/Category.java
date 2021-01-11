@@ -5,7 +5,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "Category")
+@Entity(name = "Categories")
 public class Category {
     @Id
     @Column(name = "category_id", nullable = false)

@@ -39,10 +39,10 @@ class UserControllerTest {
     @BeforeEach
     void setUp() {
         sampleUsers = Arrays.asList(
-                new User().setEmail("lo6oJaki@gmail.com").setUsername("Lo6o Jaki").setPassworda("13456789"),
-                new User().setEmail("Jaki@gmail.com").setUsername("Jaki").setPassworda("156789"),
-                new User().setEmail("lo6o@gmail.com").setUsername("Laki").setPassworda("134569"),
-                new User().setEmail("loki@gmail.com").setUsername("6oki").setPassworda("16789")
+                new User().setEmail("lo6oJaki@gmail.com").setUsername("Lo6o Jaki").setPassword("13456789"),
+                new User().setEmail("Jaki@gmail.com").setUsername("Jaki").setPassword("156789"),
+                new User().setEmail("lo6o@gmail.com").setUsername("Laki").setPassword("134569"),
+                new User().setEmail("loki@gmail.com").setUsername("6oki").setPassword("16789")
         );
     }
 

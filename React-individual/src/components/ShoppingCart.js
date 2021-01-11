@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import ModalCheckout from "./ModalCheckout";
 import { Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CustomFooter from "../Footer";
 
 export default class ShoppingCart extends Component {
   constructor(props) {
@@ -91,7 +92,7 @@ export default class ShoppingCart extends Component {
     }
   }
  render() {
-  return (
+  return (<>
     <Row>
              <Col>
                <Card style={{ width: "80%", marginLeft: "3.5cm" }}>
@@ -122,7 +123,7 @@ export default class ShoppingCart extends Component {
                    <span class="costs">Total cost: {this.state.totalCost}</span>
                  </Col></Row></Card>
              </Col>
-           </Row>
+           </Row><CustomFooter /></>
   );
 }
 }

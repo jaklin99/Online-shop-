@@ -7,7 +7,7 @@ export default class Product extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
-    this.onChangeCategory= this.onChangeCategory.bind(this);
+    //this.onChangeCategory= this.onChangeCategory.bind(this);
     this.getProduct = this.getProduct.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
@@ -17,23 +17,24 @@ export default class Product extends Component {
       currentProduct: {
         id: null,
         name: "",
-        price: "", 
-        category: {
-          categoryName: ""
-        },
+        price: 0, 
+        // category: {
+        //   category_id: null
+        // },
       },
       message: "",
     };
   }
 
   componentDidMount() {
+    //console.log(this.getProduct(this.props.match.params.name))
     this.getProduct(this.props.match.params.name);
   }
 
 
   onChangeName(e) {
     const name = e.target.value;
-
+console.log(name);
     this.setState(function (prevState) {
       return {
         currentProduct: {
@@ -47,23 +48,27 @@ export default class Product extends Component {
   onChangePrice(e) {
     const price = e.target.value;
 
-    this.setState((prevState) => ({
+    this.setState(function(prevState){
+      return{
       currentProduct: {
         ...prevState.currentProduct,
         price: price,
       },
-    }));
+    };
+    });
   }
-  onChangeCategory(e) {
-    const category = e.target.value;
-
-    this.setState((prevState) => ({
-      currentProduct: {
-        ...prevState.currentProduct,
-        category: category,
-      },
-    }));
-  }
+  // onChangeCategory(e) {
+  //   const category = e.target.value;
+  //   console.log(e.target.value)
+  //   this.setState(function(prevState) {
+  //     return{
+  //     currentProduct: {
+  //       ...prevState.currentProduct,
+  //       category: category,
+  //     },
+  //   };
+  //   });
+  // }
   getProduct(name) {
     ProductService.get(name)
       .then((response) => {
@@ -80,7 +85,9 @@ export default class Product extends Component {
       var data = {
         name: this.state.currentProduct.name,
         price: this.state.currentProduct.price,
-        category: this.state.currentProduct.category,
+        // category: {
+        //  category_id:this.state.currentProduct.category.category_id,
+        // }, 
         published: status
       };
   
@@ -100,7 +107,7 @@ export default class Product extends Component {
     }
     updateProduct() {
       ProductService.update(
-        this.state.currentProduct.productName,
+        this.state.currentProduct.name,
         this.state.currentProduct,
         console.log(this.state.currentProduct)
       )
@@ -131,13 +138,14 @@ export default class Product extends Component {
       }
 
   render() {
-    const { currentProduct } = this.state;
-
+    let { currentProduct } = this.state;
+//console.log(this.state)
     return (
       <div>
         {currentProduct ? (
           <div className="edit-form">
             <h4>Product</h4>
+            <button onClick={()=>console.log(currentProduct.name)}>m</button>
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -159,16 +167,16 @@ export default class Product extends Component {
                   onChange={this.onChangePrice}
                 />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="category">Category</label>
                 <input
                   type="text"
                   className="form-control"
                   id="category"
-                  value={currentProduct.category}
+                  placeholder={currentProduct.category}
                   onChange={this.onChangeCategory}
                 />
-              </div>
+              </div> */}
             <div className="form-group">
                 <label>
                   <strong>Status:</strong>

@@ -5,6 +5,8 @@ import ProductService from "../services/ProductService";
 import { Col, Row, Button } from "react-bootstrap";
 import PurchaseService from "../services/PurchaseService";
 import { Link } from "react-router-dom";
+import CustomFooter from "../Footer";
+
 class Order extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +65,7 @@ class Order extends React.Component {
   };
   render(){
     const { orders } = this.state;
-    return(
+    return(<>
       <Row>
       <Col>
         <Card style={{ width: "80%", marginLeft: "3.5cm" }}>
@@ -71,7 +73,7 @@ class Order extends React.Component {
               <Card.Header>Your orders </Card.Header>
               <Card.Body>
               {orders.map(order => (
-                <Card key={order.id} style={{ width: "30%", margin: "5px" }}>
+                <Card key={order.id} style={{ width: "100%", margin: "5px" }}>
                   <Card.Body>
                     <Card.Title>{order.id}
                     </Card.Title><Card.Text>
@@ -88,7 +90,7 @@ class Order extends React.Component {
             <Button className="btn btn-danger" onClick={()=>this.clearCart()}>Clear cart</Button>
           </Col></Row></Card>
       </Col>
-    </Row>
+    </Row><CustomFooter /></>
       );
     }
   }

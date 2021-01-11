@@ -24,39 +24,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    @Size(max = 40)
     private String name;
 
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 20)
     private String username;
 
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 40)
     private String address;
 
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 40)
     private String phone;
 
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 50)
     @Email
     private String email;
 
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 120)
     private String password;
-
-    @Column
-    @NotBlank
-    @Size(max = 120)
-    private Double totalCosts;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -64,8 +53,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    private List<Purchase> purchases;
 
     public User() {
     }
@@ -132,21 +122,10 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public void setPassword(String password) {
-        this.password = password;
 
-    }
-    public User setPassworda(String password) {
+    public User setPassword(String password) {
         this.password = password;
         return this;
-    }
-
-    public Double getTotalCosts() {
-        return totalCosts;
-    }
-
-    public void setTotalCosts(Double totalCosts) {
-        this.totalCosts = totalCosts;
     }
 
     public Set<Role> getRoles() {
@@ -161,7 +140,10 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +

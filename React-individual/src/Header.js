@@ -9,7 +9,6 @@ import Login from "./auth-components/login-component";
 import Register from "./auth-components/register-component";
 import Profile from "./auth-components/profile-component";
 import BoardUser from "./auth-components/board-user-component";
-import BoardModerator from "./auth-components/board-moderator-component";
 import BoardAdmin from "./auth-components/board-admin-component";
 import User from "./components/User";
 import UserList from "./components/UserList";
@@ -36,9 +35,9 @@ class Header extends Component {
         this.logOut = this.logOut.bind(this);
 
         this.state = {
-            showModeratorBoard: false,
             showAdminBoard: false,
             currentUser: undefined,
+            
         };
     }
 
@@ -48,7 +47,6 @@ class Header extends Component {
         if (user) {
             this.setState({
                 currentUser: user,
-                showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
                 showAdminBoard: user.roles.includes("ROLE_ADMIN"),
             });
         }
@@ -59,7 +57,7 @@ class Header extends Component {
     }
 
     render() {
-        const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+        const { currentUser, showAdminBoard } = this.state;
 
         return (
             <Router>
@@ -124,8 +122,17 @@ class Header extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/posts">Posts</Nav.Link>
+                            {currentUser ? (
+                                <div className="navbar-nav">
                             <Nav.Link href="/onlineShop">Online shop</Nav.Link>
                             <Nav.Link href="/webS">Web socket</Nav.Link>
+                            </div> 
+                            ) : (
+                                <div className="navbar-nav">
+                            <div class="md-form mt-0">
+                            </div>
+                            </div>
+                            )}
                             <Nav.Link type="submit" class="btn btn-info" role="button" href="mailto:jakitoo99@gmail.com">Contact</Nav.Link>
 
                         </Nav>
@@ -135,7 +142,6 @@ class Header extends Component {
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/user" component={BoardUser} />
-                    <Route path="/mod" component={BoardModerator} />
                     <Route path="/admin" component={BoardAdmin} />
                     <Route path="/userList" component={UserList} />
                     <Route exact path="/" component={HomePage} />

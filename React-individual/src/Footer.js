@@ -13,12 +13,12 @@ function CustomFooter() {
   <div class="footer-content">
   <div class="container">
   <div class="row">
-    <div class="col">
+    {/* <div class="col">
     <h5> Quick view:</h5>
     <a className="links" href="/posts">Posts</a><br></br>
     <a className="links" href="/onlineShop">Online shop</a><br></br>
     <a className="links" href="/checkout">Check out</a><br></br>
-    </div>
+    </div> */}
     <div class="col">
     <h5>Contact us:</h5>
     <a className="links" href="/contact">Contact us</a><br></br>

@@ -18,10 +18,10 @@ export default class Checkout extends Component {
             order:{
             paymentMethod:"",
             user:{
-                id:null,
+                id:null
             },
             purchaseDetails:"",
-            totalPrice:0          
+            totalPrice:0,         
         },     
         }     
       
@@ -43,10 +43,8 @@ export default class Checkout extends Component {
     pay(){
         let carts=JSON.parse(localStorage.getItem("cart"))
      
-        //const userData={id:authService.getCurrentUser().id, username:authService.getCurrentUser().username, email:authService.getCurrentUser().email, password:authService.getCurrentUser().password,roles:authService.getCurrentUser().roles}
         let totalPrice=0;
         
-        let data1={paymentMethod:this.state.order.paymentMethod, user:{id: authService.getCurrentUser().id, }, }
         for(var i=0; i<carts.length;i++)
         {   
             totalPrice+= carts[i][0]*carts[i][1];
@@ -56,14 +54,13 @@ export default class Checkout extends Component {
           let data={
             paymentMethod: this.state.order.paymentMethod,
             user:{
-                id: authService.getCurrentUser().id,
+                id: authService.getCurrentUser().id
             },
             purchaseDetails: this.state.order.purchaseDetails,
-            totalPrice: totalPrice
+            totalPrice: totalPrice,
+           
             
         }
-        //alert(this.state.order.length);
-        //alert(authService.getCurrentUser().id);
         console.log(data)
             PurchaseService.addToCart(data).then(response=>{
                
@@ -74,10 +71,8 @@ export default class Checkout extends Component {
          }
     render() {
         return (<>
-            <button onClick={()=>this.pay()}>
-                Jk
-            </button>
-        <form onSubmit={(event)=>{event.preventDefault()}} className="col-lg-12">       
+        {/* onSubmit={(event)=>{event.preventDefault()}} */}
+        <form  className="col-lg-12">       
              <div class="panel panel-info">
                  <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
                  <div class="panel-body">

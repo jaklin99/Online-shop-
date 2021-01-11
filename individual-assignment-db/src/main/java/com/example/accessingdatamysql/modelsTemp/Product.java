@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity (name = "PRODUCT")
+@Entity (name = "PRODUCTS")
 public class Product {
     @Id
     @Column(name = "PRODUCT_ID", nullable = false)

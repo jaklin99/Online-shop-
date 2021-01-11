@@ -2,10 +2,11 @@ package com.example.accessingdatamysql.modelsTemp;
 
 import javax.persistence.*;
 import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "purchase")
+@Entity(name = "purchases")
 public class Purchase {
     @Id
     @Column(name = "id")
@@ -27,6 +28,10 @@ public class Purchase {
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "purchaseDate")
+    private LocalDateTime purchaseDate;
+
 
     @Column(name = "status_order", nullable = false)
     private OrderStatus statusOrder = OrderStatus.EMPTY_SHOPPING_CART;
@@ -91,11 +96,24 @@ public class Purchase {
         this.statusOrder = statusOrder;
     }
 
+    public LocalDateTime getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(LocalDateTime purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
     @Override
     public String toString() {
         return "Purchase{" +
                 "id=" + id +
                 ", paymentMethod='" + paymentMethod + '\'' +
+                ", user=" + user +
+                ", purchaseDetails='" + purchaseDetails + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", address='" + address + '\'' +
+                ", statusOrder=" + statusOrder +
                 '}';
     }
 }

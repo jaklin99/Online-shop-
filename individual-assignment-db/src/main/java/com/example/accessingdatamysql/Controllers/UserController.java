@@ -1,8 +1,6 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Services.IUserService;
-import com.example.accessingdatamysql.modelsTemp.Greeting;
-import com.example.accessingdatamysql.modelsTemp.HelloMessage;
 import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.HtmlUtils;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -64,7 +61,7 @@ public class UserController {
             user.setPhone(updatedUser.getPhone());
             user.setUsername(updatedUser.getUsername());
             user.setEmail(updatedUser.getEmail());
-            user.setPassworda(encoder.encode(updatedUser.getPassword()));
+            user.setPassword(encoder.encode(updatedUser.getPassword()));
             System.out.println(updatedUser);
             userService.save(user);
             return new ResponseEntity<>(user, HttpStatus.NO_CONTENT);

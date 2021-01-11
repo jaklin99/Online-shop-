@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,10 +26,10 @@ public class PurchaseController {
 
     @PostMapping("/add")
     public ResponseEntity<Purchase> addPurchase(@RequestBody Purchase purchase) {
-        Purchase order = new Purchase();
         User user = userService.getOne(purchase.getUser().getId());
-        order.setAddress(user.getAddress());
-        order.setStatusOrder(OrderStatus.PENDING);
+        purchase.setAddress(user.getAddress());
+        purchase.setPurchaseDate(LocalDateTime.now());
+        purchase.setStatusOrder(OrderStatus.PENDING);
         userService.save(user);
         purchaseRepository.save(purchase);
         return new ResponseEntity<Purchase>(purchase, HttpStatus.OK);
