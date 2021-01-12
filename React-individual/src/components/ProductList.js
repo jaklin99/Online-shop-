@@ -87,7 +87,7 @@ export default class ProductList extends Component {
 {products.map(product=>(
   <TableBody>
   <tr key={product.id} >
-      <TableCell>{product.productName}
+      <TableCell>{product.id}
       </TableCell><TableCell>
         <td> Category: {product.category.name}</td> 
         </TableCell>
@@ -95,7 +95,7 @@ export default class ProductList extends Component {
       </TableCell>
       {/* <Button className="btn btn-sm btn-danger"> */}
         <Link
-                to={"/product/" + product.productName}
+                to={"/product/" + product.id}
                 className="badge badge-warning" role="button"
               >
                 Edit

@@ -97,7 +97,7 @@ export default class ShoppingCart extends Component {
              <Col>
                <Card style={{ width: "80%", marginLeft: "3.5cm" }}>
                    <div style={{ width: "100%" }}>
-                     <Card.Header>Your order </Card.Header>
+                     <Card.Header style={{ fontSize: "22pt" }}> Current order </Card.Header>
                      <Card.Body>
                          {
                            this.state.empty ?(
@@ -105,12 +105,13 @@ export default class ShoppingCart extends Component {
                            ):(
                             <Card.Text>
                             {this.state.products.map(product => (
-                              <div key={product[2]}><button onClick={()=>this.addQuantity(product[2])}><i className="fa fa-plus"></i></button><button onClick={()=>this.removeQuantity(product[2])}><i className="fa fa-minus"></i></button><button onClick={()=>this.removeProduct(product[2])}><i className="fa fa-times"></i></button>{product[1]+" x "+product[2]}</div>
+                              <div key={product[2]}>
+                                <Button className="cartBtns" onClick={()=>this.addQuantity(product[2])}><i className="fa fa-plus"></i></Button><Button className="cartBtns" onClick={()=>this.removeQuantity(product[2])}><i className="fa fa-minus"></i></Button><Button className="cartBtns" onClick={()=>this.removeProduct(product[2])}><i className="fa fa-times"></i></Button><strong className="cartProducts">{product[1]+" x "+product[2]}</strong></div>
                               ))}
                             </Card.Text>
                               )
                          }
-                       <Button variant="primary"><Link to="/onlineShop">More shopping</Link></Button>
+                       
                      </Card.Body>
                    </div>
                  <Row><Col>
@@ -119,6 +120,7 @@ export default class ShoppingCart extends Component {
                             <Button eventKey="disabled" disabled>Check out</Button> 
                  ):(  <ModalCheckout />)
                 }
+                <Button variant="primary"><Link to="/onlineShop">More shopping</Link></Button>
                    <Button className="btn btn-danger" onClick={()=>this.clearCart()}>Clear cart</Button>
                    <span class="costs">Total cost: {this.state.totalCost}</span>
                  </Col></Row></Card>

@@ -75,7 +75,7 @@ class Order extends React.Component {
               {orders.map(order => (
                 <Card key={order.id} style={{ width: "100%", margin: "5px" }}>
                   <Card.Body>
-                    <Card.Title>{order.id}
+                    <Card.Title>Order Nº: {order.id}
                     </Card.Title><Card.Text>
                     <strong> Order: </strong> {order.purchaseDetails}<br />
                       </Card.Text>

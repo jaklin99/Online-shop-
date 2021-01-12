@@ -1,6 +1,7 @@
 package com.example.accessingdatamysql.Controllers;
 
 import com.example.accessingdatamysql.Repository.PurchaseRepository;
+import com.example.accessingdatamysql.Services.PurchaseService;
 import com.example.accessingdatamysql.Services.UserService;
 import com.example.accessingdatamysql.modelsTemp.OrderStatus;
 import com.example.accessingdatamysql.modelsTemp.Purchase;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class PurchaseController {
     @Autowired
-    private PurchaseRepository purchaseRepository;
+    private PurchaseService purchaseService;
     @Autowired
     private UserService userService;
 
@@ -31,20 +32,35 @@ public class PurchaseController {
         purchase.setPurchaseDate(LocalDateTime.now());
         purchase.setStatusOrder(OrderStatus.PENDING);
         userService.save(user);
-        purchaseRepository.save(purchase);
+        purchaseService.save(purchase);
         return new ResponseEntity<Purchase>(purchase, HttpStatus.OK);
     }
 
     @GetMapping(path = "/all")
     public @ResponseBody
     List<Purchase> getOrders() {
-        return purchaseRepository.findAll();
+        return purchaseService.findAll();
     }
     @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<Purchase> getPurchaseById(@PathVariable("id") Long id) {
-        Optional<Purchase> purchaseId = purchaseRepository.findById(id);
+        Optional<Purchase> purchaseId = purchaseService.findById(id);
         return purchaseId.map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+//    @PostMapping("/cart/count")
+//    public ResponseEntity cartCount(@RequestBody User user) {
+//       if(userService.existsById(user.getId())){
+//           User new_user = userService.getOne(user.getId());
+//           Purchase cart= purchaseRepository.getOne(user.getId());
+//           int cartItems;
+//           if(cart==null){
+//               return new ResponseEntity<Purchase>(HttpStatus.NO_CONTENT);
+//           }else{
+//               cartItems = cart.getPurchaseDetails().length();
+//               return new ResponseEntity<>(cartItems,HttpStatus.OK);
+//
+//           }
+//       }else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//    }
 
 }
