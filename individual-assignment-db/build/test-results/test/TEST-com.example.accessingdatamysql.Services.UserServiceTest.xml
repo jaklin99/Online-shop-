@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.accessingdatamysql.Services.UserServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-13T22:13:51" hostname="DESKTOP-THMDKJJ" time="0.486">
+  <properties/>
+  <testcase name="findByEmail()" classname="com.example.accessingdatamysql.Services.UserServiceTest" time="0.486"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

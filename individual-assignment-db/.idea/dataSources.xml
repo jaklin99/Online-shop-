@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="tennis-website@localhost" uuid="71bda272-406a-4885-9443-c705044f3b92">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="tennis_website@host.docker.internal" uuid="71bda272-406a-4885-9443-c705044f3b92">
+      <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/tennis-website</jdbc-url>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://host.docker.internal:3306/tennis_website</jdbc-url>
     </data-source>
   </component>
 </project>
