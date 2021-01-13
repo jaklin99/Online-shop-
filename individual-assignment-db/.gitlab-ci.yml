@@ -25,7 +25,7 @@ sonarqube:
    - cd ./individual-assignment-db
    - ./gradlew sonarqube
 
-deploy:
+deploy job:
   stage: deploy
   dependencies:
     - test
