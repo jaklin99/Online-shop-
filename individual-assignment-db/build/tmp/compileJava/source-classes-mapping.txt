@@ -30,8 +30,8 @@ com/example/accessingdatamysql/Services/IProductService.java
  com.example.accessingdatamysql.Services.IProductService
 com/example/accessingdatamysql/security/WebSecurityConfig.java
  com.example.accessingdatamysql.security.WebSecurityConfig
-com/example/accessingdatamysql/Controllers/ProductController.java
- com.example.accessingdatamysql.Controllers.ProductController
+com/example/accessingdatamysql/payload/response/MessageResponse.java
+ com.example.accessingdatamysql.payload.response.MessageResponse
 com/example/accessingdatamysql/Services/IUserService.java
  com.example.accessingdatamysql.Services.IUserService
 com/example/accessingdatamysql/Repository/CategoryRepository.java
@@ -82,5 +82,5 @@ com/example/accessingdatamysql/Controllers/AuthController.java
  com.example.accessingdatamysql.Controllers.AuthController
 com/example/accessingdatamysql/Services/PurchaseService.java
  com.example.accessingdatamysql.Services.PurchaseService
-com/example/accessingdatamysql/payload/response/MessageResponse.java
- com.example.accessingdatamysql.payload.response.MessageResponse
+com/example/accessingdatamysql/Controllers/ProductController.java
+ com.example.accessingdatamysql.Controllers.ProductController

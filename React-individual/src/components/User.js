@@ -135,6 +135,8 @@ export default class User extends Component {
         {currentUser ? (
           <div className="edit-form">
             <h4>User</h4>
+            <button onClick={()=>console.log(currentUser)}>m</button>
+          
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>

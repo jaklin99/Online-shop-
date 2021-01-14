@@ -3,6 +3,7 @@ package com.example.accessingdatamysql.Controllers;
 import com.example.accessingdatamysql.Repository.ProductRepository;
 import com.example.accessingdatamysql.Services.ProductService;
 import com.example.accessingdatamysql.modelsTemp.Product;
+import com.example.accessingdatamysql.modelsTemp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @GetMapping("/{productName}")
+    @GetMapping("/{productName}") //get for search
     public ResponseEntity<Product[]> getProductByName(@PathVariable("productName") String name) {
         Optional<Product> productInfo = productService.findByName(name);
         if (productInfo.toString().toLowerCase().length()!=0){
@@ -41,6 +42,12 @@ public class ProductController {
     }else {
           return null;
         }
+    }
+    @Transactional
+    @GetMapping("/{productName}/getByName")
+    public ResponseEntity<Product> getProduct(@PathVariable("productName") String productName) {
+        Optional<Product> pName = productService.findByName(productName);
+        return pName.map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 //    @GetMapping("/{name}")
 //    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {

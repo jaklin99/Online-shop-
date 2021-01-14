@@ -34,12 +34,12 @@ export default class Product extends Component {
 
   onChangeName(e) {
     const name = e.target.value;
-console.log(name);
+    console.log(name);
     this.setState(function (prevState) {
       return {
         currentProduct: {
           ...prevState.currentProduct,
-          name: name,
+          productName: name,
         },
       };
     });
@@ -70,10 +70,10 @@ console.log(name);
   //   });
   // }
   getProduct(name) {
-    ProductService.get(name)
+    ProductService.getByName(name)
       .then((response) => {
         this.setState({
-          currentProduct: response.data,
+          currentProduct:response.data,
         });
         console.log(response.data);
       })
@@ -107,7 +107,7 @@ console.log(name);
     }
     updateProduct() {
       ProductService.update(
-        this.state.currentProduct.name,
+        this.state.currentProduct.productName,
         this.state.currentProduct,
         console.log(this.state.currentProduct)
       )
@@ -138,14 +138,15 @@ console.log(name);
       }
 
   render() {
-    let { currentProduct } = this.state;
+    const { currentProduct } = this.state;
+    let pr=currentProduct[0];
 //console.log(this.state)
     return (
       <div>
         {currentProduct ? (
           <div className="edit-form">
             <h4>Product</h4>
-            <button onClick={()=>console.log(currentProduct.name)}>m</button>
+            <button onClick={()=>console.log(currentProduct)}>m</button>
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -153,7 +154,7 @@ console.log(name);
                   type="text"
                   className="form-control"
                   id="name"
-                  value={currentProduct.name}
+                  value={currentProduct.productName}
                   onChange={this.onChangeName}
                 />
               </div>
