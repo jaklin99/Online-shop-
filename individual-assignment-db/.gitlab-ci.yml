@@ -2,14 +2,13 @@ stages:
   - build
   - test
   - sonarqube
- 
+  - deploy
+
 build:
   stage: build
   script:
     - cd ./individual-assignment-db
     - ./gradlew assemble
-  include:
-    - template: Dependency-Scanning.gitlab-ci.yml
 
 test:
   stage: test
