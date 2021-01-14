@@ -72,14 +72,14 @@ class Header extends Component {
                         </Nav>
                         {showAdminBoard && (
              
-                <Link to={"/admin"}>
+                
                 <NavDropdown title="Service" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="/userList">Show users</NavDropdown.Item>
                                         <ModalCategory />
                                         <NavDropdown.Item href="/categoryList">Show categories</NavDropdown.Item>
                                         <ModalProduct />
                                         <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
-                                    </NavDropdown>                </Link>
+                                    </NavDropdown>               
                         )}          
                         <Nav >
                             {currentUser ? (
