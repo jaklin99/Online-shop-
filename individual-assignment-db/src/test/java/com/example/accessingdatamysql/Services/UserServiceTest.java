@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
@@ -76,19 +78,23 @@ class UserServiceTest {
 
     }
 
-    @Test
-    void deleteAll() {
-
-    }
-//
 //    @Test
-//    void save() {
-//        User userCreate=new User();
-//        userCreate.setName("dfgyui");
-//        when(userRepository.save(any(User.class))).thenReturn(new User());
-//        User created = userService.save(userCreate);
-//        assertThat(created.getName()).isSameAs(userCreate.getName());
+//    void deleteAll() {
+//        List<User> usersCreate=new ArrayList<>();
+//        when(userRepository.findAll()).thenReturn(null);
+//        List<User> created = userService.findAll();
+//        userService.deleteAll();
+//        Mockito.verify(userRepository).deleteAll(created);
 //    }
+
+    @Test
+    void save() {
+        User userCreate=new User();
+        userCreate.setName("dfgyui");
+        when(userRepository.save(any(User.class))).thenReturn(new User());
+        User created = userService.save(userCreate);
+        assertThat(created.getName()).isSameAs(userCreate.getName());
+    }
 
     @Test
     void getOne() {
