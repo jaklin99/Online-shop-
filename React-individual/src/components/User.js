@@ -135,7 +135,7 @@ export default class User extends Component {
         {currentUser ? (
           <div className="edit-form">
             <h4>User</h4>
-            <button onClick={()=>console.log(currentUser)}>m</button>
+            {/* <button onClick={()=>console.log(currentUser)}>m</button> */}
           
             <form>
               <div className="form-group">
@@ -158,7 +158,7 @@ export default class User extends Component {
                   onChange={this.onChangeEmail}
                 />
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="text"
@@ -167,7 +167,7 @@ export default class User extends Component {
                   value={currentUser.password}
                   onChange={this.onChangePassword}
                 />
-              </div>
+              </div> */}
               {/* <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
@@ -194,12 +194,20 @@ export default class User extends Component {
                 UnPublish
               </button>
             ) : (
+                // <button
+                //   className="badge badge-primary mr-2"
+                //   onClick={() => this.saveUpdate(true)}
+                // >
+                //   Save
+                // </button>
                 <button
-                  className="badge badge-primary mr-2"
-                  onClick={() => this.saveUpdate(true)}
-                >
-                  Save
-                </button>)}
+                type="submit"
+                className="badge badge-success"
+                onClick={this.updateProduct}
+              >
+                Update
+              </button>  
+                )}
             <button
               className="badge badge-danger mr-2"
               onClick={this.deleteUser}

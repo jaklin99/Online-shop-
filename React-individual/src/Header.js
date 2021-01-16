@@ -153,7 +153,7 @@ class Header extends Component {
                     <Route exact path="/posts" component={posts} />
                     <Route path="/onlineShop" component={onlineShop} />
                     <Route path="/user/:email" component={User} />
-                    <Route path="/product/:name" component={Product} />
+                    <Route path="/product/:id" component={Product} />
                     <Route path="/category/:id" component={Category} />
                     <Route path="/productList" component={ProductList} />
                     <Route path="/categoryList" component={CategoryList} />

@@ -7,7 +7,7 @@ export default class Product extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
-    //this.onChangeCategory= this.onChangeCategory.bind(this);
+    this.onChangeCategory= this.onChangeCategory.bind(this);
     this.getProduct = this.getProduct.bind(this);
     this.saveUpdate = this.saveUpdate.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
@@ -18,9 +18,9 @@ export default class Product extends Component {
         id: null,
         name: "",
         price: 0, 
-        // category: {
-        //   category_id: null
-        // },
+        category: {
+          category_id: null
+        },
       },
       message: "",
     };
@@ -28,7 +28,7 @@ export default class Product extends Component {
 
   componentDidMount() {
     //console.log(this.getProduct(this.props.match.params.name))
-    this.getProduct(this.props.match.params.name);
+    this.getProduct(this.props.match.params.id);
   }
 
 
@@ -57,20 +57,20 @@ export default class Product extends Component {
     };
     });
   }
-  // onChangeCategory(e) {
-  //   const category = e.target.value;
-  //   console.log(e.target.value)
-  //   this.setState(function(prevState) {
-  //     return{
-  //     currentProduct: {
-  //       ...prevState.currentProduct,
-  //       category: category,
-  //     },
-  //   };
-  //   });
-  // }
-  getProduct(name) {
-    ProductService.getByName(name)
+  onChangeCategory(e) {
+    const category = e.target.value;
+    console.log(e.target.value)
+    this.setState(function(prevState) {
+      return{
+      currentProduct: {
+        ...prevState.currentProduct,
+        category: category,
+      },
+    };
+    });
+  }
+  getProduct(id) {
+    ProductService.getById(id)
       .then((response) => {
         this.setState({
           currentProduct:response.data,
@@ -85,13 +85,13 @@ export default class Product extends Component {
       var data = {
         name: this.state.currentProduct.name,
         price: this.state.currentProduct.price,
-        // category: {
-        //  category_id:this.state.currentProduct.category.category_id,
-        // }, 
+        category: {
+         category_id:this.state.currentProduct.category.category_id,
+        }, 
         published: status
       };
   
-      ProductService.update(this.state.currentProduct.name, data)
+      ProductService.update(this.state.currentProduct.productId, data)
         .then(response => {
           this.setState(prevState => ({
             currentProduct: {
@@ -107,7 +107,7 @@ export default class Product extends Component {
     }
     updateProduct() {
       ProductService.update(
-        this.state.currentProduct.productName,
+        this.state.currentProduct.productId,
         this.state.currentProduct,
         console.log(this.state.currentProduct)
       )
@@ -146,7 +146,7 @@ export default class Product extends Component {
         {currentProduct ? (
           <div className="edit-form">
             <h4>Product</h4>
-            <button onClick={()=>console.log(currentProduct)}>m</button>
+            {/* <button onClick={()=>console.log(currentProduct)}>m</button> */}
             <form>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -168,16 +168,16 @@ export default class Product extends Component {
                   onChange={this.onChangePrice}
                 />
               </div>
-              {/* <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="category">Category</label>
                 <input
                   type="text"
                   className="form-control"
                   id="category"
-                  placeholder={currentProduct.category}
+                  value={currentProduct.category.name}
                   onChange={this.onChangeCategory}
                 />
-              </div> */}
+              </div>
             <div className="form-group">
                 <label>
                   <strong>Status:</strong>
@@ -194,28 +194,30 @@ export default class Product extends Component {
                 UnPublish
               </button>
             ) : (
+              // <button
+              //   className="badge badge-primary mr-2"
+              //   onClick={() => this.saveUpdate(true)}
+              // >
+              //   Save
+              // </button> )
               <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.saveUpdate(true)}
-              >
-                Save
-              </button> )}
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteProduct}
-            >
-              Delete
-            </button>
-            
-            <button
               type="submit"
               className="badge badge-success"
               onClick={this.updateProduct}
             >
               Update
             </button>
+            
+          
+            )}
+            <button
+              className="badge badge-danger mr-2"
+              onClick={this.deleteProduct}
+            >
+              Delete
+            </button>
             <p>{this.state.message}</p>
-          </div>
+            </div>
         ) : (
           <div>
             <br />

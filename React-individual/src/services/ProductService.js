@@ -8,8 +8,8 @@ class ProductService {
   get(name) {
     return http.get(`/product/${name}`,  { headers: authHeader() });
   }
-  getByName(name) {
-    return http.get(`/product/${name}/getByName`,  { headers: authHeader() });
+  getById(id) {
+    return http.get(`/product/${id}/getById`,  { headers: authHeader() });
   }
   getAllCategories() {
     return http.get(`/category/all`,  { headers: authHeader() });
@@ -19,8 +19,8 @@ class ProductService {
     return http.post("/product/add", data,  { headers: authHeader() });
   }
 
-  update(productName, data) {
-    return http.put(`/product/${productName}/update`, data, { headers: authHeader() });
+  update(productId, data) {
+    return http.put(`/product/${productId}/update`, data, { headers: authHeader() });
   }
 
   // findByName(name){

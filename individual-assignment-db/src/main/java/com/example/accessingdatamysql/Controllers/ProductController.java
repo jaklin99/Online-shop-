@@ -44,16 +44,16 @@ public class ProductController {
         }
     }
     @Transactional
-    @GetMapping("/{productName}/getByName")
-    public ResponseEntity<Product> getProduct(@PathVariable("productName") String productName) {
-        Optional<Product> pName = productService.findByName(productName);
-        return pName.map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-//    @GetMapping("/{name}")
-//    public ResponseEntity<Product> findByName(@PathVariable("name") String name) {
-//        Optional<Product> productInfo = productService.findByName(name);
-//        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    @GetMapping("/{productName}/getByName")
+//    public ResponseEntity<Product> getProduct(@PathVariable("productName") String productName) {
+//        Optional<Product> pName = productService.findByName(productName);
+//        return pName.map(p -> new ResponseEntity<>(p, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 //    }
+    @GetMapping("/{productId}/getById")
+    public ResponseEntity<Product> findById(@PathVariable("productId") Long productId) {
+        Optional<Product> productInfo = productService.findById(productId);
+        return productInfo.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
 //    @GetMapping("/category/{id}")
 //    public @ResponseBody
@@ -67,9 +67,9 @@ public class ProductController {
     }
 
 
-@PutMapping("/{productName}/update")
-public ResponseEntity<Product> updateProduct(@PathVariable String productName, @RequestBody Product updatedProduct) {
-    Optional<Product> productInfo = productService.findByName(productName);
+@PutMapping("/{productId}/update")
+public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @RequestBody Product updatedProduct) {
+    Optional<Product> productInfo = productService.findById(productId);
     if (productInfo.isPresent()) {
         Product product = productInfo.get();
         product.setProductName(updatedProduct.getProductName());
