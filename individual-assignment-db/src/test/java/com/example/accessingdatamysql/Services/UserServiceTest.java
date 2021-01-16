@@ -78,14 +78,9 @@ class UserServiceTest {
 
     }
 
-//    @Test
-//    void deleteAll() {
-//        List<User> usersCreate=new ArrayList<>();
-//        when(userRepository.findAll()).thenReturn(null);
-//        List<User> created = userService.findAll();
-//        userService.deleteAll();
-//        Mockito.verify(userRepository).deleteAll(created);
-//    }
+    @Test
+    void deleteAll() {
+    }
 
     @Test
     void save() {
