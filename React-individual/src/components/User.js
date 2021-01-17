@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserService from "../services/UserService";
+import { Link } from "react-router-dom";
 
 export default class User extends Component {
   constructor(props) {
@@ -200,13 +201,14 @@ export default class User extends Component {
                 // >
                 //   Save
                 // </button>
-                <button
-                type="submit"
-                className="badge badge-success"
-                onClick={this.updateProduct}
-              >
-                Update
-              </button>  
+                <Link
+                to={"/userList/"}
+                 className="badge badge-warning mr-2" role="button"
+               >
+                 Back
+               </Link>
+              
+             
                 )}
             <button
               className="badge badge-danger mr-2"

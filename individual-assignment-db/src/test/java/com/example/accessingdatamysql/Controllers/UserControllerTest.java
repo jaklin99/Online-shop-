@@ -78,20 +78,6 @@ class UserControllerTest {
         Mockito.verify(userRepository).save(sampleUser);
     }
 
-//    @Test
-//    void addUserWithNullEmail(){
-//
-//        User user = sampleUsers.get(0).setEmail(null);
-//        ResponseEntity<User> response = userController.addNewUser(user);
-//
-//        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-//
-//        Mockito.verify(userRepository, never()).save(Mockito.any());
-//
-//    }
-    //TODO: do the name and password-null
-    //TODO: add with duplicates name or email
-
     @Test
     void findUserByEmail(){
         User user = sampleUsers.get(0).setEmail("Something@spesific.mail");

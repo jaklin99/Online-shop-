@@ -81,10 +81,10 @@ public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @Requ
     }
 }
     @Transactional
-    @DeleteMapping("/{productName}/delete")
-    public ResponseEntity<Product> deleteProduct(@PathVariable String productName){
-        if (productService.existsByName(productName)) {
-            productService.deleteByName(productName);
+    @DeleteMapping("/{productId}/delete")
+    public ResponseEntity<Product> deleteProduct(@PathVariable Long productId){
+        if (productService.existsById(productId)) {
+            productService.deleteById(productId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -26,14 +26,8 @@ class ProductService {
   // findByName(name){
   //   return http.get(`/product/${name}`,  { headers: authHeader() });
   // }
-  delete(product) {
-    return this.get(product.productName).then(result => {
-      if (product.productName == result.data.productName && product.price == result.data.price && product.category == result.data.category) {
-        return http.delete(`/product/${product.productName}/delete`, { headers: authHeader() });
-      } else {
-        throw new Error("Wrong information")
-      }
-    });
+  delete(productId, data) {
+    return http.delete(`/product/${productId}/delete`, data, { headers: authHeader() });
   }
   deleteAll() {
     return http.delete(`/product/deleteAll`);

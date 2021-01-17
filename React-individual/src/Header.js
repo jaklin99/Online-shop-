@@ -78,7 +78,7 @@ class Header extends Component {
                                         <ModalCategory />
                                         <NavDropdown.Item href="/categoryList">Show categories</NavDropdown.Item>
                                         <ModalProduct />
-                                        <NavDropdown.Item href="/productList">Show produts</NavDropdown.Item>
+                                        <NavDropdown.Item href="/productList">Show products</NavDropdown.Item>
                                     </NavDropdown>               
                         )}          
                         <Nav >

@@ -123,7 +123,7 @@ export default class Product extends Component {
     }
 
     deleteProduct() {
-      ProductService.delete(this.state.currentProduct)
+      ProductService.delete(this.state.currentProduct.productId)
         .then(() => {
           this.props.history.push("/productList"); //redirect 
           this.setState({

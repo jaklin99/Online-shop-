@@ -30,13 +30,13 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public boolean existsByName(String name) {
-        return true;
+    public boolean existsById(Long productId) {
+        return productRepository.existsById(productId);
     }
 
     @Override
-    public void deleteByName(String name) {
-        productRepository.deleteByName(name);
+    public void deleteById(Long productId) {
+        productRepository.deleteById(productId);
     }
 
     @Override

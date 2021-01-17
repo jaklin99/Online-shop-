@@ -9,8 +9,8 @@ public interface IProductService {
     List<Product> findAll();
     Optional<Product> findByName(String name);
     Optional<Product> findById(Long id);
-    boolean existsByName(String name);
-    void deleteByName(String name);
+    boolean existsById(Long productId);
+    void deleteById(Long productId);
     void deleteAll();
     Product save(Product product);
     //List<Product>getAllProductsByCategoryId(Long id);
