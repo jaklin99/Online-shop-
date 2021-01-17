@@ -2,19 +2,11 @@ com/example/accessingdatamysql/modelsTemp/UserTest.java
  com.example.accessingdatamysql.modelsTemp.UserTest
 com/example/accessingdatamysql/modelsTemp/CategoryTest.java
  com.example.accessingdatamysql.modelsTemp.CategoryTest
-com/example/accessingdatamysql/Controllers/CategoryControllerTest.java
- com.example.accessingdatamysql.Controllers.CategoryControllerTest
 com/example/accessingdatamysql/modelsTemp/ProductTest.java
  com.example.accessingdatamysql.modelsTemp.ProductTest
-com/example/accessingdatamysql/Services/PurchaseServiceTest.java
- com.example.accessingdatamysql.Services.PurchaseServiceTest
 com/example/accessingdatamysql/Controllers/ProductControllerTest.java
  com.example.accessingdatamysql.Controllers.ProductControllerTest
 com/example/accessingdatamysql/Controllers/UserControllerTest.java
  com.example.accessingdatamysql.Controllers.UserControllerTest
-com/example/accessingdatamysql/Services/UserServiceTest.java
- com.example.accessingdatamysql.Services.UserServiceTest
-com/example/accessingdatamysql/Services/ProductServiceTest.java
- com.example.accessingdatamysql.Services.ProductServiceTest
-com/example/accessingdatamysql/Services/CategoryServiceTest.java
- com.example.accessingdatamysql.Services.CategoryServiceTest
+com/example/accessingdatamysql/Controllers/CategoryControllerTest.java
+ com.example.accessingdatamysql.Controllers.CategoryControllerTest

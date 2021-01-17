@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UserControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UserControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.accessingdatamysql.Controllers.html">com.example.accessingdatamysql.Controllers</a> &gt; UserControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.059s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addNewValidUser()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteActualUser()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findUserByEmail()</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllUsersWhenThereAreNone()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllUsersWhenThereAreSome()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">userNotFound()</td>
+<td class="success">0.034s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-01-17 16:14:36.493  INFO 20720 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.accessingdatamysql.Controllers.UserControllerTest], using SpringBootContextLoader
+2021-01-17 16:14:36.494  INFO 20720 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.example.accessingdatamysql.Controllers.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-01-17 16:14:36.495  INFO 20720 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.accessingdatamysql.Controllers.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-01-17 16:14:36.496  INFO 20720 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.accessingdatamysql.AccessingDataMysqlApplication for test class com.example.accessingdatamysql.Controllers.UserControllerTest
+2021-01-17 16:14:36.498  INFO 20720 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-01-17 16:14:36.499  INFO 20720 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3129f09d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@217d001c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@30dac0c8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@36ac43d6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@487fe086, org.springframework.test.context.transaction.TransactionalTestExecutionListener@14b6475, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@67712814, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@331765df, org.springframework.test.context.event.EventPublishingTestExecutionListener@45bd8eb, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@5ee96cd9, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3036de98, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@38076cdc, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@62c167b7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@775b5092, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@719f92ff, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@727d619c]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.2.RELEASE)
+
+2021-01-17 16:14:36.521  INFO 20720 --- [    Test worker] c.e.a.Controllers.UserControllerTest     : Starting UserControllerTest on DESKTOP-THMDKJJ with PID 20720 (started by jakit in C:\Users\jakit\INDIVIDUAL\tennis-website\individual-assignment-db)
+2021-01-17 16:14:36.521  INFO 20720 --- [    Test worker] c.e.a.Controllers.UserControllerTest     : No active profile set, falling back to default profiles: default
+2021-01-17 16:14:36.677  INFO 20720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-01-17 16:14:36.707  INFO 20720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30ms. Found 5 JPA repository interfaces.
+2021-01-17 16:14:36.806  INFO 20720 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7d4c9cc8' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-17 16:14:36.812  INFO 20720 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-01-17 16:14:36.869  INFO 20720 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-17 16:14:36.875  INFO 20720 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-01-17 16:14:36.886  INFO 20720 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-01-17 16:14:36.886  INFO 20720 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+Hibernate: alter table products add constraint FKog2rp4qthbtt2lfyhfo32lsw9 foreign key (category_id) references categories (category_id)
+Hibernate: alter table purchases add constraint FKm0ndjymn9p747pfp4515pio8i foreign key (user_id) references users (id)
+Hibernate: alter table user_roles add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 foreign key (role_id) references roles (id)
+Hibernate: alter table user_roles add constraint FKdbvuadud2ojo5h5eophd815rv foreign key (user_auth_id) references users (id)
+2021-01-17 16:14:37.013  INFO 20720 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-17 16:14:37.014  INFO 20720 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-17 16:14:37.061  WARN 20720 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-17 16:14:37.258  INFO 20720 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-01-17 16:14:37.264  INFO 20720 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-01-17 16:14:37.274  INFO 20720 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-01-17 16:14:37.336  INFO 20720 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-01-17 16:14:37.544  INFO 20720 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69327271, org.springframework.security.web.context.SecurityContextPersistenceFilter@5bf6e98b, org.springframework.security.web.header.HeaderWriterFilter@6e710ba4, org.springframework.web.filter.CorsFilter@398bc1fc, org.springframework.security.web.authentication.logout.LogoutFilter@e75ba37, com.example.accessingdatamysql.security.jwt.AuthTokenFilter@e01f0f3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@237641b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@453c4251, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@723a42ea, org.springframework.security.web.session.SessionManagementFilter@1d475fe0, org.springframework.security.web.access.ExceptionTranslationFilter@7da0ab1e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b4e6118]
+2021-01-17 16:14:37.556  INFO 20720 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-01-17 16:14:37.761  INFO 20720 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-01-17 16:14:37.761  INFO 20720 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2021-01-17 16:14:37.761  INFO 20720 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-01-17 16:14:37.761  INFO 20720 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-01-17 16:14:37.834  INFO 20720 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-01-17 16:14:37.836  INFO 20720 --- [    Test worker] c.e.a.Controllers.UserControllerTest     : Started UserControllerTest in 1.334 seconds (JVM running for 9.461)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.5.1</a> at 17 Jan 2021, 16:14:39</p>
+</div>
+</div>
+</body>
+</html>
