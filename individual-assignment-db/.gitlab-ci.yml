@@ -32,7 +32,7 @@ deploy:
     - sonarqube
   script:
     - docker build -t tennis-website-spring .  #building the image
-    - docker run --rm -p 8080:8080 tennis-website-spring #running the docker; --rm - deleting a container every time after a crash or stop
+    - docker run --rm --name writeoAPI -dp 8080:8080 tennis-website-spring #running the docker; --rm - deleting a container every time after a crash or stop
 
 after_script:
   - echo "End CI"
