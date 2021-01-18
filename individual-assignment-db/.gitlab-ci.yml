@@ -2,7 +2,6 @@ stages:
   - build
   - test
   - sonarqube
-  - cypress
   - deploy
 
 build:
@@ -26,14 +25,6 @@ sonarqube:
  script:
    - cd ./individual-assignment-db
    - ./gradlew sonarqube
-
-cypress:
-  stage: cypress
-  dependencies:
-    - sonarqube
-  script:
-   - npm install cypress --save-dev
-   - npm run cypress:open
 
 deploy:
   stage: deploy
