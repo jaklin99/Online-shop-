@@ -38,14 +38,15 @@ public class CategoryController {
         Optional<Category> categoryInfo = categoryRepository.findById(id);
         return categoryInfo.map(c -> new ResponseEntity<>(c, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
     @PostMapping("/add")
     public ResponseEntity<Category> addNewCategory(@RequestBody Category category) {
         categoryRepository.save(category);
         return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
 
-@PutMapping("/{id}/update")
-public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category updatedCategory) {
+    @PutMapping("/{id}/update")
+    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category updatedCategory) {
     Optional<Category> categoryInfo = categoryRepository.findById(id);
     if (categoryInfo.isPresent()) {
         Category category = categoryInfo.get();
@@ -56,6 +57,7 @@ public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBo
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
+
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<Category> deleteCategory(@PathVariable Long id){
         if (categoryRepository.existsById(id)) {
@@ -64,6 +66,7 @@ public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBo
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     @DeleteMapping("/deleteAll")
     public ResponseEntity<User> deleteAllUsers() {
         categoryRepository.deleteAll();

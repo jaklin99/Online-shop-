@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.accessingdatamysql.Services.ProductServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-17T21:03:15" hostname="DESKTOP-THMDKJJ" time="0.02">
+  <properties/>
+  <testcase name="deleteByName()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.001"/>
+  <testcase name="findAll()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.004"/>
+  <testcase name="findById()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.002"/>
+  <testcase name="findByName()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.001"/>
+  <testcase name="deleteAll()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.001"/>
+  <testcase name="existsByName()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.001"/>
+  <testcase name="save()" classname="com.example.accessingdatamysql.Services.ProductServiceTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
